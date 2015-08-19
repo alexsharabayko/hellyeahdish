@@ -1,7 +1,8 @@
 'use strict';
 
 var gulp = require('gulp'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    watch = require('gulp-watch');
 
 gulp.task('sass', function () {
     gulp.src('./sass/**/*.scss')
@@ -10,5 +11,5 @@ gulp.task('sass', function () {
 });
 
 gulp.task('default', function () {
-    gulp.watch('./sass/**/*.scss', ['sass']);
+    watch('./sass/**/*.scss', ['sass']);
 });
