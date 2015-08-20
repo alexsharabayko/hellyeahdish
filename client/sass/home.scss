@@ -1,7 +1,33 @@
-.home-page {
+$orange-color: #f16c49;
 
+.home-page {
+  height: 100%;
 }
 
 .home-page-intro {
-  background-color: rgb(233, 161, 185);
+  display: table;
+  height: 100%;
+  width: 100%;
+  background-color: $orange-color;
+
+  h1 {
+    color: white;
+    font-family: ArchivoBlack;
+    font-weight: bold;
+    font-size: 70px;
+    text-align: center;
+    letter-spacing: 3px;
+    -webkit-animation-direction: normal;
+    -moz-animation-direction: normal;
+    -o-animation-direction: normal;
+    animation-direction: normal;
+
+    small {
+      display: block;
+      margin-top: 15px;
+      font-family: Open-Sans_Concedered;
+      font-size: 50px;
+      text-align: center;
+    }
+  }
 }

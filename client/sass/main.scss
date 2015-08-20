@@ -1,3 +1,10 @@
-body {
-  background: green;
+@import "mixins";
+@import "common";
+@import "animations";
+@import "home";
+
+html,
+body,
+.application-root {
+  height: 100%;
 }

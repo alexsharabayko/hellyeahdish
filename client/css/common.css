@@ -1,0 +1,16 @@
+@font-face {
+  font-family: Anton;
+  src: url(../fonts/Anton/Anton.ttf); }
+
+@font-face {
+  font-family: ArchivoBlack;
+  src: url(../fonts/Archivo_Black/ArchivoBlack-Regular.ttf); }
+
+@font-face {
+  font-family: Open-Sans_Concedered;
+  src: url(../fonts/Open_Sans_Condensed/OpenSans-CondLight.ttf); }
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; }

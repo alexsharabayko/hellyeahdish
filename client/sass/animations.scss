@@ -1,0 +1,8 @@
+@include keyframes(scaleIn) {
+  0% {
+    @include scale(0);
+  }
+  100% {
+    @include scale(100);
+  }
+}
