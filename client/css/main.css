@@ -7,8 +7,12 @@
   src: url(../fonts/Archivo_Black/ArchivoBlack-Regular.ttf); }
 
 @font-face {
-  font-family: Open-Sans_Concedered;
+  font-family: Open-Sans-Light;
   src: url(../fonts/Open_Sans_Condensed/OpenSans-CondLight.ttf); }
+
+@font-face {
+  font-family: Open-Sans-Bold;
+  src: url(../fonts/Open_Sans_Condensed/OpenSans-CondBold.ttf); }
 
 .cell {
   display: table-cell;
@@ -22,12 +26,24 @@
     -ms-transform: scale(0);
     -webkit-transform: scale(0);
     transform: scale(0); }
+  50% {
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); }
+  60% {
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9); }
   100% {
-    -moz-transform: scale(100);
-    -o-transform: scale(100);
-    -ms-transform: scale(100);
-    -webkit-transform: scale(100);
-    transform: scale(100); } }
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
 
 @-moz-keyframes scaleIn {
   0% {
@@ -36,12 +52,24 @@
     -ms-transform: scale(0);
     -webkit-transform: scale(0);
     transform: scale(0); }
+  50% {
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); }
+  60% {
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9); }
   100% {
-    -moz-transform: scale(100);
-    -o-transform: scale(100);
-    -ms-transform: scale(100);
-    -webkit-transform: scale(100);
-    transform: scale(100); } }
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
 
 @-ms-keyframes scaleIn {
   0% {
@@ -50,12 +78,24 @@
     -ms-transform: scale(0);
     -webkit-transform: scale(0);
     transform: scale(0); }
+  50% {
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); }
+  60% {
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9); }
   100% {
-    -moz-transform: scale(100);
-    -o-transform: scale(100);
-    -ms-transform: scale(100);
-    -webkit-transform: scale(100);
-    transform: scale(100); } }
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
 
 @keyframes scaleIn {
   0% {
@@ -64,18 +104,95 @@
     -ms-transform: scale(0);
     -webkit-transform: scale(0);
     transform: scale(0); }
+  50% {
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1); }
+  60% {
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9); }
   100% {
-    -moz-transform: scale(100);
-    -o-transform: scale(100);
-    -ms-transform: scale(100);
-    -webkit-transform: scale(100);
-    transform: scale(100); } }
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+@-webkit-keyframes suchAsTor {
+  0% {
+    -moz-transform: translate(0, -500px);
+    -o-transform: translate(0, -500px);
+    -ms-transform: translate(0, -500px);
+    -webkit-transform: translate(0, -500px);
+    transform: translate(0, -500px);
+    opacity: 0; }
+  100% {
+    -moz-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 1; } }
+
+@-moz-keyframes suchAsTor {
+  0% {
+    -moz-transform: translate(0, -500px);
+    -o-transform: translate(0, -500px);
+    -ms-transform: translate(0, -500px);
+    -webkit-transform: translate(0, -500px);
+    transform: translate(0, -500px);
+    opacity: 0; }
+  100% {
+    -moz-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 1; } }
+
+@-ms-keyframes suchAsTor {
+  0% {
+    -moz-transform: translate(0, -500px);
+    -o-transform: translate(0, -500px);
+    -ms-transform: translate(0, -500px);
+    -webkit-transform: translate(0, -500px);
+    transform: translate(0, -500px);
+    opacity: 0; }
+  100% {
+    -moz-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 1; } }
+
+@keyframes suchAsTor {
+  0% {
+    -moz-transform: translate(0, -500px);
+    -o-transform: translate(0, -500px);
+    -ms-transform: translate(0, -500px);
+    -webkit-transform: translate(0, -500px);
+    transform: translate(0, -500px);
+    opacity: 0; }
+  100% {
+    -moz-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 1; } }
 
 .home-page {
   height: 100%; }
 
 .home-page-intro {
   display: table;
+  position: relative;
   height: 100%;
   width: 100%;
   background-color: #f16c49; }
@@ -86,16 +203,91 @@
     font-size: 70px;
     text-align: center;
     letter-spacing: 3px;
-    -webkit-animation-direction: normal;
-    -moz-animation-direction: normal;
-    -o-animation-direction: normal;
-    animation-direction: normal; }
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    -webkit-animation-delay: 0;
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-name: scaleIn;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-delay: 0;
+    -moz-animation-duration: 0.6s;
+    -moz-animation-name: scaleIn;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-delay: 0;
+    -o-animation-duration: 0.6s;
+    -o-animation-name: scaleIn;
+    -o-animation-fill-mode: forwards;
+    animation-delay: 0;
+    animation-duration: 0.6s;
+    animation-name: scaleIn;
+    animation-fill-mode: forwards; }
     .home-page-intro h1 small {
       display: block;
       margin-top: 15px;
-      font-family: Open-Sans_Concedered;
+      font-family: Open-Sans-Light;
       font-size: 50px;
-      text-align: center; }
+      text-align: center;
+      -moz-transform: scale(0);
+      -o-transform: scale(0);
+      -ms-transform: scale(0);
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      -webkit-animation-delay: 0.6s;
+      -webkit-animation-duration: 0.6s;
+      -webkit-animation-name: scaleIn;
+      -webkit-animation-fill-mode: forwards;
+      -moz-animation-delay: 0.6s;
+      -moz-animation-duration: 0.6s;
+      -moz-animation-name: scaleIn;
+      -moz-animation-fill-mode: forwards;
+      -o-animation-delay: 0.6s;
+      -o-animation-duration: 0.6s;
+      -o-animation-name: scaleIn;
+      -o-animation-fill-mode: forwards;
+      animation-delay: 0.6s;
+      animation-duration: 0.6s;
+      animation-name: scaleIn;
+      animation-fill-mode: forwards; }
+  .home-page-intro .cook-hat {
+    opacity: 0;
+    -webkit-animation-delay: 1.2s;
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-name: suchAsTor;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-delay: 1.2s;
+    -moz-animation-duration: 0.6s;
+    -moz-animation-name: suchAsTor;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-delay: 1.2s;
+    -o-animation-duration: 0.6s;
+    -o-animation-name: suchAsTor;
+    -o-animation-fill-mode: forwards;
+    animation-delay: 1.2s;
+    animation-duration: 0.6s;
+    animation-name: suchAsTor;
+    animation-fill-mode: forwards; }
+    .home-page-intro .cook-hat img {
+      width: 250px; }
+  .home-page-intro .home-menu {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 50px;
+    text-align: center; }
+    .home-page-intro .home-menu li {
+      display: inline-block;
+      margin: 0 10px;
+      color: white;
+      font-size: 16px;
+      font-family: Open-Sans-Light;
+      font-weight: 100;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+      .home-page-intro .home-menu li.active {
+        padding: 10px 20px;
+        background: #D15D3F;
+        border-radius: 10px;
+        border: 1px solid #B74425;
+        font-family: Open-Sans-Bold; }
 
 html,
 body,

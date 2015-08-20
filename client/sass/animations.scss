@@ -1,8 +1,27 @@
+@import "mixins";
+
 @include keyframes(scaleIn) {
   0% {
     @include scale(0);
   }
+  50% {
+    @include scale(1.1);
+  }
+  60% {
+    @include scale(0.9);
+  }
   100% {
-    @include scale(100);
+    @include scale(1);
+  }
+}
+
+@include keyframes(suchAsTor) {
+  0% {
+    @include translate(0, -500px);
+    opacity: 0;
+  }
+  100% {
+    @include translate(0, 0);
+    opacity: 1;
   }
 }

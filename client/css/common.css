@@ -7,8 +7,12 @@
   src: url(../fonts/Archivo_Black/ArchivoBlack-Regular.ttf); }
 
 @font-face {
-  font-family: Open-Sans_Concedered;
+  font-family: Open-Sans-Light;
   src: url(../fonts/Open_Sans_Condensed/OpenSans-CondLight.ttf); }
+
+@font-face {
+  font-family: Open-Sans-Bold;
+  src: url(../fonts/Open_Sans_Condensed/OpenSans-CondBold.ttf); }
 
 .cell {
   display: table-cell;
