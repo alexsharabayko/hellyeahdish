@@ -30,6 +30,8 @@ var UserSchema = new Schema({
 
 UserSchema.pre('save', function (next) {
     this.createdAt = Date.now();
+
+    next();
 });
 
 module.exports = mongoose.model('User', UserSchema);
