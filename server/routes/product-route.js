@@ -4,7 +4,6 @@ var express = require('express'),
 
 router.route('/products')
     .get(function (req, res) {
-        console.log('Hello');
         Product.find(function (err, products) {
             err && res.send(err);
 
@@ -14,7 +13,7 @@ router.route('/products')
     .post(function (req, res) {
         var name = req.body.name;
 
-        name || res.code(400).json({ message: 'Bad data' });
+        name || res.status(400).json({ message: 'Bad data' });
 
         var product = new Product({
             name: name,
@@ -23,7 +22,7 @@ router.route('/products')
 
         product.save(function (err) {
             if (err) {
-                res.code(500).send({ message: 'Internal error with save user' });
+                res.status(500).send({ message: 'Internal error with save user' });
             }
 
             res.json({ message: 'Ok', id: product._id });
@@ -34,7 +33,7 @@ router.route('/products')
 //    .get(function (req, res) {
 //        Product.findById(req.params.id, function (err, user) {
 //            if (err) {
-//                res.code(500).send({ message: 'Internal error with finding user' });
+//                res.status(500).send({ message: 'Internal error with finding user' });
 //            }
 //
 //            res.json(user);
@@ -43,12 +42,12 @@ router.route('/products')
 //    .put(function (req, res) {
 //        Product.findById(req.params.id, function (err, user) {
 //            if (err) {
-//                res.code(500).send({ message: 'Internal error with finding user' });
+//                res.status(500).send({ message: 'Internal error with finding user' });
 //            }
 //
 //            user.save(function (err) {
 //                if (err) {
-//                    res.code(500).send({ message: 'Internal error with save user' });
+//                    res.status(500).send({ message: 'Internal error with save user' });
 //                }
 //
 //                res.json({ message: 'Ok', id: user._id });
@@ -58,12 +57,12 @@ router.route('/products')
 //    .delete(function (req, res) {
 //        Product.findById(req.params.id, function(err, user) {
 //            if (err) {
-//                res.code(500).send({ message: 'Internal error with finding user' });
+//                res.status(500).send({ message: 'Internal error with finding user' });
 //            }
 //
 //            user.remove(function(err) {
 //                if (err) {
-//                    res.code(500).send({ message: 'Internal error with deleting user' });
+//                    res.status(500).send({ message: 'Internal error with deleting user' });
 //                }
 //
 //                res.json({ message: 'User successfully removed' });
