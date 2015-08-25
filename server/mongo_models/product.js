@@ -7,6 +7,7 @@ var ProductSchema = new Schema({
         required: true,
         unique: true
     },
+    "rus-name": String,
     category: String
 });
 

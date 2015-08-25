@@ -1,6 +1,7 @@
 var express = require('express'),
     Product = require('../mongo_models/product'),
-    router = express.Router();
+    router = express.Router(),
+    fs = require('fs');
 
 router.route('/products')
     .get(function (req, res) {
@@ -11,21 +12,14 @@ router.route('/products')
         })
     })
     .post(function (req, res) {
-        var name = req.body.name;
+        var data = require('./products.json');
 
-        name || res.status(400).json({ message: 'Bad data' });
+        Product.remove({}, function (err) {
+            Product.collection.insert(data, function (err) {
+                err && res.send(err);
 
-        var product = new Product({
-            name: name,
-            category: req.body.category
-        });
-
-        product.save(function (err) {
-            if (err) {
-                res.status(500).send({ message: 'Internal error with save user' });
-            }
-
-            res.json({ message: 'Ok', id: product._id });
+                res.json({ message: 'Ok' });
+            })
         });
     });
 

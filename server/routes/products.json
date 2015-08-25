@@ -1,0 +1,262 @@
+[
+  {
+    "name": "flour",
+    "rus-name": "мука",
+    "category": "groats"
+  },
+  {
+    "name": "buckwheat",
+    "rus-name": "гречка",
+    "category": "groats"
+  },
+  {
+    "name": "rise",
+    "rus-name": "рис",
+    "category": "groats"
+  },
+  {
+    "name": "semolina",
+    "rus-name": "манка",
+    "category": "groats"
+  },
+  {
+    "name": "oatmeal",
+    "rus-name": "овсянка",
+    "category": "groats"
+  },
+  {
+    "name": "smoked sausage",
+    "rus-name": "копчёная колбаса",
+    "category": "groats"
+  },
+  {
+    "name": "boiled sausage",
+    "rus-name": "вареная колбаса",
+    "category": "groats"
+  },
+  {
+    "name": "sausage",
+    "rus-name": "колбаса",
+    "category": "groats"
+  },
+  {
+    "name": "frankfurters",
+    "rus-name": "сосиски",
+    "category": "groats"
+  },
+  {
+    "name": "ham",
+    "rus-name": "ветчина",
+    "category": "groats"
+  },
+  {
+    "name": "fat",
+    "rus-name": "сало",
+    "category": "groats"
+  },
+  {
+    "name": "tomato",
+    "rus-name": "помидор",
+    "category": "vegetables"
+  },
+  {
+    "name": "cucumber",
+    "rus-name": "огурец",
+    "category": "vegetables"
+  },
+  {
+    "name": "potato",
+    "rus-name": "картофель",
+    "category": "vegetables"
+  },
+  {
+    "name": "corn",
+    "rus-name": "кукуруза",
+    "category": "vegetables"
+  },
+  {
+    "name": "onion",
+    "rus-name": "лук",
+    "category": "vegetables"
+  },
+  {
+    "name": "radishes",
+    "rus-name": "редис",
+    "category": "vegetables"
+  },
+  {
+    "name": "broccoli",
+    "rus-name": "брокколи",
+    "category": "vegetables"
+  },
+  {
+    "name": "beans",
+    "rus-name": "фасоль",
+    "category": "vegetables"
+  },
+  {
+    "name": "beet",
+    "rus-name": "свёкла",
+    "category": "vegetables"
+  },
+  {
+    "name": "squash",
+    "rus-name": "кабачок",
+    "category": "vegetables"
+  },
+  {
+    "name": "eggplant",
+    "rus-name": "баклажан",
+    "category": "vegetables"
+  },
+  {
+    "name": "pumpkin",
+    "rus-name": "тыква",
+    "category": "vegetables"
+  },
+  {
+    "name": "beef",
+    "rus-name": "говядина",
+    "category": "meat"
+  },
+  {
+    "name": "pork",
+    "rus-name": "свинина",
+    "category": "meat"
+  },
+  {
+    "name": "chicken",
+    "rus-name": "курица",
+    "category": "meat"
+  },
+  {
+    "name": "turkey",
+    "rus-name": "индейка",
+    "category": "meat"
+  },
+  {
+    "name": "apple",
+    "rus-name": "яблоко",
+    "category": "fruits"
+  },
+  {
+    "name": "orange",
+    "rus-name": "апельсин",
+    "category": "fruits"
+  },
+  {
+    "name": "banana",
+    "rus-name": "банан",
+    "category": "fruits"
+  },
+  {
+    "name": "kiwi",
+    "rus-name": "киви",
+    "category": "fruits"
+  },
+  {
+    "name": "peach",
+    "rus-name": "персик",
+    "category": "fruits"
+  },
+  {
+    "name": "pear",
+    "rus-name": "груша",
+    "category": "meat"
+  },
+  {
+    "name": "apricot",
+    "rus-name": "абрикос",
+    "category": "meat"
+  },
+  {
+    "name": "coconut",
+    "rus-name": "кокос",
+    "category": "meat"
+  },
+  {
+    "name": "parsley",
+    "rus-name": "петрушка",
+    "category": "greenery"
+  },
+  {
+    "name": "dill",
+    "rus-name": "укроп",
+    "category": "greenery"
+  },
+  {
+    "name": "basil",
+    "rus-name": "базилик",
+    "category": "greenery"
+  },
+  {
+    "name": "mint",
+    "rus-name": "мята",
+    "category": "greenery"
+  },
+  {
+    "name": "cherry",
+    "rus-name": "вишня",
+    "category": "berry"
+  },
+  {
+    "name": "strawberry",
+    "rus-name": "клубника",
+    "category": "berry"
+  },
+  {
+    "name": "grapes",
+    "rus-name": "виноград",
+    "category": "berry"
+  },
+  {
+    "name": "watermelon",
+    "rus-name": "арбуз",
+    "category": "berry"
+  },
+  {
+    "name": "chicken eggs",
+    "rus-name": "куриные яйца",
+    "category": "eggs"
+  },
+  {
+    "name": "quail eggs",
+    "rus-name": "перепелиные яйца",
+    "category": "eggs"
+  },
+  {
+    "name": "champignon",
+    "rus-name": "шампиньон",
+    "category": "mushrooms"
+  },
+  {
+    "name": "forest mushrooms",
+    "rus-name": "лесные грибы",
+    "category": "mushrooms"
+  },
+  {
+    "name": "pepper",
+    "rus-name": "перец",
+    "category": "spices"
+  },
+  {
+    "name": "saffron",
+    "rus-name": "шафран",
+    "category": "spices"
+  },
+  {
+    "name": "coriander",
+    "rus-name": "кориандр",
+    "category": "spices"
+  },
+  {
+    "name": "salt",
+    "rus-name": "соль",
+    "category": "salt"
+  },
+  {
+    "name": "sugar",
+    "rus-name": "сахар",
+    "category": "sugar"
+  }
+]
