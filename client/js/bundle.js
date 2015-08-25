@@ -42,9 +42,23 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var popupView = __webpack_require__(3);
+
+	console.log(popupView);
+
+/***/ },
+/* 1 */,
+/* 2 */,
+/* 3 */
 /***/ function(module, exports) {
 
-	console.log(2 + 3);
+	var a = document.querySelector('.popup-container');
+
+	module.exports = {
+	    a: a
+	};
 
 /***/ }
 /******/ ]);
