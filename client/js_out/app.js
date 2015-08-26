@@ -65,12 +65,15 @@
 	        }
 	    },
 
+	    log: function () {
+	        return 22;
+	    },
+
 	    render: function () {
 	        return (
 	            React.createElement("div", null, 
 	                React.createElement("span", {className: "text"}, this.state.text), 
-	                React.createElement("span", {className: "date"}, Date.now()), 
-	                React.createElement("span", null, "dsldfsdlk")
+	                React.createElement("span", {className: "date"}, this.log())
 	            )
 	        );
 	    }

@@ -7,12 +7,15 @@ let View = React.createClass({
         }
     },
 
+    log: function () {
+        return 22;
+    },
+
     render: function () {
         return (
             <div>
                 <span className="text">{this.state.text}</span>
-                <span className="date">{Date.now()}</span>
-                <span>dsldfsdlk</span>
+                <span className="date">{this.log()}</span>
             </div>
         );
     }

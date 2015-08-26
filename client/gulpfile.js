@@ -35,7 +35,7 @@ gulp.task('babel', function () {
 
 gulp.task('watch', ['sass', 'react', 'babel', 'webpack'], function () {
     gulp.watch('sass/**/*.scss', ['sass']);
-    gulp.watch('js/**/*.jsx', ['react', 'webpack']);
+    gulp.watch('js/**/*.jsx', ['react', 'babel', 'webpack']);
     gulp.watch('js/**/*.js', ['babel']);
     gulp.watch('js/app.js', ['webpack']);
 });
