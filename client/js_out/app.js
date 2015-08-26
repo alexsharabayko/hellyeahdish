@@ -44,21 +44,45 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var popupView = __webpack_require__(3);
+	'use strict';
 
-	console.log(popupView);
+	var a = __webpack_require__(1);
+
+	console.log(a);
+
+	debugger;
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */
+/* 1 */
 /***/ function(module, exports) {
 
-	var a = document.querySelector('.popup-container');
+	'use strict';
 
-	module.exports = {
-	    a: a
-	};
+	let View = React.createClass({displayName: "View",
+	    getInitialState: function () {
+	        return {
+	            text: 'Hi all!'
+	        }
+	    },
+
+	    render: function () {
+	        return (
+	            React.createElement("div", null, 
+	                React.createElement("span", {className: "text"}, this.state.text), 
+	                React.createElement("span", {className: "date"}, Date.now()), 
+	                React.createElement("span", null, "dsldfsdlk")
+	            )
+	        );
+	    }
+	});
+
+	class PopupView {
+	    constructor () {
+	        React.render(React.createElement(View, null), document.querySelector('.popup-container'));
+	    }
+	}
+
+	module.exports = PopupView;
 
 /***/ }
 /******/ ]);

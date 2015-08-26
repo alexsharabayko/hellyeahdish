@@ -1,3 +1,5 @@
-var popupView = require('./common/popup/PopupView.js');
+var a = require('./common/popup/popupView.js');
 
-console.log(popupView);
+console.log(a);
+
+debugger;
