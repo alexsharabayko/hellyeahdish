@@ -12,8 +12,13 @@ let View = React.createClass({displayName: "View",
     },
 
     render: function () {
+        var popupStyle = {
+            left: this.props.left + 'px',
+            top: this.props.top + 'px'
+        };
+
         return (
-            React.createElement("div", null, 
+            React.createElement("div", {className: "popup", style: popupStyle}, 
                 React.createElement("span", {className: "text"}, this.state.text), 
                 React.createElement("span", {className: "date"}, this.log())
             )
@@ -23,7 +28,7 @@ let View = React.createClass({displayName: "View",
 
 class PopupView {
     constructor () {
-        React.render(React.createElement(View, null), document.querySelector('.popup-container'));
+        React.render(React.createElement(View, {left: "20", top: "30"}), document.querySelector('.popup-container'));
     }
 }
 

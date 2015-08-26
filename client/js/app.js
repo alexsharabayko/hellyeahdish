@@ -1,5 +1,3 @@
-var a = require('./common/popup/popupView.js');
+var a = require('./home/homeView.js');
 
-console.log(a);
-
-debugger;
+a();

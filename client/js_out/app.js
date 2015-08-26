@@ -48,9 +48,7 @@
 
 	var a = __webpack_require__(1);
 
-	console.log(a);
-
-	debugger;
+	a();
 
 /***/ },
 /* 1 */
@@ -58,34 +56,44 @@
 
 	'use strict';
 
-	let View = React.createClass({displayName: "View",
-	    getInitialState: function () {
-	        return {
-	            text: 'Hi all!'
-	        }
-	    },
-
-	    log: function () {
-	        return 22;
-	    },
-
+	let HomeIntroView = React.createClass({displayName: "HomeIntroView",
 	    render: function () {
 	        return (
-	            React.createElement("div", null, 
-	                React.createElement("span", {className: "text"}, this.state.text), 
-	                React.createElement("span", {className: "date"}, this.log())
+	            React.createElement("div", {className: "home-page-intro"}, 
+	                React.createElement("div", {className: "cell"}, 
+	                    React.createElement("div", {className: "cook-hat"}, 
+	                        React.createElement("img", {src: "img/cook-hat.png", alt: "cook-hat"})
+	                    ), 
+
+	                    React.createElement("h1", null, "Hell yeah dish! ", React.createElement("small", null, "You smell what he is cooking?"))
+	                ), 
+
+	                React.createElement("ul", {className: "home-menu"}, 
+	                    React.createElement("li", {className: "active"}, React.createElement("a", {href: "javascript:void(0)"}, "Home")), 
+	                    React.createElement("li", null, React.createElement("a", {href: "javascript:void(0)"}, "Second Place")), 
+	                    React.createElement("li", null, React.createElement("a", {href: "javascript:void(0)"}, "Contacts")), 
+	                    React.createElement("li", null, React.createElement("a", {href: "javascript:void(0)"}, "Popular")), 
+	                    React.createElement("li", null, React.createElement("a", {href: "javascript:void(0)"}, "About")), 
+	                    React.createElement("li", null, React.createElement("a", {href: "javascript:void(0)"}, "Some words"))
+	                )
+	            )
+	        )
+	    }
+	});
+
+	let HomeView = React.createClass({displayName: "HomeView",
+	    render: function () {
+	        return (
+	            React.createElement("div", {className: "home-page"}, 
+	                React.createElement(HomeIntroView, null)
 	            )
 	        );
 	    }
 	});
 
-	class PopupView {
-	    constructor () {
-	        React.render(React.createElement(View, null), document.querySelector('.popup-container'));
-	    }
-	}
-
-	module.exports = PopupView;
+	module.exports = function () {
+	    React.render(React.createElement(HomeView, null), document.querySelector('.application-root'));
+	};
 
 /***/ }
 /******/ ]);

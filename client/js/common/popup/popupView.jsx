@@ -12,8 +12,13 @@ let View = React.createClass({
     },
 
     render: function () {
+        var popupStyle = {
+            left: this.props.left + 'px',
+            top: this.props.top + 'px'
+        };
+
         return (
-            <div>
+            <div className="popup" style={popupStyle}>
                 <span className="text">{this.state.text}</span>
                 <span className="date">{this.log()}</span>
             </div>
@@ -23,7 +28,7 @@ let View = React.createClass({
 
 class PopupView {
     constructor () {
-        React.render(<View />, document.querySelector('.popup-container'));
+        React.render(<View left="20" top="30" />, document.querySelector('.popup-container'));
     }
 }
 
