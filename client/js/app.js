@@ -3,5 +3,5 @@ import HomeView from './home/homeView';
 
 React.render(
     <HomeView />,
-    document.body
+    document.querySelector('.application-root')
 );
