@@ -1,3 +1,9 @@
-var a = require('./home/homeView.js');
+import React from 'react';
+import PopupView from './common/popup/popupView';
 
-a();
+console.log(PopupView);
+
+React.render(
+    <PopupView />,
+    document.body
+);
