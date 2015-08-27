@@ -50,13 +50,15 @@ $open-sans: 'Open Sans', Arial, sans-serif;
     left: 0px;
     top: 50px;
     text-align: center;
+    font-family: Open-Sans-Light;
+    opacity: 0;
+    @include animation(fadeIn, 0.4s, 1.8s, forwards);
 
     li {
       display: inline-block;
       margin: 0 10px;
       color: white;
       font-size: 16px;
-      font-family: Open-Sans-Light;
       font-weight: 100;
       letter-spacing: 1px;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
@@ -66,8 +68,23 @@ $open-sans: 'Open Sans', Arial, sans-serif;
         background: #D15D3F;
         border-radius: 10px;
         border: 1px solid #B74425;
-        font-family: Open-Sans-Bold;
       }
+    }
+
+    .login-button {
+      display: inline-block;
+      margin-left: 100px;
+      padding: 15px 30px;
+      color: white;
+      font-family: Open-Sans-Bold;
+      font-size: 20px;
+      font-weight: 100;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+      background: #49F16C;
+      border: 1px solid #11dd3b;
+      border-radius: 10px;
+      cursor: pointer;
     }
   }
 }

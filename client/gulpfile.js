@@ -1,43 +1,14 @@
-//var gulp = require('gulp'),
-//    sass = require('gulp-sass'),
-//    webpack = require('gulp-webpack'),
-//    react = require('gulp-react'),
-//    babel = require('gulp-babel');
-//
-//gulp.task('sass', function () {
-//    gulp.src('sass/**/*.scss')
-//        .pipe(sass().on('error', sass.logError))
-//        .pipe(gulp.dest('css'));
-//});
-//
-//gulp.task('webpack', function () {
-//    return gulp.src('./js_out/app.js')
-//        .pipe(webpack({
-//            output: {
-//                path: __dirname,
-//                filename: 'app.js'
-//            }
-//        }))
-//        .pipe(gulp.dest('js_out/'));
-//});
-//
-//gulp.task('react-babel', function () {
-//    gulp.src(['js/**/*.js'])
-//        .pipe(babel())
-//        .pipe(react())
-//        .pipe(gulp.dest('js_out/'));
-//});
-//
-//gulp.task('watch', ['sass', 'react-babel', 'webpack'], function () {
-//    gulp.watch('sass/**/*.scss', ['sass']);
-//    gulp.watch('js/**/*.js', ['react-babel']);
-//    gulp.watch('js/app.js', ['webpack']);
-//});
-
 var gulp = require('gulp'),
     browserify = require('browserify'),
+    sass = require('gulp-sass'),
     babelify = require('babelify'),
     source = require('vinyl-source-stream');
+
+gulp.task('sass', function () {
+    gulp.src('sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('css'));
+});
 
 gulp.task('build', function () {
     browserify({
@@ -48,9 +19,10 @@ gulp.task('build', function () {
         .transform(babelify)
         .bundle()
         .pipe(source('app.js'))
-        .pipe(gulp.dest('js_out'));
+        .pipe(gulp.dest(''));
 });
 
-gulp.task('default', ['build'], function () {
+gulp.task('default', ['build', 'sass'], function () {
     gulp.watch('js/**/*.js', ['build']);
+    gulp.watch('sass/**/*.scss', ['sass']);
 });

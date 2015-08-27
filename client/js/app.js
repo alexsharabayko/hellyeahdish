@@ -1,9 +1,7 @@
 import React from 'react';
-import PopupView from './common/popup/popupView';
-
-console.log(PopupView);
+import HomeView from './home/homeView';
 
 React.render(
-    <PopupView />,
+    <HomeView />,
     document.body
 );

@@ -199,6 +199,30 @@
     transform: translate(0, 0);
     opacity: 1; } }
 
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 .home-page {
   height: 100%; }
 
@@ -284,13 +308,30 @@
     width: 100%;
     left: 0px;
     top: 50px;
-    text-align: center; }
+    text-align: center;
+    font-family: Open-Sans-Light;
+    opacity: 0;
+    -webkit-animation-delay: 1.8s;
+    -webkit-animation-duration: 0.4s;
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-delay: 1.8s;
+    -moz-animation-duration: 0.4s;
+    -moz-animation-name: fadeIn;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-delay: 1.8s;
+    -o-animation-duration: 0.4s;
+    -o-animation-name: fadeIn;
+    -o-animation-fill-mode: forwards;
+    animation-delay: 1.8s;
+    animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-fill-mode: forwards; }
     .home-page-intro .home-menu li {
       display: inline-block;
       margin: 0 10px;
       color: white;
       font-size: 16px;
-      font-family: Open-Sans-Light;
       font-weight: 100;
       letter-spacing: 1px;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
@@ -298,8 +339,21 @@
         padding: 10px 20px;
         background: #D15D3F;
         border-radius: 10px;
-        border: 1px solid #B74425;
-        font-family: Open-Sans-Bold; }
+        border: 1px solid #B74425; }
+    .home-page-intro .home-menu .login-button {
+      display: inline-block;
+      margin-left: 100px;
+      padding: 15px 30px;
+      color: white;
+      font-family: Open-Sans-Bold;
+      font-size: 20px;
+      font-weight: 100;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+      background: #49F16C;
+      border: 1px solid #11dd3b;
+      border-radius: 10px;
+      cursor: pointer; }
 
 html,
 body,
