@@ -1,0 +1,12 @@
+{
+  "name": "hellyeahdish-client",
+  "version": "0.0.1",
+  "dependencies": {
+    "gulp": "*",
+    "browserify": "*",
+    "gulp-sass": "*",
+    "babelify": "*",
+    "vinyl-source-stream": "*",
+    "react": "*"
+  }
+}
