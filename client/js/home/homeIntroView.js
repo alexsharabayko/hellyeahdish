@@ -3,15 +3,8 @@ import PopupView from '../common/popup/popupView.js';
 
 class HomeIntroView extends React.Component {
     handleClick (event) {
-        new PopupView({
-            style: {
-                left: 100,
-                top: 200
-            },
-            data: {
-                title: 'Hello',
-                content: 'This is a content'
-            }
+        new PopupView([100, 200, 400, 500], {
+            title: 'Hello world'
         });
     }
 
