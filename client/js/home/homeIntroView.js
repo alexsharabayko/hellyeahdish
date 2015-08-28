@@ -7,7 +7,7 @@ class HomeIntroView extends React.Component {
         new PopupView({
             bounds: {
                 bindElement: event.target,
-                width: 300
+                width: 400
             },
 
             data: {

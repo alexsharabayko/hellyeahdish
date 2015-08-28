@@ -18,19 +18,39 @@
   font-family: OpenSans;
   src: url(../fonts/Open_Sans/OpenSans-Regular.ttf); }
 
+@font-face {
+  font-family: OpenSansBold;
+  src: url(../fonts/Open_Sans/OpenSans-Bold.ttf); }
+
+@font-face {
+  font-family: FontAwesome;
+  src: url(../fonts/fontawesome-webfont.ttf); }
+
+body {
+  overflow: hidden;
+  font-family: OpenSans; }
+
 .cell {
   display: table-cell;
   vertical-align: middle;
   text-align: center; }
+
+.hidden {
+  display: none; }
 
 .popup-container {
   position: absolute;
   width: 0;
   height: 0;
   z-index: 2; }
+  .popup-container.active {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; }
 
 .popup {
-  position: fixed;
+  position: absolute;
   z-index: 1;
   background-color: #FFF;
   border-radius: 5px;
@@ -40,15 +60,57 @@
   display: table;
   width: 100%; }
 
-.login-view-field input {
-  padding: 0;
-  margin: 0;
-  width: 60%;
-  font-family: Open-Sans-Light;
-  font-size: 20px;
-  border: none;
-  border-bottom: 1px solid grey;
-  outline: none; }
+.login-view {
+  display: block;
+  padding: 10px;
+  box-sizing: border-box; }
+  .login-view h3 {
+    padding: 10px 0px;
+    margin-bottom: 10px;
+    color: white;
+    background: #3f3f3f; }
+  .login-view .submit-btn {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    color: white;
+    font-family: OpenSansBold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #6c49f1;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.4s; }
+    .login-view .submit-btn:hover {
+      background: #5931ef; }
+  .login-view .switch-form {
+    margin: 5px 0px;
+    color: #6c49f1;
+    font-size: 14px;
+    cursor: pointer; }
+
+.login-view-field {
+  margin-bottom: 20px; }
+  .login-view-field input {
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    color: #6C49F1;
+    font-family: OpenSans;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid rgba(165, 144, 246, 0.3);
+    outline: none; }
+  .login-view-field i {
+    display: inline-block;
+    padding-right: 10px;
+    width: 20px;
+    height: 23px;
+    font-size: 20px;
+    color: #6C49F1;
+    border-bottom: 1px solid rgba(165, 144, 246, 0.3); }
 
 @-webkit-keyframes scaleIn {
   0% {

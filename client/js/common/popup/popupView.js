@@ -1,5 +1,7 @@
 import React from 'react';
 
+let popupContainer = document.querySelector('.popup-container');
+
 class PopupElement extends React.Component {
     constructor (props) {
         super(props);
@@ -78,8 +80,19 @@ class PopupElement extends React.Component {
 
 class PopupView {
     constructor (options) {
-        React.render(<PopupElement bounds={options.bounds} data={options.data} />,
-            document.querySelector('.popup-container'));
+        popupContainer.classList.add('active');
+        React.render(<PopupElement bounds={options.bounds} data={options.data} />, popupContainer);
+
+        PopupView.handleClose();
+    }
+
+    static handleClose () {
+        popupContainer.one('click', function (event) {
+            if (this === event.target) {
+                popupContainer.classList.remove('active');
+                React.unmountComponentAtNode(popupContainer);
+            }
+        });
     }
 }
 
