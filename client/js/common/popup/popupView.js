@@ -3,29 +3,67 @@ import React from 'react';
 class PopupElement extends React.Component {
     constructor (props) {
         super(props);
-
-        this.state = {
-            text: 'Hi all'
-        }
     }
 
-    static getBounds (boundsArray) {
-        return {
-            left: boundsArray[0] ? typeof boundsArray[0] === 'number' ? boundsArray[0] + 'px' : boundsArray[0] : 0,
-            top: boundsArray[0] ? typeof boundsArray[0] === 'number' ? boundsArray[0] + 'px' : boundsArray[0] : 0,
-            width: boundsArray[2] ? typeof boundsArray[2] === 'number' ? boundsArray[2] + 'px' : boundsArray[2] : 'auto',
-            height: boundsArray[3] ? typeof boundsArray[3] === 'number' ? boundsArray[3] + 'px' : boundsArray[3] : 'auto'
+    static getBoundsFromElement (bounds) {
+        var bindElementBounds = bounds.bindElement.getBoundingClientRect(),
+            defBounds = {
+                left: bindElementBounds.left,
+                top: bindElementBounds.top + bindElementBounds.height
+            };
+
+        bounds.width && (defBounds.width = bounds.width);
+        bounds.height && (defBounds.height = bounds.height);
+
+        return PopupElement.getBoundsFromOptions(defBounds);
+    }
+
+    static getBoundsFromOptions (bounds) {
+        var defBounds = {
+            left: 0,
+            top: 0,
+            right: null,
+            bottom: null,
+            width: null,
+            height: null
         };
+
+        Object.keys(bounds).forEach((key) => {
+            defBounds[key] = bounds[key] === 'number' ? bounds[key] + 'px' : bounds[key];
+        });
+
+        return defBounds;
+    }
+
+
+    static getBounds (bounds) {
+        return bounds.bindElement ? PopupElement.getBoundsFromElement(bounds) : PopupElement.getBoundsFromOptions(bounds);
+    }
+
+    static getContent (content) {
+        if (!content) {
+            return null;
+        }
+
+        if (typeof content === 'string') {
+            return <div className="popup-content">{content}</div>
+        }
+        else {
+            let Factory = React.createFactory(content);
+
+            return Factory();
+        }
     }
 
     componentDidMount () {
         var el = React.findDOMNode(this);
+
     }
 
     render () {
         var titleElement = this.props.data.title ? <h3 className="popup-title">{this.props.data.title}</h3> : null,
-            contentElement = this.props.data.content ? <div className="popup-content">{this.props.data.content}</div> : null,
-            bounds = PopupElement.getBounds(this.props.boundsArray);
+            contentElement = PopupElement.getContent(this.props.data.content),
+            bounds = PopupElement.getBounds(this.props.bounds);
 
         return (
             <div className="popup" style={bounds}>
@@ -39,8 +77,9 @@ class PopupElement extends React.Component {
 }
 
 class PopupView {
-    constructor (boundsArray, data) {
-        React.render(<PopupElement boundsArray={boundsArray} data={data} />, document.querySelector('.popup-container'));
+    constructor (options) {
+        React.render(<PopupElement bounds={options.bounds} data={options.data} />,
+            document.querySelector('.popup-container'));
     }
 }
 

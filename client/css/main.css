@@ -14,6 +14,10 @@
   font-family: Open-Sans-Bold;
   src: url(../fonts/Open_Sans_Condensed/OpenSans-CondBold.ttf); }
 
+@font-face {
+  font-family: OpenSans;
+  src: url(../fonts/Open_Sans/OpenSans-Regular.ttf); }
+
 .cell {
   display: table-cell;
   vertical-align: middle;
@@ -21,15 +25,30 @@
 
 .popup-container {
   position: absolute;
-  left: 0;
-  top: 0;
   width: 0;
   height: 0;
   z-index: 2; }
 
 .popup {
-  position: absolute;
-  z-index: 1; }
+  position: fixed;
+  z-index: 1;
+  background-color: #FFF;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7); }
+
+.login-wrapper {
+  display: table;
+  width: 100%; }
+
+.login-view-field input {
+  padding: 0;
+  margin: 0;
+  width: 60%;
+  font-family: Open-Sans-Light;
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none; }
 
 @-webkit-keyframes scaleIn {
   0% {

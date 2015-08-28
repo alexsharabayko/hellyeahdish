@@ -1,10 +1,18 @@
 import React from 'react';
 import PopupView from '../common/popup/popupView.js';
+import LoginView from '../common/login/loginView.js';
 
 class HomeIntroView extends React.Component {
     handleClick (event) {
-        new PopupView([100, 200, 400, 500], {
-            title: 'Hello world'
+        new PopupView({
+            bounds: {
+                bindElement: event.target,
+                width: 300
+            },
+
+            data: {
+                content: LoginView
+            }
         });
     }
 
