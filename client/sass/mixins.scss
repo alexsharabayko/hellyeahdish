@@ -61,3 +61,10 @@
   -webkit-transform-origin: $origin;
   transform-origin: $origin;
 }
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}

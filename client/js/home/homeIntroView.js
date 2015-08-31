@@ -1,17 +1,16 @@
 import React from 'react';
 import PopupView from '../common/popup/popupView.js';
-import LoginView from '../common/login/loginView.js';
+import SignView from '../common/login/signView.js';
 
 class HomeIntroView extends React.Component {
     handleClick (event) {
         new PopupView({
             bounds: {
-                bindElement: event.target,
-                width: 400
+                bindElement: event.target
             },
 
             data: {
-                content: LoginView
+                content: SignView
             }
         });
     }

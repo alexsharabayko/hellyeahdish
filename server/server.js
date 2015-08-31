@@ -17,9 +17,6 @@ app.use('/', require('./routes/dish-route.js'));
 app.listen(port);
 console.log('Listening port ' + port);
 
-
-
-
 function allowCrossDomain (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');

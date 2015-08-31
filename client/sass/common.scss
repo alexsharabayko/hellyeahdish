@@ -1,3 +1,5 @@
+@import "mixins";
+
 @font-face {
   font-family: Anton;
   src: url(../fonts/Anton/Anton.ttf);
@@ -69,12 +71,12 @@ body {
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7);
 }
 
-.login-wrapper {
+.sign-wrapper {
   display: table;
   width: 100%;
 }
 
-.login-view {
+.sign-view {
   display: block;
   padding: 10px;
   box-sizing: border-box;
@@ -114,11 +116,12 @@ body {
   }
 }
 
-.login-view-field {
+.sign-view-field {
   margin-bottom: 20px;
+  overflow: hidden;
 
   input {
-    padding: 0;
+    padding:5px 0px;
     margin: 0;
     width: 80%;
     color: #6C49F1;
@@ -127,15 +130,26 @@ body {
     border: none;
     border-bottom: 1px solid rgba(165, 144, 246, 0.3);
     outline: none;
+    @include placeholder {
+      font-style: italic;
+    }
   }
 
   i {
     display: inline-block;
     padding-right: 10px;
     width: 20px;
-    height: 23px;
+    height: 28px;
     font-size: 20px;
     color: #6C49F1;
     border-bottom: 1px solid rgba(165, 144, 246, 0.3);
   }
+}
+
+.login-form {
+  min-width: 300px;
+}
+
+.register-form {
+  min-width: 400px;
 }

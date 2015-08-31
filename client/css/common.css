@@ -56,20 +56,20 @@ body {
   border-radius: 5px;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7); }
 
-.login-wrapper {
+.sign-wrapper {
   display: table;
   width: 100%; }
 
-.login-view {
+.sign-view {
   display: block;
   padding: 10px;
   box-sizing: border-box; }
-  .login-view h3 {
+  .sign-view h3 {
     padding: 10px 0px;
     margin-bottom: 10px;
     color: white;
     background: #3f3f3f; }
-  .login-view .submit-btn {
+  .sign-view .submit-btn {
     padding: 10px 20px;
     margin-bottom: 10px;
     color: white;
@@ -83,18 +83,19 @@ body {
     outline: none;
     cursor: pointer;
     transition: all 0.4s; }
-    .login-view .submit-btn:hover {
+    .sign-view .submit-btn:hover {
       background: #5931ef; }
-  .login-view .switch-form {
+  .sign-view .switch-form {
     margin: 5px 0px;
     color: #6c49f1;
     font-size: 14px;
     cursor: pointer; }
 
-.login-view-field {
-  margin-bottom: 20px; }
-  .login-view-field input {
-    padding: 0;
+.sign-view-field {
+  margin-bottom: 20px;
+  overflow: hidden; }
+  .sign-view-field input {
+    padding: 5px 0px;
     margin: 0;
     width: 80%;
     color: #6C49F1;
@@ -103,11 +104,25 @@ body {
     border: none;
     border-bottom: 1px solid rgba(165, 144, 246, 0.3);
     outline: none; }
-  .login-view-field i {
+    .sign-view-field input::-webkit-input-placeholder {
+      font-style: italic; }
+    .sign-view-field input:-moz-placeholder {
+      font-style: italic; }
+    .sign-view-field input::-moz-placeholder {
+      font-style: italic; }
+    .sign-view-field input:-ms-input-placeholder {
+      font-style: italic; }
+  .sign-view-field i {
     display: inline-block;
     padding-right: 10px;
     width: 20px;
-    height: 23px;
+    height: 28px;
     font-size: 20px;
     color: #6C49F1;
     border-bottom: 1px solid rgba(165, 144, 246, 0.3); }
+
+.login-form {
+  min-width: 300px; }
+
+.register-form {
+  min-width: 400px; }
