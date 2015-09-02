@@ -43,3 +43,24 @@ Node.prototype.one = function (eventName, selector, callback) {
         });
     }
 };
+
+Node.prototype.css = function (key, value) {
+    if (typeof key === 'string') {
+        this.style[key] = value;
+    }
+    else {
+        Object.keys(key).forEach(function (i) {
+            this.style[i] = key[i];
+        }, this);
+    }
+};
+
+Node.prototype.transform = function (value) {
+    this.css({
+        webkitTransform: value,
+        MozTransform: value,
+        msTransform: value,
+        OTransform: value,
+        transform: value
+    });
+};

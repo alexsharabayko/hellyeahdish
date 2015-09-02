@@ -5,13 +5,19 @@ $open-sans: 'Open Sans', Arial, sans-serif;
 
 .home-page {
   height: 100%;
+  width: 200%;
+  transition: all 0.4s;
+}
+
+.home-section {
+  float: left;
+  width: 50%;
+  height: 100%;
 }
 
 .home-page-intro {
   display: table;
   position: relative;
-  height: 100%;
-  width: 100%;
   background-color: $orange-color;
 
   h1 {

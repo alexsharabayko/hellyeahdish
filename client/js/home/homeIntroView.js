@@ -17,7 +17,7 @@ class HomeIntroView extends React.Component {
 
     render () {
         return (
-            <div className="home-page-intro">
+            <div className="home-page-intro home-section">
                 <div className="cell">
                     <div className="cook-hat">
                         <img src="img/cook-hat.png" alt="cook-hat"/>
@@ -29,8 +29,8 @@ class HomeIntroView extends React.Component {
                 </div>
 
                 <ul className="home-menu">
-                    <li className="active"><a href="javascript:void(0)">Home</a></li>
-                    <li><a href="javascript:void(0)">Second Place</a></li>
+                    <li className="active"><a href="#/home">Home</a></li>
+                    <li><a href="#/home/dishes">Dishes</a></li>
                     <li><a href="javascript:void(0)">Contacts</a></li>
                     <li><a href="javascript:void(0)">Popular</a></li>
                     <li><a href="javascript:void(0)">About</a></li>
