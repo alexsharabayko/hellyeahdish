@@ -1,6 +1,7 @@
 import React from 'react';
 import HomeIntroView from './homeIntroView';
 import Router from '../common/router/router';
+import DishesView from '../dishes/dishesView';
 
 Router.addRoutes({
     '#/home': function () {
@@ -8,7 +9,7 @@ Router.addRoutes({
     },
 
     '#/home/dishes': function () {
-        document.querySelector('.home-page').transform('translate(-100%, 0)');
+        document.querySelector('.home-page').transform('translate(-50%, 0)');
     }
 });
 
@@ -16,7 +17,7 @@ class HomeView extends React.Component {
     render () {
         return (
             <div className="home-page">
-                <HomeIntroView />
+                <DishesView />
             </div>
         );
     }

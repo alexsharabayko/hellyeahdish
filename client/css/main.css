@@ -321,12 +321,12 @@ body {
 
 .home-page {
   height: 100%;
-  width: 200%;
+  width: 100%;
   transition: all 0.4s; }
 
 .home-section {
   float: left;
-  width: 50%;
+  width: 100%;
   height: 100%; }
 
 .home-page-intro {
@@ -454,6 +454,20 @@ body {
       background: #49f1c0;
       border-radius: 10px;
       cursor: pointer; }
+
+.dish-items {
+  text-align: center; }
+
+.dish-item {
+  display: inline-block;
+  width: 400px; }
+
+.dish-item-image {
+  width: 400px;
+  height: 270px; }
+  .dish-item-image img {
+    width: 100%;
+    height: 100%; }
 
 html,
 body,

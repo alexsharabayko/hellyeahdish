@@ -29,7 +29,8 @@ router.route('/dishes')
         var dish = new Dish({
             name: req.body.name,
             totalTime: req.body.totalTime,
-            authorId: req.body.authorId
+            authorId: req.body.authorId,
+            mainImageUrl: req.body.mainImageUrl  || ''
         });
 
         ing.forEach(function (i) {
@@ -43,7 +44,6 @@ router.route('/dishes')
         });
     })
     .delete(function (req, res) {
-        Dish.db.collections.dishes.dropIndexes();
         Dish.remove({}, function (err) {
             err ? res.send(err) : res.send('OK');
         });
