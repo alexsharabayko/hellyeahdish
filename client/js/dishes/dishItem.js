@@ -8,12 +8,15 @@ class DishItem extends React.Component {
            img = <div className="dish-item-image"><img src={this.props.dish.mainImageUrl} alt="dish"/></div>;
         }
         else {
-            img = <div className="dish-item-image"><img src="img/pan.svg" alt="dish"/></div>;
+            let className = `pan-icon i${Math.round(Math.random() * 9)}`;
+
+            img = <div className="dish-item-image"><i className={className}></i></div>;
         }
 
         return (
             <li className="dish-item">
                 {img}
+                <h5>{this.props.dish.name}</h5>
             </li>
         );
     }

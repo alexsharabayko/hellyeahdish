@@ -455,19 +455,55 @@ body {
       border-radius: 10px;
       cursor: pointer; }
 
+.pan-icon {
+  display: inline-block;
+  width: 256px;
+  height: 220px;
+  vertical-align: middle;
+  background-image: url("../img/pans-sprite.png"); }
+  .pan-icon.i0 {
+    background-position: 0px 0px; }
+  .pan-icon.i1 {
+    background-position: -256px 0px; }
+  .pan-icon.i2 {
+    background-position: -512px 0px; }
+  .pan-icon.i3 {
+    background-position: -768px 0px; }
+  .pan-icon.i4 {
+    background-position: -1024px 0px; }
+  .pan-icon.i5 {
+    background-position: -1280px -220px; }
+  .pan-icon.i6 {
+    background-position: -1536px -220px; }
+  .pan-icon.i7 {
+    background-position: -1792px -220px; }
+  .pan-icon.i8 {
+    background-position: -2048px -220px; }
+  .pan-icon.i9 {
+    background-position: -2304px -220px; }
+
 .dish-items {
   text-align: center; }
 
 .dish-item {
   display: inline-block;
-  width: 400px; }
+  margin: 0 10px 20px;
+  width: 400px;
+  vertical-align: middle; }
 
 .dish-item-image {
   width: 400px;
-  height: 270px; }
+  height: 270px;
+  background-color: whitesmoke; }
   .dish-item-image img {
     width: 100%;
     height: 100%; }
+  .dish-item-image:before {
+    content: '';
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle; }
 
 html,
 body,
