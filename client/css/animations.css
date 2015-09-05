@@ -189,3 +189,91 @@
     opacity: 0; }
   100% {
     opacity: 1; } }
+
+@-webkit-keyframes smartBorderIn {
+  0% {
+    width: 0;
+    height: 0; }
+  50% {
+    width: 0;
+    height: 100%; }
+  100% {
+    width: 50%;
+    height: 100%; } }
+
+@-moz-keyframes smartBorderIn {
+  0% {
+    width: 0;
+    height: 0; }
+  50% {
+    width: 0;
+    height: 100%; }
+  100% {
+    width: 50%;
+    height: 100%; } }
+
+@-ms-keyframes smartBorderIn {
+  0% {
+    width: 0;
+    height: 0; }
+  50% {
+    width: 0;
+    height: 100%; }
+  100% {
+    width: 50%;
+    height: 100%; } }
+
+@keyframes smartBorderIn {
+  0% {
+    width: 0;
+    height: 0; }
+  50% {
+    width: 0;
+    height: 100%; }
+  100% {
+    width: 50%;
+    height: 100%; } }
+
+@-webkit-keyframes smartBorderOut {
+  0% {
+    width: 50%;
+    height: 100%; }
+  50% {
+    width: 0;
+    height: 100%; }
+  100% {
+    width: 0;
+    height: 0; } }
+
+@-moz-keyframes smartBorderOut {
+  0% {
+    width: 50%;
+    height: 100%; }
+  50% {
+    width: 0;
+    height: 100%; }
+  100% {
+    width: 0;
+    height: 0; } }
+
+@-ms-keyframes smartBorderOut {
+  0% {
+    width: 50%;
+    height: 100%; }
+  50% {
+    width: 0;
+    height: 100%; }
+  100% {
+    width: 0;
+    height: 0; } }
+
+@keyframes smartBorderOut {
+  0% {
+    width: 50%;
+    height: 100%; }
+  50% {
+    width: 0;
+    height: 100%; }
+  100% {
+    width: 0;
+    height: 0; } }

@@ -23,11 +23,14 @@
   src: url(../fonts/Open_Sans/OpenSans-Bold.ttf); }
 
 @font-face {
+  font-family: OpenSansItalicLight;
+  src: url(../fonts/Open_Sans/OpenSans-LightItalic.ttf); }
+
+@font-face {
   font-family: FontAwesome;
   src: url(../fonts/fontawesome-webfont.ttf); }
 
 body {
-  overflow: hidden;
   font-family: OpenSans; }
 
 .cell {
@@ -126,3 +129,50 @@ body {
 
 .register-form {
   min-width: 400px; }
+
+.main-nav {
+  text-align: center;
+  font-family: Open-Sans-Light;
+  opacity: 0;
+  -webkit-animation-delay: 1.8s;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-delay: 1.8s;
+  -moz-animation-duration: 0.4s;
+  -moz-animation-name: fadeIn;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-delay: 1.8s;
+  -o-animation-duration: 0.4s;
+  -o-animation-name: fadeIn;
+  -o-animation-fill-mode: forwards;
+  animation-delay: 1.8s;
+  animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-fill-mode: forwards; }
+  .main-nav li {
+    display: inline-block;
+    margin: 0 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+    .main-nav li.active {
+      padding: 10px 20px;
+      background: #D15D3F;
+      border-radius: 10px;
+      border: 1px solid #B74425; }
+  .main-nav .login-button {
+    display: inline-block;
+    margin-left: 100px;
+    padding: 15px 30px;
+    color: white;
+    font-family: Open-Sans-Bold;
+    font-size: 20px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+    background: #49f1c0;
+    border-radius: 10px;
+    cursor: pointer; }

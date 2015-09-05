@@ -28,6 +28,7 @@ router.route('/dishes')
 
         var dish = new Dish({
             name: req.body.name,
+            description: req.body.description,
             totalTime: req.body.totalTime,
             authorId: req.body.authorId,
             mainImageUrl: req.body.mainImageUrl  || ''

@@ -83,7 +83,7 @@
     animation-fill-mode: forwards; }
     .home-page-intro .cook-hat img {
       width: 250px; }
-  .home-page-intro .home-menu {
+  .home-page-intro .main-nav {
     position: absolute;
     width: 100%;
     left: 0px;
@@ -107,7 +107,7 @@
     animation-duration: 0.4s;
     animation-name: fadeIn;
     animation-fill-mode: forwards; }
-    .home-page-intro .home-menu li {
+    .home-page-intro .main-nav li {
       display: inline-block;
       margin: 0 10px;
       color: white;
@@ -115,12 +115,12 @@
       font-weight: 100;
       letter-spacing: 1px;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
-      .home-page-intro .home-menu li.active {
+      .home-page-intro .main-nav li.active {
         padding: 10px 20px;
         background: #D15D3F;
         border-radius: 10px;
         border: 1px solid #B74425; }
-    .home-page-intro .home-menu .login-button {
+    .home-page-intro .main-nav .login-button {
       display: inline-block;
       margin-left: 100px;
       padding: 15px 30px;

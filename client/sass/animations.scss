@@ -34,3 +34,32 @@
     opacity: 1;
   }
 }
+
+@include keyframes(smartBorderIn) {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 0;
+    height: 100%;
+  }
+  100% {
+    width: 50%;
+    height: 100%;
+  }
+}
+@include keyframes(smartBorderOut) {
+  0% {
+    width: 50%;
+    height: 100%;
+  }
+  50% {
+    width: 0;
+    height: 100%;
+  }
+  100% {
+    width: 0;
+    height: 0;
+  }
+}

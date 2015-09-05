@@ -1,6 +1,7 @@
 import React from 'react';
 import DishesModel from './dishesModel';
 import DishItem from './dishItem';
+import MainNavView from '../mainNav/mainNavView';
 
 class DishesView extends React.Component {
     constructor (props) {
@@ -16,8 +17,8 @@ class DishesView extends React.Component {
 
         DishesModel.getDishes().then(function (dishes) {
             dishes.forEach((dish, i) => {
-                if (i % 2) {
-                    dish.mainImageUrl = 'http://www.pragueangkor.com/sites/default/files/imagecache/Stranky-Obsah/pages/obsah/kde-se-dobre-najist/best-dish-015.jpg';
+                if (i % 5) {
+                    dish.mainImageUrl = 'http://www.tablespoon.com/-/media/Images/Articles/PostImages/2011/07/week3/2011-07-16-top-chef-party-competition-500w.jpg';
                 }
                 dishesList.push(<DishItem dish={dish} />);
             });
@@ -32,7 +33,8 @@ class DishesView extends React.Component {
 
     render () {
         return (
-            <div>
+            <div className="dishes-view">
+                <MainNavView />
                 <ul className="dish-items">{this.state.dishesList}</ul>
             </div>
         );

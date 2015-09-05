@@ -23,6 +23,7 @@ var DishSchema = new Schema({
         type: String,
         required: true
     },
+    description: String,
     ingredients: [IngredientSchema],
     steps: [DishStepSchema],
     totalTime: Number,
