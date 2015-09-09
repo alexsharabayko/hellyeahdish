@@ -13,6 +13,7 @@ app.use(bodyParser());
 app.use('/', require('./routes/user-route.js'));
 app.use('/', require('./routes/product-route.js'));
 app.use('/', require('./routes/dish-route.js'));
+app.use('/', require('./routes/dish-category-route.js'));
 
 app.listen(port);
 console.log('Listening port ' + port);

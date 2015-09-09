@@ -15,7 +15,7 @@ class HomeIntroView extends React.Component {
                     </h1>
                 </div>
 
-                <MainNavView />
+                <MainNavView isLogin={true} />
             </div>
         )
     }

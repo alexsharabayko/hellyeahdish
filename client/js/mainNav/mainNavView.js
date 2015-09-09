@@ -3,7 +3,7 @@ import PopupView from '../common/popup/popupView';
 import SignView from '../common/login/signView';
 
 class MainNavView extends React.Component {
-    handleClick (event) {
+    static handleClick (event) {
         new PopupView({
             bounds: {
                 bindElement: event.target
@@ -15,6 +15,10 @@ class MainNavView extends React.Component {
         });
     }
 
+    getLoginButton () {
+        return this.props.isLogin ? <span className="login-button" onClick={MainNavView.handleClick}>Login</span> : null;
+    }
+
     render () {
         return (
             <ul className="main-nav">
@@ -24,7 +28,7 @@ class MainNavView extends React.Component {
                 <li><a href="javascript:void(0)">Popular</a></li>
                 <li><a href="javascript:void(0)">About</a></li>
 
-                <span className="login-button" onClick={this.handleClick}>Login</span>
+                {this.getLoginButton()}
             </ul>
         )
     }

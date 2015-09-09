@@ -7,7 +7,8 @@ class LoginView extends React.Component {
     }
 
     loginSubmitHandler (event) {
-        var data = {};
+        var data = {},
+            s = new SignModel();
 
         event.preventDefault();
 
@@ -17,7 +18,7 @@ class LoginView extends React.Component {
             }
         });
 
-        var s = new SignModel();
+        data = new FormData(event.target);
 
         s.login(data).then(function (response) {
             debugger;
