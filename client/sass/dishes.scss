@@ -38,7 +38,7 @@
 }
 
 .dish-items {
-  padding: 20px;
+  padding: 20px 20px 80px;
   overflow: auto;
   text-align: center;
   background-color: rgb(245, 245, 245);
@@ -167,82 +167,37 @@
         background-color: #6317a9;
       }
     }
-
-    .login-button {
-      background: #2be28a;
-    }
-  }
-
-  .main-nav {
-    padding: 10px 0px;
-    background-color: #fa8072;
-    @include animation(fadeIn, 0.4s, 0s, forwards);
-
-    li {
-      &.active {
-        border: none;
-        background-color: #f96a59;
-      }
-    }
-
-    .login-button {
-      background: #72fac4;
-    }
-  }
-
-  .main-nav {
-    padding: 10px 0px;
-    background-color: #9acd32;
-    @include animation(fadeIn, 0.4s, 0s, forwards);
-
-    li {
-      &.active {
-        border: none;
-        background-color: #7ba428;
-      }
-    }
-
-    .login-button {
-      background: #cdb332;
-    }
-  }
-
-  .main-nav {
-    padding: 10px 0px;
-    background-color: #708090;
-    text-align: left;
-    @include animation(fadeIn, 0.4s, 0s, forwards);
-
-    li {
-      &.active {
-        border: none;
-        background-color: #5a6773;
-      }
-    }
-
-    .login-button {
-      background: #709080;
-      float: right;
-    }
   }
 }
 
 .dishes-form {
-
+  position: fixed;
+  padding: 15px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background-color: #2b83e2;
+  text-align: center;
 }
 
 .dishes-form-select {
+  display: inline-block;
+  vertical-align: middle;
   padding: 0;
-  margin: 0;
-  border: 1px solid #ccc;
-  width: 120px;
-  border-radius: 3px;
+  margin: 0px 15px 0px 0px;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 200px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: inherit;
+  font-size: 0;
 
   select {
     padding: 5px 8px;
     width: 130%;
+    color: white;
+    font-size: 16px;
     border: none;
     box-shadow: none;
     background-color: transparent;
@@ -252,4 +207,13 @@
     appearance: none;
     outline: none;
   }
+}
+
+.dishes-form-label {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }

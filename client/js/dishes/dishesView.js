@@ -8,8 +8,8 @@ class DishesView extends React.Component {
         return (
             <div className="dishes-view">
                 <MainNavView />
-                <DishesForm />
                 <DishesList />
+                <DishesForm />
             </div>
         );
     }

@@ -4,6 +4,10 @@ class DishesModel {
     static getDishes () {
         return Ajax.getJSON('/dishes');
     }
+
+    static getCategories () {
+        return Ajax.getJSON('/dish-properties');
+    }
 }
 
 export default DishesModel;

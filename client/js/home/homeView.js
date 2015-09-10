@@ -17,7 +17,7 @@ class HomeView extends React.Component {
     render () {
         return (
             <div className="home-page">
-                <HomeIntroView />
+                <DishesView />
             </div>
         );
     }

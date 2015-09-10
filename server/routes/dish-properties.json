@@ -1,0 +1,88 @@
+{
+  "categories": [
+    {
+      "name": "Baking and desserts"
+    },
+    {
+      "name": "Main course"
+    },
+    {
+      "name": "Breakfast"
+    },
+    {
+      "name": "Salad"
+    },
+    {
+      "name": "Soup"
+    },
+    {
+      "name": "Pasta and pizza"
+    },
+    {
+      "name": "Snack"
+    },
+    {
+      "name": "Sandwich"
+    },
+    {
+      "name": "Risotto"
+    },
+    {
+      "name": "Beverage"
+    },
+    {
+      "name": "Sauces and marinades"
+    },
+    {
+      "name": "Broth"
+    }
+  ],
+
+  "kitchens": [
+    {
+      "name": "Chinese"
+    },
+    {
+      "name": "Mexican"
+    },
+    {
+      "name": "Georgian"
+    },
+    {
+      "name": "French"
+    },
+    {
+      "name": "Japanese"
+    },
+    {
+      "name": "Indian"
+    },
+    {
+      "name": "Russian"
+    },
+    {
+      "name": "Mediterranean"
+    },
+    {
+      "name": "Italian"
+    },
+    {
+      "name": "Spanish"
+    }
+  ],
+
+  "preferences": [
+    {
+      "name": "Vegetarian food"
+    },
+    {
+      "name": "Children's menu"
+    },
+    {
+      "name": "Low-calorie food"
+    },
+    {
+      "name": "Lenten meal"
+    }
+  ]
+}
