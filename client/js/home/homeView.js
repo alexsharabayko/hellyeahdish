@@ -2,6 +2,13 @@ import React from 'react';
 import HomeIntroView from './homeIntroView';
 import Router from '../common/router/router';
 import DishesView from '../dishes/dishesView';
+import user from '../common/user/userModel';
+
+user.on('loginSuccess', () => {
+    //debugger;
+});
+
+console.log(user.id);
 
 //Router.addRoutes({
 //    '#/home': function () {
@@ -17,7 +24,7 @@ class HomeView extends React.Component {
     render () {
         return (
             <div className="home-page">
-                <DishesView />
+                <HomeIntroView />
             </div>
         );
     }

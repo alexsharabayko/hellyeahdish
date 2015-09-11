@@ -1,14 +1,13 @@
 import React from 'react';
-import SignModel from './signModel';
+import user from '../user/userModel';
 
-class LoginView extends React.Component {
+class SignView extends React.Component {
     constructor (props) {
         super(props);
     }
 
     loginSubmitHandler (event) {
-        var data = {},
-            s = new SignModel();
+        var data = {};
 
         event.preventDefault();
 
@@ -18,11 +17,7 @@ class LoginView extends React.Component {
             }
         });
 
-        data = new FormData(event.target);
-
-        s.login(data).then(function (response) {
-            debugger;
-        });
+        user.login(data);
     }
 
     switchForm (event) {
@@ -94,4 +89,4 @@ class LoginView extends React.Component {
     }
 }
 
-export default LoginView;
+export default SignView;
