@@ -1,40 +1,52 @@
 {
   "categories": [
     {
-      "name": "Baking and desserts"
+      "name": "Baking and desserts",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Baking_and_desserts.jpg"
     },
     {
-      "name": "Main course"
+      "name": "Main course",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Main_course.jpg"
     },
     {
-      "name": "Breakfast"
+      "name": "Breakfast",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Breakfast.jpg"
     },
     {
-      "name": "Salad"
+      "name": "Salad",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Salad.jpg"
     },
     {
-      "name": "Soup"
+      "name": "Soup",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Soup.jpg"
     },
     {
-      "name": "Pasta and pizza"
+      "name": "Pasta and pizza",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Pasta_and_pizza.jpg"
     },
     {
-      "name": "Snack"
+      "name": "Snack",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Snack.jpg"
     },
     {
-      "name": "Sandwich"
+      "name": "Sandwich",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Sandwich.jpg"
     },
     {
-      "name": "Risotto"
+      "name": "Risotto",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Risotto.jpg"
     },
     {
-      "name": "Beverage"
+      "name": "Beverage",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Beverage.jpg"
     },
     {
-      "name": "Sauces and marinades"
+      "name": "Sauces and marinades",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Sauces_and_marinades.jpg"
     },
     {
-      "name": "Broth"
+      "name": "Broth",
+      "url": "http://res.cloudinary.com/dz6xtu1hj/image/upload/v1442224437/categories/Broth.jpg"
     }
   ],
 

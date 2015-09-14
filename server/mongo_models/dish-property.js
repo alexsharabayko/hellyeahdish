@@ -5,7 +5,8 @@ var DishCategorySchema = new Schema({
     name: {
         type: String,
         required: true
-    }
+    },
+    url: String
 });
 
 var DishKitchenSchema = new Schema({

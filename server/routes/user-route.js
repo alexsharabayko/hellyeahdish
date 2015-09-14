@@ -93,14 +93,43 @@ router.route('/login').post(function (req, res) {
                 }
 
                 res.json({
-                    message: 'Ok',
                     token: user.token,
-                    username: user.username
+                    username: user.username,
+                    email: user.email,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    level: user.level,
+                    createdAt: user.createdAt,
+                    updatedAt: user.updatedAt
                 });
             });
         }
         else {
             res.status(404).send({ message: 'Bad credentials' });
+        }
+    });
+});
+
+router.route('/loginByToken').post(function (req, res) {
+    User.findOne({token: req.body.token}, function (err, user) {
+        if (err) {
+            res.sendStatus(500);
+        }
+
+        if (user) {
+            res.json({
+                token: user.token,
+                username: user.username,
+                email: user.email,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                level: user.level,
+                createdAt: user.createdAt,
+                updatedAt: user.updatedAt
+            });
+        }
+        else {
+            res.status(404).send({message: 'Bad credentials'});
         }
     });
 });

@@ -3,11 +3,11 @@ import React from 'react';
 let popupContainer = document.querySelector('.popup-container');
 
 class PopupElement extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
     }
 
-    static getBoundsFromElement (bounds) {
+    static getBoundsFromElement(bounds) {
         var bindElementBounds = bounds.bindElement.getBoundingClientRect(),
             defBounds = {
                 left: bindElementBounds.left,
@@ -20,7 +20,7 @@ class PopupElement extends React.Component {
         return PopupElement.getBoundsFromOptions(defBounds);
     }
 
-    static getBoundsFromOptions (bounds) {
+    static getBoundsFromOptions(bounds) {
         var defBounds = {
             left: 0,
             top: 0,
@@ -38,11 +38,11 @@ class PopupElement extends React.Component {
     }
 
 
-    static getBounds (bounds) {
+    static getBounds(bounds) {
         return bounds.bindElement ? PopupElement.getBoundsFromElement(bounds) : PopupElement.getBoundsFromOptions(bounds);
     }
 
-    static getContent (content) {
+    static getContent(content) {
         if (!content) {
             return null;
         }
@@ -57,21 +57,31 @@ class PopupElement extends React.Component {
         }
     }
 
-    componentDidMount () {
+    componentDidMount() {
         var el = React.findDOMNode(this);
 
     }
 
-    render () {
+    static closePopup () {
+        React.unmountComponentAtNode(popupContainer);
+    }
+
+    static stopPopupPropagation (event) {
+        event.stopPropagation();
+    }
+
+    render() {
         var titleElement = this.props.data.title ? <h3 className="popup-title">{this.props.data.title}</h3> : null,
             contentElement = PopupElement.getContent(this.props.data.content),
             bounds = PopupElement.getBounds(this.props.bounds);
 
         return (
-            <div className="popup" style={bounds}>
-                <div className="popup-data">
-                    {titleElement}
-                    {contentElement}
+            <div className="popup-wrapper" onClick={PopupElement.closePopup}>
+                <div className="popup" style={bounds} onClick={PopupElement.stopPopupPropagation}>
+                    <div className="popup-data">
+                        {titleElement}
+                        {contentElement}
+                    </div>
                 </div>
             </div>
         );
@@ -79,20 +89,8 @@ class PopupElement extends React.Component {
 }
 
 class PopupView {
-    constructor (options) {
-        popupContainer.classList.add('active');
-        React.render(<PopupElement bounds={options.bounds} data={options.data} />, popupContainer);
-
-        PopupView.handleClose();
-    }
-
-    static handleClose () {
-        popupContainer.one('click', function (event) {
-            if (this === event.target) {
-                popupContainer.classList.remove('active');
-                React.unmountComponentAtNode(popupContainer);
-            }
-        });
+    constructor(options) {
+        React.render(<PopupElement bounds={options.bounds} data={options.data}/>, popupContainer);
     }
 }
 

@@ -25,11 +25,16 @@ var UserSchema = new Schema({
         type: String,
         default: ''
     },
-    createdAt: Date
+    createdAt: Date,
+    updatedAt: Date
 });
 
 UserSchema.pre('save', function (next) {
-    this.createdAt = Date.now();
+    if (!this.createdAt) {
+        this.createdAt = Date.now();
+    }
+
+    this.updatedAt = Date.now();
 
     next();
 });

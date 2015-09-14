@@ -2,21 +2,55 @@ import EventEmitter from '../event-emitter/eventEmitter';
 import Ajax from '../ajax/ajax.js';
 
 class User extends EventEmitter {
-    constructor () {
-        super();
+    removeData() {
+        this.data = {};
+        this.data.isLogin = false;
 
-        this.isLogin = false;
-        this.id = Math.random() * 1000000000;
+        localStorage.removeItem('userToken');
     }
 
-    login (data) {
-        return Ajax.postJSON('/login', data).then((data) => {
-            this.isLogin = true;
+    saveData(data) {
+        this.data = {};
 
-            this.trigger('loginSuccess');
+        localStorage.setItem('userToken', data.token);
 
-            return data;
+        Object.keys(data).forEach((key) => {
+            this.data[key] = data[key];
         });
+
+        this.data.isLogin = true;
+    }
+
+    login(data) {
+        return Ajax.postJSON('/login', data)
+            .then(this.loginSuccess.bind(this)).catch(this.loginFail.bind(this));
+    }
+
+    loginByToken () {
+        var token = localStorage.getItem('userToken');
+
+        if (!token) {
+            return this.loginFail(null);
+        }
+
+        return Ajax.postJSON('/loginByToken', { token: token })
+            .then(this.loginSuccess.bind(this)).catch(this.loginFail.bind(this));
+    }
+
+    loginSuccess (data) {
+        this.saveData(data);
+
+        this.trigger('loginSuccess');
+
+        return data;
+    }
+
+    loginFail (data) {
+        this.removeData();
+
+        this.trigger('loginFail');
+
+        return data;
     }
 }
 

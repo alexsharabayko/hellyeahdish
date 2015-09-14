@@ -42,15 +42,16 @@ body {
   display: none; }
 
 .popup-container {
-  position: absolute;
   width: 0;
-  height: 0;
+  height: 0; }
+
+.popup-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   z-index: 2; }
-  .popup-container.active {
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%; }
 
 .popup {
   position: absolute;
@@ -1128,6 +1129,46 @@ body {
   font-size: 20px;
   color: white;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+
+.dishes-categories-list {
+  padding: 20px;
+  overflow: hidden;
+  background-color: #313131;
+  white-space: nowrap;
+  font-size: 0; }
+  .dishes-categories-list li {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+    width: 350px;
+    height: 200px; }
+    .dishes-categories-list li img {
+      width: 100%;
+      height: 100%; }
+    .dishes-categories-list li:last-child {
+      margin-right: 0; }
+    .dishes-categories-list li .hover-text {
+      display: table;
+      position: absolute;
+      width: 60%;
+      height: 100%;
+      top: 0;
+      left: 40%;
+      background-color: rgba(0, 0, 0, 0.4);
+      -moz-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -webkit-transition: all 0.4s;
+      transition: all 0.4s; }
+      .dishes-categories-list li .hover-text:hover {
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5); }
+      .dishes-categories-list li .hover-text a {
+        color: white;
+        font-size: 22px;
+        text-transform: uppercase;
+        white-space: normal; }
 
 html,
 body,
