@@ -52,7 +52,6 @@ methodNames.forEach((methodName) => {
 
     Ajax[methodName + 'JSON'] = function (url, data) {
         return Ajax[methodName](url, data).then(function (response) {
-            debugger;
             return response.json();
         });
     };

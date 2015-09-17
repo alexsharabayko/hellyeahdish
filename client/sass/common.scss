@@ -38,6 +38,16 @@
   src: url(../fonts/fontawesome-webfont.ttf)
 }
 
+@mixin smartBorder ($side) {
+  content: '';
+  position: absolute;
+  #{$side}: 0;
+  bottom: -3px;
+  border-top: 3px solid white;
+  border-#{$side}: 3px solid white;
+  @include animation(smartBorderOut, 0.5s, 0s, forwards);
+}
+
 body {
   //overflow: hidden;
   font-family: OpenSans;
@@ -194,5 +204,34 @@ body {
     background: #49f1c0;
     border-radius: 10px;
     cursor: pointer;
+  }
+}
+
+.smart-border-button {
+  position: relative;
+  padding: 11px 20px 8px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-bottom: 3px solid white;
+  outline: none;
+  cursor: pointer;
+
+  &:before {
+    @include smartBorder(left);
+  }
+
+  &:after {
+    @include smartBorder(right);
+  }
+
+  &:hover {
+    &:after,
+    &:before {
+      display: block;
+      @include animation(smartBorderIn, 0.5s, 0s, forwards);
+    }
   }
 }
