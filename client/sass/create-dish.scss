@@ -1,0 +1,66 @@
+@mixin input {
+  padding: 10px;
+  width: 100%;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+
+  &:focus {
+    border-color: rgba(229, 103, 23, 0.8);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6);
+  }
+}
+
+$shadowColor: 1px 1px 1px rgba(0, 0, 0, 0.8);
+
+.create-dish-container {
+  min-height: 100%;
+  background-image: url(../img/retro-kitchen.jpg);
+  background-size: 100%;
+}
+
+.create-dish-form {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 1200px;
+
+  h3 {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    color: white;
+    font-family: OpenSansItalic;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: $shadowColor;
+  }
+}
+
+.create-dish-field {
+  margin-bottom: 10px;
+}
+
+.create-dish-label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  text-shadow: $shadowColor;
+}
+
+.create-dish-text {
+  @include input;
+}
+
+.create-dish-textarea {
+  height: 150px;
+  @include input;
+}
+
+.create-dish-ingredients {
+  margin-left: 100px;
+}
+
+.create-dish-steps {
+  margin-right: 100px;
+}

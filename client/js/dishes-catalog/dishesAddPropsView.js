@@ -33,6 +33,10 @@ class DishesCatalogView extends React.Component {
     render() {
         return (
             <div className="dishes-add-props">
+                <a className="create-dish-link" href="javascript:void(0)">Create dish</a>
+
+                <a className="my-dishes" href="javascript:void(0)">My dishes</a>
+
                 <ul className="dishes-add-list">
                     <h4>Kitchens</h4>
                     {this.state.kitchens}

@@ -1,7 +1,11 @@
 import React from 'react';
-import HomeView from './home/homeView';
+
 import user from './common/user/userModel';
+import Router from './common/router/router';
+
+import HomeView from './home/homeView';
 import DishesCatalogView from './dishes-catalog/dishesCatalogView';
+import CreateDishView from './create-dish/createDishView';
 
 var applicationRootElement = document.querySelector('.application-root');
 
@@ -17,4 +21,4 @@ var applicationRootElement = document.querySelector('.application-root');
 
 user.loginByToken();
 
-React.render(<DishesCatalogView />, applicationRootElement);
+React.render(<CreateDishView />, applicationRootElement);

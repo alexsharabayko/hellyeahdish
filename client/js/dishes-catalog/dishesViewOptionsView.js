@@ -60,11 +60,13 @@ class DishesViewOptionsView extends React.Component {
             <div className="dishes-sorting-options">
                 <h6>Sort by:</h6>
 
-                <select>
-                    <option value="a-z">Product name: A to Z</option>
-                    <option value="z-a">Product name: Z to A</option>
-                    <option value="rating">Most popular first</option>
-                </select>
+                <div className="dishes-catalog-select">
+                    <select>
+                        <option value="a-z">Product name: A to Z</option>
+                        <option value="z-a">Product name: Z to A</option>
+                        <option value="rating">Most popular first</option>
+                    </select>
+                </div>
             </div>
         );
     }

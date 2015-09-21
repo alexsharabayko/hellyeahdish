@@ -467,3 +467,79 @@
       margin-right: 4px; }
     .dishes-grid-options .item.active {
       color: #4caf50; }
+
+.dishes-sorting-options h6 {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 18px; }
+
+.dishes-catalog-select {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #d0d0d0;
+  width: 200px;
+  overflow: hidden; }
+  .dishes-catalog-select select {
+    padding: 5px 8px;
+    width: 130%;
+    color: #555555;
+    font-size: 14px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none; }
+  .dishes-catalog-select:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    top: 3px;
+    bottom: 3px;
+    right: 3px;
+    border: 1px solid #d0d0d0;
+    z-index: -2; }
+  .dishes-catalog-select:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 7px;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-top-color: #d0d0d0;
+    z-index: -2; }
+
+.my-dishes {
+  display: block;
+  padding: 15px;
+  margin: 15px 0;
+  background-color: #504caf;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s; }
+  .my-dishes:hover {
+    background-color: #403d8b; }
+
+.create-dish-link {
+  display: block;
+  padding: 12px;
+  color: #3b3b3b;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: 3px solid #3b3b3b;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s; }
+  .create-dish-link:hover {
+    color: white;
+    background-color: #4caf50;
+    border-color: #4caf50; }
