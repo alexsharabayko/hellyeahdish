@@ -8,6 +8,9 @@ class CreateDishModel {
         //formData.append('description', data.description);
         //formData.append('totalTime', data.totalTime);
         //formData.append('mainImage', data.mainImage);
+        //
+        //formData.append('ingredients', data.ingredients);
+        //formData.append('steps', data.steps);
 
         //formData.append('allData', data);
 
