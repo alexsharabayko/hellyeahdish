@@ -258,3 +258,21 @@ body {
     animation-duration: 0.5s;
     animation-name: smartBorderIn;
     animation-fill-mode: forwards; }
+
+.file-upload {
+  position: relative;
+  color: white;
+  font-size: 20px;
+  line-height: 42px;
+  text-align: center;
+  background-color: #d9534f;
+  border: 1px solid #d43f3a;
+  border-radius: 5px; }
+  .file-upload input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer; }

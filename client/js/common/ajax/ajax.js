@@ -33,10 +33,10 @@ var Ajax = {
         return window.fetch(apiPath + url, {
             method: methodName,
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                //'Accept': 'application/json',
+                //'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: data
         });
     },
 

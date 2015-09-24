@@ -17,14 +17,19 @@ $shadowColor: 1px 1px 1px rgba(0, 0, 0, 0.8);
 
 .create-dish-container {
   min-height: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
   background-image: url(../img/retro-kitchen.jpg);
   background-size: 100%;
+  background-attachment: fixed;
 }
 
 .create-dish-form {
   margin: 0 auto;
-  padding: 10px;
+  padding: 20px;
   max-width: 1200px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 
   h3 {
     margin-bottom: 10px;
@@ -39,6 +44,16 @@ $shadowColor: 1px 1px 1px rgba(0, 0, 0, 0.8);
 
 .create-dish-field {
   margin-bottom: 10px;
+
+  &.left-column {
+    float: left;
+    width: 70%;
+  }
+
+  &.right-column {
+    float: right;
+    width: 27%;
+  }
 }
 
 .create-dish-label {
@@ -54,13 +69,31 @@ $shadowColor: 1px 1px 1px rgba(0, 0, 0, 0.8);
 
 .create-dish-textarea {
   height: 150px;
+  resize: none;
   @include input;
+}
+
+$mb: 40px;
+
+.create-dish-general {
+  overflow: hidden;
+  margin-bottom: $mb;
 }
 
 .create-dish-ingredients {
   margin-left: 100px;
+  margin-bottom: $mb;
+
+  li {
+    overflow: hidden;
+  }
 }
 
 .create-dish-steps {
   margin-right: 100px;
+  margin-bottom: $mb;
+
+  li {
+    overflow: hidden;
+  }
 }

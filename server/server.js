@@ -10,6 +10,11 @@ app.use(allowCrossDomain);
 
 app.use(bodyParser());
 
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded());
+// in latest body-parser use like bellow.
+//app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use('/', require('./routes/user-route.js'));
 app.use('/', require('./routes/product-route.js'));
 app.use('/', require('./routes/dish-route.js'));

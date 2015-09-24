@@ -1,102 +1,32 @@
 import React from 'react';
+import GeneralView from './generalView';
+import IngredientsListView from './ingredientsListView';
+import StepsListView from './stepsListView';
+import CreateDishModel from './createDishModel';
 
 class CreateDishView extends React.Component {
+    handleSubmitForm (event) {
+        event.preventDefault();
+
+        var data = this.refs.general.state;
+
+        data.ingredients = this.refs.ingredientsList.getIngredients();
+        data.steps = this.refs.stepsList.getSteps();
+
+        CreateDishModel.createDish(event.target);
+    }
+
     render () {
         return (
             <div className="create-dish-container">
-                <form className="create-dish-form">
-                    <h3>General</h3>
+                <form className="create-dish-form" onSubmit={this.handleSubmitForm.bind(this)}>
+                    <GeneralView ref="general" />
 
-                    <div className="create-dish-field">
-                        <label className="create-dish-label">Enter name of the dish:</label>
-                        <input className="create-dish-text" type="text"/>
-                    </div>
+                    <IngredientsListView ref="ingredientsList" />
 
-                    <div className="create-dish-field">
-                        <label className="create-dish-label">Enter short description of the dish:</label>
-                        <textarea className="create-dish-textarea"></textarea>
-                    </div>
+                    <StepsListView ref="stepsList" />
 
-                    <div className="create-dish-field">
-                        <label className="create-dish-label">Total time (in minutes):</label>
-                        <input className="create-dish-text" type="number" />
-                    </div>
-
-                    <ul className="create-dish-ingredients">
-                        <h3>Ingredients</h3>
-
-                        <li>
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Ingredient name:</label>
-                                <input className="create-dish-text" type="text" />
-                            </div>
-
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Ingredient quantity:</label>
-                                <input className="create-dish-text" type="text" />
-                            </div>
-                        </li>
-                        <li>
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Ingredient name:</label>
-                                <input className="create-dish-text" type="text" />
-                            </div>
-
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Ingredient quantity:</label>
-                                <input className="create-dish-text" type="text" />
-                            </div>
-                        </li>
-                        <li>
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Ingredient name:</label>
-                                <input className="create-dish-text" type="text" />
-                            </div>
-
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Ingredient quantity:</label>
-                                <input className="create-dish-text" type="text" />
-                            </div>
-                        </li>
-                    </ul>
-
-                    <ul className="create-dish-steps">
-                        <h3>Steps</h3>
-
-                        <li>
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Step description:</label>
-                                <textarea className="create-dish-textarea"></textarea>
-                            </div>
-
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Step start time (in minutes):</label>
-                                <input className="create-dish-text" type="number" />
-                            </div>
-                        </li>
-                        <li>
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Step description:</label>
-                                <textarea className="create-dish-textarea"></textarea>
-                            </div>
-
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Step start time (in minutes):</label>
-                                <input className="create-dish-text" type="number" />
-                            </div>
-                        </li>
-                        <li>
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Step description:</label>
-                                <textarea className="create-dish-textarea"></textarea>
-                            </div>
-
-                            <div className="create-dish-field">
-                                <label className="create-dish-label">Step start time (in minutes):</label>
-                                <input className="create-dish-text" type="number" />
-                            </div>
-                        </li>
-                    </ul>
+                    <button>Create</button>
                 </form>
             </div>
         );
