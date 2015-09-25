@@ -1,18 +1,11 @@
 import Ajax from '../common/ajax/ajax';
+import user from '../common/user/userModel';
 
 class CreateDishModel {
     static createDish (form) {
         var formData = new FormData(form);
 
-        //formData.append('name', data.name);
-        //formData.append('description', data.description);
-        //formData.append('totalTime', data.totalTime);
-        //formData.append('mainImage', data.mainImage);
-        //
-        //formData.append('ingredients', data.ingredients);
-        //formData.append('steps', data.steps);
-
-        //formData.append('allData', data);
+        formData.append('userToken', user.data.token);
 
         Ajax.postJSON('/dishes', formData);
     }

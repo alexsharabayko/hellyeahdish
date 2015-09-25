@@ -19,7 +19,7 @@ class EventEmitter {
         }
 
         this._listeners[eventName].forEach((listener) => {
-            listener.call(this);
+            setTimeout(listener.bind(this), 0);
         });
 
         return this;

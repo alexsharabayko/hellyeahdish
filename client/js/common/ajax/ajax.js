@@ -29,15 +29,19 @@ var Ajax = {
             });
     },
 
-    fetch (url, methodName, data) {
-        return window.fetch(apiPath + url, {
-            method: methodName,
-            headers: {
-                //'Accept': 'application/json',
-                //'Content-Type': 'application/json'
-            },
-            body: data
-        });
+    fetch (url, method, data) {
+        var headers = {},
+            body = data;
+
+        if (!(data instanceof FormData)) {
+            headers = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            };
+            body = JSON.stringify(data);
+        }
+
+        return window.fetch(apiPath + url, {method, headers, body});
     },
 
     send (url, methodName, data) {

@@ -8,7 +8,7 @@ mongoose.connect('localhost:27017/hellyeahdish');
 
 app.use(allowCrossDomain);
 
-app.use(bodyParser());
+app.use(bodyParser.json());
 
 app.use('/', require('./routes/user-route.js'));
 app.use('/', require('./routes/product-route.js'));

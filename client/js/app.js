@@ -7,18 +7,24 @@ import HomeView from './home/homeView';
 import DishesCatalogView from './dishes-catalog/dishesCatalogView';
 import CreateDishView from './create-dish/createDishView';
 
-var applicationRootElement = document.querySelector('.application-root');
+var applicationRootElement = document.querySelector('.application-root'),
+    popupContainerElement = document.querySelector('.popup-container');
 
-//user.on('loginSuccess', () => {
-//    React.unmountComponentAtNode(applicationRootElement);
-//    React.render(<DishesCatalogView />, applicationRootElement);
-//});
+var unmountAll = function () {
+    React.unmountComponentAtNode(applicationRootElement);
+    React.unmountComponentAtNode(popupContainerElement);
+};
 
-//user.on('loginFail', () => {
-//    React.unmountComponentAtNode(applicationRootElement);
-//    React.render(<HomeView />, applicationRootElement);
-//});
+user.on('loginSuccess', () => {
+    unmountAll();
+    React.render(<CreateDishView />, applicationRootElement);
+});
+
+user.on('loginFail', () => {
+    unmountAll();
+    React.render(<HomeView />, applicationRootElement);
+});
 
 user.loginByToken();
 
-React.render(<CreateDishView />, applicationRootElement);
+//React.render(<HomeView />, applicationRootElement);

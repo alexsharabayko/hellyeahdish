@@ -15,7 +15,7 @@ var DishStepSchema = new Schema({
         required: true
     },
     startTime: Number,
-    imageUrl: String
+    image: Object
 });
 
 var DishSchema = new Schema({
@@ -27,7 +27,7 @@ var DishSchema = new Schema({
     ingredients: [IngredientSchema],
     steps: [DishStepSchema],
     totalTime: Number,
-    mainImageUrl: String,
+    mainImage: Object,
     authorId: {
         type: Schema.Types.ObjectId
     }
