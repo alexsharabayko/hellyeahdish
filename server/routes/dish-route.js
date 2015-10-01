@@ -28,15 +28,15 @@ var parseFormData = function (req, res, next) {
 };
 
 var serializeFormData = function (req, res, next) {
-    var dish = new Dish();
-
+    var dish = {};
+debugger;
     req.body.token = req.fields.userToken[0];
 
     dish.name = req.fields.name[0];
     dish.description = req.fields.description[0];
     dish.totalTime = parseInt(req.fields.totalTime[0], 10);
 
-    dish.mainImage = req.files.mainImage[0];
+    dish.mainImage = req.files.mainImage[0].size ? req.files.mainImage[0] : null;
 
     dish.ingredients = [];
     req.fields.ingredientsNames.forEach(function (ingredientName, i) {
@@ -51,7 +51,7 @@ var serializeFormData = function (req, res, next) {
         dish.steps[i] = {
             description: stepDescription,
             startTime: parseInt(req.fields.stepsStartTimes[i], 10),
-            image: req.files.stepsImages[i]
+            image: req.files.stepsImages[i].size ? req.files.stepsImages[i] : null
         };
     });
 
@@ -74,10 +74,15 @@ var getUserByToken = function (req, res, next) {
 };
 
 var uploadMainImageToCDN = function (req, res, next) {
-    cloudinary.uploader.upload(req.dish.mainImage.path, function (result) {
-        req.data.mainImage = result;
+    if (req.dish.mainImage) {
+        cloudinary.uploader.upload(req.dish.mainImage.path, function (result) {
+            req.dish.mainImage = result;
+            next();
+        });
+    }
+    else {
         next();
-    });
+    }
 };
 
 var UploadStepsImagesToCDN = function uploader (req, res, next) {
@@ -85,29 +90,52 @@ var UploadStepsImagesToCDN = function uploader (req, res, next) {
         req.stepIndex = 0;
     }
 
-    cloudinary.uploader.upload(req.dish.steps[req.stepIndex].image.path, function (result) {
-        req.dish.steps[req.stepIndex].image = result;
+    if (req.dish.steps[req.stepIndex].image) {
+        cloudinary.uploader.upload(req.dish.steps[req.stepIndex].image.path, function (result) {
+            req.dish.steps[req.stepIndex].image = result;
 
+            req.stepIndex += 1;
+
+            if (req.stepIndex === req.dish.steps.length) {
+                delete req.stepIndex;
+                next();
+            }
+            else {
+                uploader(req, res, next);
+            }
+        });
+    }
+    else {
         req.stepIndex += 1;
 
-        if (req.stepIndex === req.steps.length) {
+        if (req.stepIndex === req.dish.steps.length) {
             delete req.stepIndex;
             next();
         }
         else {
             uploader(req, res, next);
         }
-
-        next();
-    });
+    }
 };
 
 var saveDish = function (req, res, next) {
-    req.dish.save(function (err, dish) {
-        err && res.send(err);
+    req.dish.authorId = req.user._id;
 
+    var dish = new Dish(req.dish);
+debugger;
+    dish.save(function (err, d) {
+
+        debugger;
+        err && res.send(err);
         next();
     });
+
+
+    //req.data.save(function (err, dish) {
+    //    err && res.send(err);
+    //
+    //    next();
+    //});
 };
 
 router.route('/dishes')
@@ -122,6 +150,10 @@ router.route('/dishes')
         debugger;
         res.json({ message: 'Ok' });
     })
+    //.post(parseFormData, serializeFormData, function (req, res) {
+    //    debugger;
+    //    res.json({ message: 'Ok' });
+    //})
     .delete(function (req, res) {
         Dish.remove({}, function (err) {
             err ? res.send(err) : res.send('OK');

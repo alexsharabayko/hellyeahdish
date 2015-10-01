@@ -15,12 +15,12 @@ class IngredientsItemView extends React.Component {
             <li onChange={this.handleChange.bind(this)}>
                 <div className="create-dish-field left-column">
                     <label className="create-dish-label">Ingredient name:</label>
-                    <input className="create-dish-text" type="text" ref="name" name="ingredientsNames" />
+                    <input className="create-dish-text" type="text" ref="name" />
                 </div>
 
                 <div className="create-dish-field right-column">
                     <label className="create-dish-label">Ingredient quantity:</label>
-                    <input className="create-dish-text" type="text" ref="quantity" name="ingredientsQuantities" />
+                    <input className="create-dish-text" type="text" ref="quantity" />
                 </div>
             </li>
         )

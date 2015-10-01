@@ -21,7 +21,7 @@ class StepsItemView extends React.Component {
 
     handleImagesUpload (files) {
         this.setState((prevState) => {
-            prevState.images = event.target.files;
+            prevState.image = event.target.files[0];
 
             this.props.onChange(prevState);
 
@@ -34,17 +34,17 @@ class StepsItemView extends React.Component {
             <li onChange={this.handleChange.bind(this)}>
                 <div className="create-dish-field">
                     <label className="create-dish-label">Step description:</label>
-                    <textarea ref="description" className="create-dish-textarea" name="stepsDescriptions"></textarea>
+                    <textarea ref="description" className="create-dish-textarea"></textarea>
                 </div>
 
                 <div className="create-dish-field left-column">
                     <label className="create-dish-label">Step start time (in minutes):</label>
-                    <input ref="startTime" className="create-dish-text" type="number" name="stepsStartTimes" />
+                    <input ref="startTime" className="create-dish-text" type="number" />
                 </div>
 
                 <div className="create-dish-field right-column">
                     <label className="create-dish-label">Step image:</label>
-                    <FileUploadView onChange={this.handleImagesUpload.bind(this)} name="stepsImages" />
+                    <FileUploadView onChange={this.handleImagesUpload.bind(this)} />
                 </div>
             </li>
         );
@@ -60,7 +60,7 @@ class StepsListView extends React.Component {
                 {
                     description: null,
                     startTime: null,
-                    images: null
+                    image: null
                 }
             ]
         };
