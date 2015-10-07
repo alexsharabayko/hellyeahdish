@@ -1,26 +1,22 @@
-import React from 'react';
+import React from 'react/addons';
+import uid from 'uid';
 
 class IngredientsItemView extends React.Component {
-    handleChange () {
-        var ingredient = {
-            name: this.refs.name.getDOMNode().value,
-            quantity: this.refs.quantity.getDOMNode().value
-        };
-
-        this.props.onChange(ingredient);
-    }
-
     render () {
         return (
-            <li onChange={this.handleChange.bind(this)}>
+            <li>
+                <h4>Ingredient {this.props.i + 1}:</h4>
+
+                <a href="javascript:void(0)" onClick={this.props.onRemove}><i className="fa fa-remove"></i></a>
+
                 <div className="create-dish-field left-column">
                     <label className="create-dish-label">Ingredient name:</label>
-                    <input className="create-dish-text" type="text" ref="name" />
+                    <input className="create-dish-text" type="text" name="ingredientsNames" required />
                 </div>
 
                 <div className="create-dish-field right-column">
                     <label className="create-dish-label">Ingredient quantity:</label>
-                    <input className="create-dish-text" type="text" ref="quantity" />
+                    <input className="create-dish-text" type="text" name="ingredientsQuantities" required />
                 </div>
             </li>
         )
@@ -35,49 +31,37 @@ class IngredientsListView extends React.Component {
             ingredients: [
                 {
                     name: null,
-                    quantity: null
+                    quantity: null,
+                    id: uid(10)
                 }
             ]
         };
     }
 
-    renderItems () {
-        return this.state.ingredients.map((ingredient, i) => {
-            return <IngredientsItemView onChange={this.handleItemChange.bind(this, i)} ingredient={ingredient} key={i} />;
+    pushElement () {
+        this.setState({
+            ingredients: React.addons.update(this.state.ingredients, { $push: [{ name: null, quantity: null, id: uid(10) }] })
         });
     }
 
-    handleItemChange (i, ingredient) {
-        this.setState((prevState) => {
-            var ingredients = prevState.ingredients;
-
-            ingredients[i] = ingredient;
-
-            if (ingredients.every(ingredient => ingredient.name && ingredient.quantity)) {
-                ingredients.push({ name: null, quantity: null });
-            }
-            else if (ingredients.some(ingredient => ingredient.name === '' || ingredient.quantity === '')) {
-                ingredients = ingredients.filter(ingredient => ingredient.name || ingredient.quantity);
-            }
-
-            prevState.ingredients = ingredients;
-
-            return prevState;
-        });
-    }
-
-    getIngredients () {
-        return this.state.ingredients.filter((ingredient) => {
-            return ingredient.name;
-        });
+    removeElement (i) {
+        this.setState({
+            ingredients: React.addons.update(this.state.ingredients, {$splice: [[i, 1]]})
+        })
     }
 
     render () {
         return (
             <ul className="create-dish-ingredients">
-                <h3>Ingredients</h3>
+                <h3>Ingredients <button onClick={this.pushElement.bind(this)}>Add new</button></h3>
 
-                {this.renderItems()}
+                {this.state.ingredients.map((ingredient, i) => {
+                    return <IngredientsItemView
+                        onRemove={this.removeElement.bind(this, i)}
+                        ingredient={ingredient}
+                        key={ingredient.id}
+                        i={i}/>;
+                })}
             </ul>
         );
     }

@@ -1,50 +1,28 @@
 import React from 'react';
 import FileUploadView from '../common/file-upload/fileUploadView';
+import uid from 'uid';
 
 class StepsItemView extends React.Component {
-    constructor (props) {
-        super(props);
-
-        this.state = props.step;
-    }
-
-    handleChange () {
-        this.setState((prevState) => {
-            prevState.description = this.refs.description.getDOMNode().value;
-            prevState.startTime = this.refs.startTime.getDOMNode().value;
-
-            this.props.onChange(prevState);
-
-            return prevState;
-        });
-    }
-
-    handleImagesUpload (files) {
-        this.setState((prevState) => {
-            prevState.image = event.target.files[0];
-
-            this.props.onChange(prevState);
-
-            return prevState;
-        });
-    }
-
     render () {
         return (
-            <li onChange={this.handleChange.bind(this)}>
+            <li>
+                <h4>Ingredient {this.props.i + 1}:</h4>
+
+                <a href="javascript:void(0)" onClick={this.props.onRemove}><i className="fa fa-remove"></i></a>
+
                 <div className="create-dish-field">
                     <label className="create-dish-label">Step description:</label>
-                    <textarea ref="description" className="create-dish-textarea"></textarea>
+                    <textarea className="create-dish-textarea" name="stepsDescriptions" requred></textarea>
                 </div>
 
                 <div className="create-dish-field left-column">
                     <label className="create-dish-label">Step start time (in minutes):</label>
-                    <input ref="startTime" className="create-dish-text" type="number" />
+                    <input className="create-dish-text" type="number" name="stepsStartTimes" required />
                 </div>
 
                 <div className="create-dish-field right-column">
                     <label className="create-dish-label">Step image:</label>
-                    <FileUploadView onChange={this.handleImagesUpload.bind(this)} />
+                    <FileUploadView name="stepsImages" />
                 </div>
             </li>
         );
@@ -60,7 +38,8 @@ class StepsListView extends React.Component {
                 {
                     description: null,
                     startTime: null,
-                    image: null
+                    image: null,
+                    id: uid(10)
                 }
             ]
         };
@@ -72,27 +51,21 @@ class StepsListView extends React.Component {
         });
     }
 
-    handleItemChange (i, step) {
-        this.setState((prevState) => {
-            var steps = prevState.steps;
-
-            steps[i] = step;
-
-            if (steps.every(step => step.description && step.startTime)) {
-                steps.push({ description: null, startTime: null });
-            }
-            else if (steps.some(step => step.description === '' || step.startTime === '')) {
-                steps = steps.filter(step => step.description || step.startTime);
-            }
-
-            prevState.steps = steps;
-
-            return prevState;
+    pushElement () {
+        this.setState({
+            steps: React.addons.update(this.state.steps, { $push: [{
+                description: null,
+                startTime: null,
+                image: null,
+                id: uid(10)
+            }] })
         });
     }
 
-    getSteps () {
-        return this.state.steps.filter(step => step.description);
+    removeElement (i) {
+        this.setState({
+            steps: React.addons.update(this.state.steps, {$splice: [[i, 1]]})
+        })
     }
 
     render () {
@@ -100,7 +73,15 @@ class StepsListView extends React.Component {
             <ul className="create-dish-steps">
                 <h3>Steps</h3>
 
-                {this.renderItems()}
+                <a href="javascript:void(0)" onClick={this.pushElement.bind(this)}><i className="fa fa-plus"></i></a>
+
+                {this.state.steps.map((step, i) => {
+                    return <StepsItemView
+                        onRemove={this.removeElement.bind(this, i)}
+                        ingredient={step}
+                        key={step.id}
+                        i={i} />;
+                })}
             </ul>
         );
     }

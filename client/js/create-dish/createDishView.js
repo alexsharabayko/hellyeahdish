@@ -8,12 +8,7 @@ class CreateDishView extends React.Component {
     handleSubmitForm (event) {
         event.preventDefault();
 
-        var data = this.refs.general.state;
-
-        data.ingredients = this.refs.ingredientsList.getIngredients();
-        data.steps = this.refs.stepsList.getSteps();
-
-        CreateDishModel.createDish(data);
+        CreateDishModel.createDish(event.target);
     }
 
     render () {

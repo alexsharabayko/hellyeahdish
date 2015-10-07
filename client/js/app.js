@@ -17,7 +17,7 @@ var unmountAll = function () {
 
 user.on('loginSuccess', () => {
     unmountAll();
-    React.render(<DishesCatalogView />, applicationRootElement);
+    React.render(<CreateDishView />, applicationRootElement);
 });
 
 user.on('loginFail', () => {

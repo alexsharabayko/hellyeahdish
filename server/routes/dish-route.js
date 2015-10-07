@@ -29,7 +29,8 @@ var parseFormData = function (req, res, next) {
 
 var serializeFormData = function (req, res, next) {
     var dish = {};
-debugger;
+    debugger;
+
     req.body.token = req.fields.userToken[0];
 
     dish.name = req.fields.name[0];
@@ -124,8 +125,8 @@ var saveDish = function (req, res, next) {
     var dish = new Dish(req.dish);
 debugger;
     dish.save(function (err, d) {
+debugger;
 
-        debugger;
         err && res.send(err);
         next();
     });
@@ -147,7 +148,7 @@ router.route('/dishes')
         });
     })
     .post(parseFormData, serializeFormData, getUserByToken, uploadMainImageToCDN, UploadStepsImagesToCDN, saveDish, function (req, res) {
-        debugger;
+
         res.json({ message: 'Ok' });
     })
     //.post(parseFormData, serializeFormData, function (req, res) {

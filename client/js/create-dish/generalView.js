@@ -38,22 +38,22 @@ class GeneralView extends React.Component {
 
                 <div className="create-dish-field">
                     <label className="create-dish-label">Enter name of the dish:</label>
-                    <input ref="name" className="create-dish-text" type="text" required/>
+                    <input name="name" className="create-dish-text" type="text" required/>
                 </div>
 
                 <div className="create-dish-field">
                     <label className="create-dish-label">Enter short description of the dish:</label>
-                    <textarea ref="description" className="create-dish-textarea" required></textarea>
+                    <textarea name="description" className="create-dish-textarea" required></textarea>
                 </div>
 
                 <div className="create-dish-field left-column">
                     <label className="create-dish-label">Total time (in minutes):</label>
-                    <input ref="totalTime" className="create-dish-text" type="number" required/>
+                    <input name="totalTime" className="create-dish-text" type="number" required/>
                 </div>
 
                 <div className="create-dish-field right-column">
                     <label className="create-dish-label">Main dish image:</label>
-                    <FileUploadView onChange={this.handleImageUpload.bind(this)} />
+                    <FileUploadView name="mainImage" />
                 </div>
             </div>
         );
