@@ -7,15 +7,17 @@ class IngredientsItemView extends React.Component {
             <li>
                 <h4>Ingredient {this.props.i + 1}:</h4>
 
-                <a href="javascript:void(0)" onClick={this.props.onRemove}><i className="fa fa-remove"></i></a>
+                <a className="create-dish-remove-item" href="javascript:void(0)" onClick={this.props.onRemove}>
+                    <i className="fa fa-remove"></i>
+                </a>
 
                 <div className="create-dish-field left-column">
-                    <label className="create-dish-label">Ingredient name:</label>
+                    <label className="create-dish-label">Name:</label>
                     <input className="create-dish-text" type="text" name="ingredientsNames" required />
                 </div>
 
                 <div className="create-dish-field right-column">
-                    <label className="create-dish-label">Ingredient quantity:</label>
+                    <label className="create-dish-label">Quantity:</label>
                     <input className="create-dish-text" type="text" name="ingredientsQuantities" required />
                 </div>
             </li>
@@ -53,7 +55,7 @@ class IngredientsListView extends React.Component {
     render () {
         return (
             <ul className="create-dish-ingredients">
-                <h3>Ingredients <button onClick={this.pushElement.bind(this)}>Add new</button></h3>
+                <h3>Ingredients <button type="button" onClick={this.pushElement.bind(this)}>Add new</button></h3>
 
                 {this.state.ingredients.map((ingredient, i) => {
                     return <IngredientsItemView

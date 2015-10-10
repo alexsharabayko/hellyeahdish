@@ -14,10 +14,6 @@ class DishesCatalogView extends React.Component {
     componentDidMount() {
         DishesCatalogModel.getDishes().then((data) => {
             var items = data.map((dish, i) => {
-                //if (i % 5) {
-                dish.mainImageUrl = 'http://www.tablespoon.com/-/media/Images/Articles/PostImages/2011/07/week3/2011-07-16-top-chef-party-competition-500w.jpg';
-                //}
-
                 return (
                     <li className="dishes-list-item" key={i}>
                         <img src={dish.mainImageUrl} alt={dish.name}/>

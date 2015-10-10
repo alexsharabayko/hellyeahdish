@@ -21,11 +21,8 @@ class SignView extends React.Component {
     }
 
     switchForm (event) {
-        var el = React.findDOMNode(this);
-
-        el.q('form').forEach(function (form) {
-            form.classList.toggle('hidden');
-        });
+        this.refs.loginForm.getDOMNode().classList.toggle('hidden');
+        this.refs.registerForm.getDOMNode().classList.toggle('hidden');
     }
 
     render () {
@@ -33,7 +30,7 @@ class SignView extends React.Component {
             <div className="sign-wrapper">
                 <div className="cell">
                     <div className="sign-view">
-                        <form className="login-form" onSubmit={this.loginSubmitHandler}>
+                        <form className="login-form" onSubmit={this.loginSubmitHandler} ref="loginForm">
                             <h3>Enter your credentials</h3>
 
                             <div className="sign-view-field">
@@ -52,7 +49,7 @@ class SignView extends React.Component {
                             </div>
                         </form>
 
-                        <form className="register-form hidden">
+                        <form className="register-form hidden" ref="registerForm">
                             <h3>Enter your information</h3>
 
                             <div className="sign-view-field">

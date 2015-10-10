@@ -29,7 +29,6 @@ var parseFormData = function (req, res, next) {
 
 var serializeFormData = function (req, res, next) {
     var dish = {};
-    debugger;
 
     req.body.token = req.fields.userToken[0];
 
@@ -123,10 +122,8 @@ var saveDish = function (req, res, next) {
     req.dish.authorId = req.user._id;
 
     var dish = new Dish(req.dish);
-debugger;
-    dish.save(function (err, d) {
-debugger;
 
+    dish.save(function (err, d) {
         err && res.send(err);
         next();
     });
@@ -151,10 +148,6 @@ router.route('/dishes')
 
         res.json({ message: 'Ok' });
     })
-    //.post(parseFormData, serializeFormData, function (req, res) {
-    //    debugger;
-    //    res.json({ message: 'Ok' });
-    //})
     .delete(function (req, res) {
         Dish.remove({}, function (err) {
             err ? res.send(err) : res.send('OK');

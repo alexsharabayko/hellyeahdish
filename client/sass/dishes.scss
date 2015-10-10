@@ -114,7 +114,9 @@
   height: 100%;
   z-index: 2;
   color: white;
-  font-family: OpenSansItalicLight;
+  font-family: OpenSans;
+  font-style: italic;
+  font-weight: 100;
   line-height: 1.4;
   background-color: rgba(0, 0, 0, 0.4);
   @include transition(all 0.4s);

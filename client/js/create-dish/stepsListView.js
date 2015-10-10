@@ -6,22 +6,24 @@ class StepsItemView extends React.Component {
     render () {
         return (
             <li>
-                <h4>Ingredient {this.props.i + 1}:</h4>
+                <h4>Step {this.props.i + 1}:</h4>
 
-                <a href="javascript:void(0)" onClick={this.props.onRemove}><i className="fa fa-remove"></i></a>
+                <a className="create-dish-remove-item" href="javascript:void(0)" onClick={this.props.onRemove}>
+                    <i className="fa fa-remove"></i>
+                </a>
 
                 <div className="create-dish-field">
-                    <label className="create-dish-label">Step description:</label>
+                    <label className="create-dish-label">Description:</label>
                     <textarea className="create-dish-textarea" name="stepsDescriptions" requred></textarea>
                 </div>
 
                 <div className="create-dish-field left-column">
-                    <label className="create-dish-label">Step start time (in minutes):</label>
+                    <label className="create-dish-label">Start time (in minutes):</label>
                     <input className="create-dish-text" type="number" name="stepsStartTimes" required />
                 </div>
 
                 <div className="create-dish-field right-column">
-                    <label className="create-dish-label">Step image:</label>
+                    <label className="create-dish-label">Image:</label>
                     <FileUploadView name="stepsImages" />
                 </div>
             </li>
@@ -71,9 +73,7 @@ class StepsListView extends React.Component {
     render () {
         return (
             <ul className="create-dish-steps">
-                <h3>Steps</h3>
-
-                <a href="javascript:void(0)" onClick={this.pushElement.bind(this)}><i className="fa fa-plus"></i></a>
+                <h3>Steps <button type="button" onClick={this.pushElement.bind(this)}>Add new</button></h3>
 
                 {this.state.steps.map((step, i) => {
                     return <StepsItemView

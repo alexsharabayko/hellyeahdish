@@ -1,11 +1,6 @@
 @import "mixins";
 
 @font-face {
-  font-family: Anton;
-  src: url(../fonts/Anton/Anton.ttf);
-}
-
-@font-face {
   font-family: ArchivoBlack;
   src: url(../fonts/Archivo_Black/ArchivoBlack-Regular.ttf);
 }
@@ -21,25 +16,33 @@
 }
 
 @font-face {
-  font-family: OpenSans;
-  src: url(../fonts/Open_Sans/OpenSans-Regular.ttf)
-}
-@font-face {
-  font-family: OpenSansBold;
-  src: url(../fonts/Open_Sans/OpenSans-Bold.ttf)
-}
-@font-face {
-  font-family: OpenSansItalicLight;
-  src: url(../fonts/Open_Sans/OpenSans-LightItalic.ttf);
-}
-@font-face {
-  font-family: OpenSansItalic;
-  src: url(../fonts/Open_Sans/OpenSans-Italic.ttf);
+  font-family: FontAwesome;
+  src: url(../fonts/fontawesome-webfont.ttf)
 }
 
 @font-face {
-  font-family: FontAwesome;
-  src: url(../fonts/fontawesome-webfont.ttf)
+  font-family: OpenSans;
+  src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(../fonts/Open_Sans/OpenSans-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(../fonts/Open_Sans/OpenSans-Italic.ttf);
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(../fonts/Open_Sans/OpenSans-LightItalic.ttf);
+  font-weight: 100;
+  font-style: italic;
 }
 
 @mixin smartBorder ($side) {
@@ -67,28 +70,6 @@ body {
   display: none;
 }
 
-.popup-container {
-  width: 0;
-  height: 0;
-}
-
-.popup-wrapper {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-}
-
-.popup {
-  position: absolute;
-  z-index: 1;
-  background-color: #FFF;
-  border-radius: 5px;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.7);
-}
-
 .sign-wrapper {
   display: table;
   width: 100%;
@@ -110,8 +91,9 @@ body {
     padding: 10px 20px;
     margin-bottom: 10px;
     color: white;
-    font-family: OpenSansBold;
+    font-family: OpenSans;
     font-size: 16px;
+    font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
     background: #6c49f1;
@@ -249,6 +231,12 @@ body {
   background-color: #d9534f;
   border: 1px solid #d43f3a;
   border-radius: 5px;
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: #c9302c;
+    border-color: #ac2925;
+  }
 
   input {
     position: absolute;
@@ -259,4 +247,8 @@ body {
     opacity: 0;
     cursor: pointer;
   }
+}
+
+.btn {
+
 }

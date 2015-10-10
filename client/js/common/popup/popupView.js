@@ -57,13 +57,24 @@ class PopupElement extends React.Component {
         }
     }
 
-    componentDidMount() {
-        var el = React.findDOMNode(this);
+    centerPopup () {
+        var wrapperElement = this.refs.wrapper.getDOMNode(),
+            popupElement = this.refs.popup.getDOMNode();
 
+        popupElement.style.left = (wrapperElement.clientWidth / 2 - popupElement.clientWidth / 2) + 'px';
+        popupElement.style.top = (wrapperElement.clientHeight / 2 - popupElement.clientHeight / 2) + 'px';
     }
 
-    static closePopup () {
-        React.unmountComponentAtNode(popupContainer);
+    componentDidMount() {
+        this.props.bounds.center && this.centerPopup();
+    }
+
+    closePopup (event) {
+        React.unmountComponentAtNode(document.querySelector('.popup-container'));
+
+        typeof this.props.onClose === 'function' && this.props.onClose();
+
+        event.stopPropagation();
     }
 
     static stopPopupPropagation (event) {
@@ -76,12 +87,20 @@ class PopupElement extends React.Component {
             bounds = PopupElement.getBounds(this.props.bounds);
 
         return (
-            <div className="popup-wrapper" onClick={PopupElement.closePopup}>
-                <div className="popup" style={bounds} onClick={PopupElement.stopPopupPropagation}>
+            <div className="popup-wrapper" ref="wrapper">
+                <div className="popup" style={bounds} ref="popup">
                     <div className="popup-data">
                         {titleElement}
                         {contentElement}
+
+                        <div className="popup-buttons">
+                            <a href="#/dishes-catalog">View dishes list</a>
+                        </div>
                     </div>
+
+                    <button className="close-popup-button" type="button" onClick={this.closePopup.bind(this)}>
+                        <i className="fa fa-remove"></i>
+                    </button>
                 </div>
             </div>
         );
@@ -90,7 +109,10 @@ class PopupElement extends React.Component {
 
 class PopupView {
     constructor(options) {
-        React.render(<PopupElement bounds={options.bounds} data={options.data}/>, popupContainer);
+        React.render(<PopupElement
+            onClose={options.onClose}
+            bounds={options.bounds}
+            data={options.data}/>, document.querySelector('.popup-container'));
     }
 }
 

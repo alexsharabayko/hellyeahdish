@@ -7,7 +7,7 @@ class CreateDishModel {
 
         formData.append('userToken', user.data.token);
 
-        Ajax.postJSON('/dishes', formData);
+        return Ajax.postJSON('/dishes', formData);
     }
 }
 

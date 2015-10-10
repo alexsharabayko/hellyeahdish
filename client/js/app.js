@@ -27,4 +27,18 @@ user.on('loginFail', () => {
 
 user.loginByToken();
 
+var routes = {
+    '/#/dishes-catalog': DishesCatalogView,
+
+    'default': HomeView
+};
+
+window.addEventListener('hashchange', (event) => {
+    let path = location.href.replace(location.origin, ''),
+        Factory = React.createFactory(routes[path] || routes['default']);
+
+    unmountAll();
+    React.render(Factory(), applicationRootElement);
+});
+
 //React.render(<HomeView />, applicationRootElement);
