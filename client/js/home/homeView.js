@@ -1,7 +1,6 @@
 import React from 'react';
 import HomeIntroView from './homeIntroView';
 import Router from '../common/router/router';
-import DishesView from '../dishes/dishesView';
 
 class HomeView extends React.Component {
     render () {

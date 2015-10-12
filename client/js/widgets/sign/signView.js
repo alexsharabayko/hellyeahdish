@@ -1,5 +1,5 @@
 import React from 'react';
-import user from '../user/userModel';
+import user from '../../common/user/userModel';
 
 class SignView extends React.Component {
     constructor (props) {

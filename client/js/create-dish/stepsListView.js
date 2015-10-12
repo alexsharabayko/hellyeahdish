@@ -1,5 +1,5 @@
 import React from 'react';
-import FileUploadView from '../common/file-upload/fileUploadView';
+import FileUploadView from '../widgets/file-upload/fileUploadView';
 import uid from 'uid';
 
 class StepsItemView extends React.Component {

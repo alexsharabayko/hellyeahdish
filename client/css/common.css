@@ -266,3 +266,23 @@ body {
     bottom: 0;
     opacity: 0;
     cursor: pointer; }
+
+.input-prompt {
+  position: relative; }
+
+.prompts-list {
+  top: 105%;
+  width: 100%;
+  bottom: -2px;
+  z-index: 2;
+  overflow: auto;
+  background-color: white;
+  font-weight: 100;
+  border-radius: 5px; }
+  .prompts-list li {
+    padding: 10px;
+    text-transform: capitalize; }
+    .prompts-list li.active {
+      background-color: tomato; }
+    .prompts-list li:hover {
+      background-color: tomato; }

@@ -61,10 +61,10 @@
 .create-dish-ingredients {
   margin-left: 100px;
   margin-bottom: 40px; }
-  .create-dish-ingredients li {
+  .create-dish-ingredients > li {
     position: relative;
     overflow: hidden; }
-    .create-dish-ingredients li:hover .create-dish-remove-item {
+    .create-dish-ingredients > li:hover .create-dish-remove-item {
       transform: scale(1); }
 
 .create-dish-steps {

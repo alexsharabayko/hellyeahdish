@@ -3,7 +3,7 @@ import GeneralView from './generalView';
 import IngredientsListView from './ingredientsListView';
 import StepsListView from './stepsListView';
 import CreateDishModel from './createDishModel';
-import PopupView from '../common/popup/popupView';
+import PopupView from '../widgets/popup/popupView';
 
 class CreateDishView extends React.Component {
     handleSubmitForm (event) {

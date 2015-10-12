@@ -1,5 +1,5 @@
 import React from 'react';
-import FileUploadView from '../common/file-upload/fileUploadView';
+import FileUploadView from '../widgets/file-upload/fileUploadView';
 
 class GeneralView extends React.Component {
     render () {

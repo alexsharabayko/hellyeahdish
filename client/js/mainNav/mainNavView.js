@@ -1,6 +1,6 @@
 import React from 'react';
-import PopupView from '../common/popup/popupView';
-import SignView from '../common/sign/signView';
+import PopupView from '../widgets/popup/popupView';
+import SignView from '../widgets/sign/signView';
 
 class MainNavView extends React.Component {
     static handleClick (event) {

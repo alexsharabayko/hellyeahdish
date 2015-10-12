@@ -1,7 +1,31 @@
 import React from 'react/addons';
 import uid from 'uid';
 
+import CreateDishModel from './createDishModel';
+import InputPromptView from '../widgets/input-prompt/inputPromptView';
+
 class IngredientsItemView extends React.Component {
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            categoriesElement: null
+        }
+    }
+
+    componentDidMount () {
+        CreateDishModel.getProducts().then((products) => {
+            var names = products.map((product) => {
+                return product.name;
+            });
+
+            this.setState({
+                categoriesElement: <InputPromptView name="ingredientsNames" className="create-dish-text"
+                    data={names} />
+            });
+        });
+    }
+
     render () {
         return (
             <li>
@@ -13,7 +37,7 @@ class IngredientsItemView extends React.Component {
 
                 <div className="create-dish-field left-column">
                     <label className="create-dish-label">Name:</label>
-                    <input className="create-dish-text" type="text" name="ingredientsNames" required />
+                    {this.state.categoriesElement}
                 </div>
 
                 <div className="create-dish-field right-column">
@@ -41,15 +65,23 @@ class IngredientsListView extends React.Component {
     }
 
     pushElement () {
-        this.setState({
-            ingredients: React.addons.update(this.state.ingredients, { $push: [{ name: null, quantity: null, id: uid(10) }] })
+        this.setState((prevState) => {
+            prevState.ingredients = React.addons.update(this.state.ingredients, { $push: [{
+                name: null,
+                quantity: null,
+                id: uid(10)
+            }] });
+
+            return prevState;
         });
     }
 
     removeElement (i) {
-        this.setState({
-            ingredients: React.addons.update(this.state.ingredients, {$splice: [[i, 1]]})
-        })
+        this.setState((prevState) => {
+            prevState.ingredients = React.addons.update(this.state.ingredients, {$splice: [[i, 1]]});
+
+            return prevState;
+        });
     }
 
     render () {

@@ -249,6 +249,31 @@ body {
   }
 }
 
-.btn {
+.input-prompt {
+  position: relative;
+}
 
+.prompts-list {
+  //position: absolute;
+  top: 105%;
+  width: 100%;
+  bottom: -2px;
+  z-index: 2;
+  overflow: auto;
+  background-color: white;
+  font-weight: 100;
+  border-radius: 5px;
+
+  li {
+    padding: 10px;
+    text-transform: capitalize;
+
+    &.active {
+      background-color: tomato;
+    }
+
+    &:hover {
+      background-color: tomato;
+    }
+  }
 }
