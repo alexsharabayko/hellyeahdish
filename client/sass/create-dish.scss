@@ -114,7 +114,8 @@ $mb: 40px;
     text-shadow: $shadowColor;
     overflow: hidden;
 
-    &:hover {
+    &:hover,
+    &:focus {
       button {
         transform: translate(0, 0);
       }

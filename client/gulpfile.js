@@ -32,7 +32,7 @@ gulp.task('webserver', function() {
         }));
 });
 
-gulp.task('default', ['build', 'sass', 'webserver'], function () {
+gulp.task('client', ['build', 'sass', 'webserver'], function () {
     gulp.watch('js/**/*.js', ['build']);
     gulp.watch('sass/**/*.scss', ['sass']);
 });

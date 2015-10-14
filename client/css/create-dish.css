@@ -86,7 +86,8 @@
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
   overflow: hidden; }
-  .create-dish-form h3:hover button {
+  .create-dish-form h3:hover button,
+  .create-dish-form h3:focus button {
     transform: translate(0, 0); }
   .create-dish-form h3 button {
     position: absolute;

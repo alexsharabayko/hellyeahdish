@@ -8,7 +8,7 @@ class InputPromptView extends React.Component {
 
         this.state = {
             prompts: [],
-            activePrompt: null
+            activePrompt: -1
         };
     }
 
@@ -26,57 +26,76 @@ class InputPromptView extends React.Component {
     }
 
     hidePrompts () {
-        this.setState((prevState) => {
-            prevState.prompts = [];
-
-            return prevState;
+        this.setState({
+            prompts: [],
+            activePrompt: -1
         });
     }
 
     navigateToPrompts (event) {
-        if (event.key === 'ArrowDown') {
-            event.preventDefault();
+        var key = event.key;
 
+        if (key === 'ArrowDown' || key === 'ArrowUp') {
             this.setState((prevState) => {
-                var activePrompt = prevState.activePrompt === null ? 0 : prevState.activePrompt + 1;
+                var activePrompt = prevState.activePrompt;
+
+                if (activePrompt < this.state.prompts.length - 1 && key === 'ArrowDown') {
+                    activePrompt += 1;
+                }
+                if (activePrompt > 0 && key === 'ArrowUp') {
+                    activePrompt -= 1;
+                }
 
                 prevState.activePrompt = activePrompt;
 
                 return prevState;
             });
         }
-        if (event.key === 'ArrowUp') {
-            event.preventDefault();
 
-            this.setState((prevState) => {
-                var activePrompt = prevState.activePrompt - 1;
-
-                prevState.activePrompt = activePrompt;
-
-                return prevState;
-            });
+        if (key === 'Tab') {
+            this.hidePrompts();
         }
     }
 
     setValue (event) {
-        this.refs.input.getDOMNode().value = event.target.innerText;
+        if (event.type === 'click' || (event.key && event.key === 'Enter')) {
+            event.preventDefault();
+
+            this.refs.input.getDOMNode().value = event.target.innerText;
+
+            this.refs.input.getDOMNode().focus();
+
+            this.hidePrompts();
+        }
     }
 
     setActiveItem (event) {
+        var target = event.target;
+
         this.setState((prevState) => {
-            prevState.activePrompt = parseInt(event.target.dataset.index, 10);
+            prevState.activePrompt = parseInt(target.dataset.index, 10);
 
             return prevState;
         });
     }
 
+    itemRef (i, li) {
+        if (i === this.state.activePrompt && li) {
+            let el = li.getDOMNode();
+
+            el.tabIndex = 2;
+            el.focus();
+        }
+        else if (li) {
+            li.getDOMNode().tabIndex = -1;
+        }
+    }
+
     renderItems () {
         return this.state.prompts.map((prompt, i) => {
-            var className = i === this.state.activePrompt ? 'active' : null;
-
-            return <li key={i} className={className} data-index={i}
+            return <li key={i} data-index={i} ref={this.itemRef.bind(this, i)}
                        onKeyDown={this.setValue.bind(this)}
-                       omMouseOver={this.setActiveItem.bind(this)}
+                       onMouseOver={this.setActiveItem.bind(this)}
                        onClick={this.setValue.bind(this)}>{prompt}</li>
         });
     }
@@ -87,12 +106,10 @@ class InputPromptView extends React.Component {
             listClassName = this.state.prompts.length ? 'prompts-list' : 'prompts-list hidden';
 
         return (
-            <div className="input-prompt">
+            <div className="input-prompt" onKeyDown={this.navigateToPrompts.bind(this)}>
                 <input type="text"
                        onInput={this.showPrompts.bind(this)}
                        onFocus={this.showPrompts.bind(this)}
-                       //onBlur={this.hidePrompts.bind(this)}
-                       onKeyDown={this.navigateToPrompts.bind(this)}
                        className={inputClassName} name={name} ref="input" />
 
                 <ul className={listClassName}>

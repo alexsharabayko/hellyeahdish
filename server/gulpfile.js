@@ -24,4 +24,4 @@ gulp.task('supervisor-simple', function() {
     } );
 });
 
-gulp.task('default', ['supervisor-simple', 'debug']);
+gulp.task('server', ['supervisor-simple', 'debug']);
