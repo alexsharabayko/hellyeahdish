@@ -273,3 +273,60 @@ body {
     }
   }
 }
+
+.photo-cutter {
+  position: relative;
+  font-size: 0;
+
+  &-image {
+    width: 100%;
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  &-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    font-size: 0;
+    cursor: move;
+
+    &::selection,
+    &::-moz-selection {
+      background-color: transparent;
+    }
+
+    img {
+      &::selection,
+      &::-moz-selection {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &-size {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    cursor: nwse-resize;
+    transition: 0.4s ease-in-out;
+
+    &.active {
+      transform: scale(5);
+      border-radius: 50%;
+    }
+  }
+}

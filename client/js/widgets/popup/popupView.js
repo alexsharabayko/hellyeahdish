@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react/addons';
 
 let popupContainer = document.querySelector('.popup-container');
 
@@ -21,52 +21,72 @@ class PopupElement extends React.Component {
     }
 
     static getBoundsFromOptions(bounds) {
-        var defBounds = {
-            left: 0,
-            top: 0,
-            right: null,
-            bottom: null,
-            width: null,
-            height: null
-        };
+        var keys = Object.keys(bounds),
+            defBounds = {
+                left: null,
+                top: null,
+                right: null,
+                bottom: null,
+                width: null,
+                height: null
+            };
 
-        Object.keys(bounds).forEach((key) => {
-            defBounds[key] = bounds[key] === 'number' ? bounds[key] + 'px' : bounds[key];
-        });
+        if (keys.length) {
+            defBounds.position = 'absolute';
+            keys.forEach((key) => {
+                defBounds[key] = bounds[key];
+            });
+        }
 
         return defBounds;
     }
 
 
-    static getBounds(bounds) {
+    getBounds () {
+        var bounds = this.props.bounds;
+
         return bounds.bindElement ? PopupElement.getBoundsFromElement(bounds) : PopupElement.getBoundsFromOptions(bounds);
     }
 
-    static getContent(content) {
+    getContent () {
+        var content = this.props.data ? this.props.data.content : null;
+
         if (!content) {
             return null;
         }
-
-        if (typeof content === 'string') {
-            return <div className="popup-content">{content}</div>
+        else if (typeof content === 'string') {
+            return <div className="popup-content" ref="content">{content}</div>
+        }
+        else if (React.isValidElement(content)) {
+            return React.addons.cloneWithProps(content, { ref: 'content' });
         }
         else {
-            let Factory = React.createFactory(content);
-
-            return Factory();
+            return React.createFactory(content)({ ref: 'content' });
         }
     }
 
-    centerPopup () {
-        var wrapperElement = this.refs.wrapper.getDOMNode(),
-            popupElement = this.refs.popup.getDOMNode();
+    getButtons () {
+        var buttons = this.props.buttons;
 
-        popupElement.style.left = (wrapperElement.clientWidth / 2 - popupElement.clientWidth / 2) + 'px';
-        popupElement.style.top = (wrapperElement.clientHeight / 2 - popupElement.clientHeight / 2) + 'px';
-    }
-
-    componentDidMount() {
-        this.props.bounds.center && this.centerPopup();
+        if (Array.isArray(buttons)) {
+            return (
+                <div className="popup-buttons">
+                    {buttons.map((button, i) => {
+                        if (button.href) {
+                            return <a href={button.href} className={button.className || null} key={i}
+                                      onClick={button.onClick}>{button.text}</a>
+                        }
+                        else {
+                            return <button className={button.className || null} key={i}
+                                           onClick={button.onClick.bind(this)}>{button.text}</button>
+                        }
+                    })}
+                </div>
+            );
+        }
+        else {
+            return null;
+        }
     }
 
     closePopup (event) {
@@ -74,7 +94,7 @@ class PopupElement extends React.Component {
 
         typeof this.props.onClose === 'function' && this.props.onClose();
 
-        event.stopPropagation();
+        event && event.stopPropagation();
     }
 
     static stopPopupPropagation (event) {
@@ -82,23 +102,16 @@ class PopupElement extends React.Component {
     }
 
     render() {
-        var titleElement = this.props.data.title ? <h3 className="popup-title">{this.props.data.title}</h3> : null,
-            contentElement = PopupElement.getContent(this.props.data.content),
-            bounds = PopupElement.getBounds(this.props.bounds);
-
         return (
             <div className="popup-wrapper" ref="wrapper">
-                <div className="popup" style={bounds} ref="popup">
+                <div className={'popup ' + (this.props.customClass || '')} style={this.getButtons()} ref="popup">
                     <div className="popup-data">
-                        {titleElement}
-                        {contentElement}
-
-                        <div className="popup-buttons">
-                            <a href="#/dishes-catalog">View dishes list</a>
-                        </div>
+                        {this.props.data.title ? <h3 className="popup-title">{this.props.data.title}</h3> : null}
+                        {this.getContent()}
+                        {this.getButtons()}
                     </div>
 
-                    <button className="close-popup-button" type="button" onClick={this.closePopup.bind(this)}>
+                    <button className="popup-button-close" type="button" onClick={this.closePopup.bind(this)}>
                         <i className="fa fa-remove"></i>
                     </button>
                 </div>
@@ -110,7 +123,9 @@ class PopupElement extends React.Component {
 class PopupView {
     constructor(options) {
         React.render(<PopupElement
+            customClass={options.customClass}
             onClose={options.onClose}
+            buttons={options.buttons}
             bounds={options.bounds}
             data={options.data}/>, document.querySelector('.popup-container'));
     }

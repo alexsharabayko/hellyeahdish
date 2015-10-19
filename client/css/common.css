@@ -285,3 +285,43 @@ body {
     .prompts-list li:focus {
       background-color: tomato;
       outline: none; }
+
+.photo-cutter {
+  position: relative;
+  font-size: 0; }
+  .photo-cutter-image {
+    width: 100%; }
+  .photo-cutter-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); }
+  .photo-cutter-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    font-size: 0;
+    cursor: move; }
+    .photo-cutter-area::selection,
+    .photo-cutter-area::-moz-selection {
+      background-color: transparent; }
+    .photo-cutter-area img::selection,
+    .photo-cutter-area img::-moz-selection {
+      background-color: transparent; }
+  .photo-cutter-size {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    cursor: nwse-resize;
+    transition: 0.4s ease-in-out; }
+    .photo-cutter-size.active {
+      transform: scale(5);
+      border-radius: 50%; }

@@ -1,7 +1,21 @@
 import React from 'react';
 import FileUploadView from '../widgets/file-upload/fileUploadView';
+import PhotoCutterView from '../widgets/photo-cutter/photoCutterView';
 
 class GeneralView extends React.Component {
+    onSelectImage (files) {
+        new PhotoCutterView({
+            image: files[0]
+        }).then(this.setBounds.bind(this));
+    }
+
+    setBounds (bounds) {
+        this.refs.mainImageX.getDOMNode().value = bounds.x;
+        this.refs.mainImageY.getDOMNode().value = bounds.y;
+        this.refs.mainImageWidth.getDOMNode().value = bounds.width;
+        this.refs.mainImageHeight.getDOMNode().value = bounds.height;
+    }
+
     render () {
         return (
             <div className="create-dish-general">
@@ -24,7 +38,11 @@ class GeneralView extends React.Component {
 
                 <div className="create-dish-field right-column">
                     <label className="create-dish-label">Main dish image:</label>
-                    <FileUploadView name="mainImage" />
+                    <FileUploadView name="mainImage" onSelect={this.onSelectImage.bind(this)} />
+                    <input type="hidden" name="mainImageX" ref="mainImageX" />
+                    <input type="hidden" name="mainImageY" ref="mainImageY" />
+                    <input type="hidden" name="mainImageWidth" ref="mainImageWidth" />
+                    <input type="hidden" name="mainImageHeight" ref="mainImageHeight" />
                 </div>
             </div>
         );

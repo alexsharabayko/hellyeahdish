@@ -5,20 +5,18 @@ class FileUploadView extends React.Component {
         super(props);
 
         this.state = {
-            files: []
+            fileName: 'Upload'
         };
     }
 
     handleFilesUpload (event) {
-        var files = event.target.files;
-
-        this.setState((prevState) => {
-            prevState.files = files;
-
-            return prevState;
+        this.setState({
+            fileName: event.target.files[0].name
         });
 
-        typeof this.props.onChange === 'function' && this.props.onChange(files);
+        this.forceUpdate();
+
+        this.props.onSelect && this.props.onSelect(event.target.files);
     }
 
     render () {
@@ -26,8 +24,9 @@ class FileUploadView extends React.Component {
 
         return (
             <div className="file-upload">
-                <span>Upload</span>
-                <input type="file" onChange={this.handleFilesUpload.bind(this)} name={name}/>
+                <span>{this.state.fileName}</span>
+                <input type="file" name={name}
+                       onChange={this.handleFilesUpload.bind(this)}/>
             </div>
         );
     }

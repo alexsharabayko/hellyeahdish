@@ -78,6 +78,12 @@ var uploadMainImageToCDN = function (req, res, next) {
         cloudinary.uploader.upload(req.dish.mainImage.path, function (result) {
             req.dish.mainImage = result;
             next();
+        }, {
+            x: req.fields.mainImageX[0],
+            y: req.fields.mainImageY[0],
+            width: req.fields.mainImageWidth[0],
+            height: req.fields.mainImageHeight[0],
+            crop: 'crop'
         });
     }
     else {
