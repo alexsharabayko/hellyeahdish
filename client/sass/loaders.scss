@@ -1,0 +1,117 @@
+// Start: crazy-rhombus
+@mixin place ($n, $x, $y) {
+  transform: translate($x, $y);
+  animation: $n 1s ease-in-out infinite;
+}
+
+@mixin trs ($x, $y) {
+  50% {
+        transform: translate($x, $y);
+      }
+      100% {
+        transform: translate($x, $y);
+      }
+}
+
+@keyframes cra-1 {
+  @include trs(-200%, 0);
+}
+@keyframes cra-2 {
+  @include trs(-200%, -200%);
+}
+@keyframes cra-3 {
+  @include trs(0, -200%);
+}
+@keyframes cra-4 {
+  @include trs(-200%, 200%);
+}
+@keyframes cra-6 {
+  @include trs(200%, -200%);
+}
+@keyframes cra-7 {
+  @include trs(0, 200%);
+}
+@keyframes cra-8 {
+  @include trs(200%, 200%);
+}
+@keyframes cra-9 {
+  @include trs(200%, 0);
+}
+
+.crazy-rhombus {
+  width: 100px;
+  height: 100px;
+  transform: rotate(45deg);
+
+  li {
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    width: 20%;
+    height: 20%;
+    background-color: white;
+    border-radius: 50%;
+
+    &:nth-child(1) {
+      @include place(cra-1, -200%, -200%);
+    }
+    &:nth-child(2) {
+      @include place(cra-2, 0, -200%);
+    }
+    &:nth-child(3) {
+      @include place(cra-3, 200%, -200%);
+    }
+    &:nth-child(4) {
+      @include place(cra-4, -200%, 0);
+    }
+    &:nth-child(5) {
+      @include place(cra-5, 0, 0);
+    }
+    &:nth-child(6) {
+      @include place(cra-6, 200%, 0);
+    }
+    &:nth-child(7) {
+      @include place(cra-7, -200%, 200%);
+    }
+    &:nth-child(8) {
+      @include place(cra-8, 0, 200%);
+    }
+    &:nth-child(9) {
+      @include place(cra-9, 200%, 200%);
+    }
+  }
+}
+// End: crazy-rhombus
+
+// Start: fade-squares
+$fade-square-step: 0.25;
+
+@keyframes heartBit {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fade-squares {
+  li {
+    display: inline-block;
+    margin: 0 15px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    animation: heartBit #{$fade-square-step * 6}s ease-in-out infinite;
+
+    @for $i from 0 through 4 {
+      &:nth-child(#{$i + 1}) {
+        animation-delay: #{$i * $fade-square-step}s;
+      }
+    }
+  }
+}
+// End: fade-squares

@@ -1,184 +1,52 @@
 @-webkit-keyframes scaleIn {
   0% {
-    -moz-transform: scale(0);
-    -o-transform: scale(0);
-    -ms-transform: scale(0);
     -webkit-transform: scale(0);
     transform: scale(0); }
   50% {
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -ms-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1); }
   60% {
-    -moz-transform: scale(0.9);
-    -o-transform: scale(0.9);
-    -ms-transform: scale(0.9);
     -webkit-transform: scale(0.9);
     transform: scale(0.9); }
   100% {
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
-    -webkit-transform: scale(1);
-    transform: scale(1); } }
-
-@-moz-keyframes scaleIn {
-  0% {
-    -moz-transform: scale(0);
-    -o-transform: scale(0);
-    -ms-transform: scale(0);
-    -webkit-transform: scale(0);
-    transform: scale(0); }
-  50% {
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1); }
-  60% {
-    -moz-transform: scale(0.9);
-    -o-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9); }
-  100% {
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
-    -webkit-transform: scale(1);
-    transform: scale(1); } }
-
-@-ms-keyframes scaleIn {
-  0% {
-    -moz-transform: scale(0);
-    -o-transform: scale(0);
-    -ms-transform: scale(0);
-    -webkit-transform: scale(0);
-    transform: scale(0); }
-  50% {
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1); }
-  60% {
-    -moz-transform: scale(0.9);
-    -o-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9); }
-  100% {
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
     -webkit-transform: scale(1);
     transform: scale(1); } }
 
 @keyframes scaleIn {
   0% {
-    -moz-transform: scale(0);
-    -o-transform: scale(0);
-    -ms-transform: scale(0);
     -webkit-transform: scale(0);
     transform: scale(0); }
   50% {
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -ms-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1); }
   60% {
-    -moz-transform: scale(0.9);
-    -o-transform: scale(0.9);
-    -ms-transform: scale(0.9);
     -webkit-transform: scale(0.9);
     transform: scale(0.9); }
   100% {
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
     -webkit-transform: scale(1);
     transform: scale(1); } }
 
 @-webkit-keyframes suchAsTor {
   0% {
-    -moz-transform: translate(0, -500px);
-    -o-transform: translate(0, -500px);
-    -ms-transform: translate(0, -500px);
     -webkit-transform: translate(0, -500px);
     transform: translate(0, -500px);
     opacity: 0; }
   100% {
-    -moz-transform: translate(0, 0);
-    -o-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-    opacity: 1; } }
-
-@-moz-keyframes suchAsTor {
-  0% {
-    -moz-transform: translate(0, -500px);
-    -o-transform: translate(0, -500px);
-    -ms-transform: translate(0, -500px);
-    -webkit-transform: translate(0, -500px);
-    transform: translate(0, -500px);
-    opacity: 0; }
-  100% {
-    -moz-transform: translate(0, 0);
-    -o-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-    opacity: 1; } }
-
-@-ms-keyframes suchAsTor {
-  0% {
-    -moz-transform: translate(0, -500px);
-    -o-transform: translate(0, -500px);
-    -ms-transform: translate(0, -500px);
-    -webkit-transform: translate(0, -500px);
-    transform: translate(0, -500px);
-    opacity: 0; }
-  100% {
-    -moz-transform: translate(0, 0);
-    -o-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
     opacity: 1; } }
 
 @keyframes suchAsTor {
   0% {
-    -moz-transform: translate(0, -500px);
-    -o-transform: translate(0, -500px);
-    -ms-transform: translate(0, -500px);
     -webkit-transform: translate(0, -500px);
     transform: translate(0, -500px);
     opacity: 0; }
   100% {
-    -moz-transform: translate(0, 0);
-    -o-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
     opacity: 1; } }
 
 @-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@-ms-keyframes fadeIn {
   0% {
     opacity: 0; }
   100% {
@@ -201,28 +69,6 @@
     width: 50%;
     height: 100%; } }
 
-@-moz-keyframes smartBorderIn {
-  0% {
-    width: 0;
-    height: 0; }
-  50% {
-    width: 0;
-    height: 100%; }
-  100% {
-    width: 50%;
-    height: 100%; } }
-
-@-ms-keyframes smartBorderIn {
-  0% {
-    width: 0;
-    height: 0; }
-  50% {
-    width: 0;
-    height: 100%; }
-  100% {
-    width: 50%;
-    height: 100%; } }
-
 @keyframes smartBorderIn {
   0% {
     width: 0;
@@ -235,28 +81,6 @@
     height: 100%; } }
 
 @-webkit-keyframes smartBorderOut {
-  0% {
-    width: 50%;
-    height: 100%; }
-  50% {
-    width: 0;
-    height: 100%; }
-  100% {
-    width: 0;
-    height: 0; } }
-
-@-moz-keyframes smartBorderOut {
-  0% {
-    width: 50%;
-    height: 100%; }
-  50% {
-    width: 0;
-    height: 100%; }
-  100% {
-    width: 0;
-    height: 0; } }
-
-@-ms-keyframes smartBorderOut {
   0% {
     width: 50%;
     height: 100%; }
@@ -303,8 +127,6 @@
       top: 0;
       left: 40%;
       background-color: rgba(0, 0, 0, 0.4);
-      -moz-transition: all 0.4s;
-      -o-transition: all 0.4s;
       -webkit-transition: all 0.4s;
       transition: all 0.4s; }
       .dishes-categories-list li .hover-text:hover {
@@ -342,8 +164,6 @@
     padding: 15px;
     border-bottom: 1px solid #d0d0d0;
     cursor: pointer;
-    -moz-transition: all 0.4s;
-    -o-transition: all 0.4s;
     -webkit-transition: all 0.4s;
     transition: all 0.4s; }
     .dishes-add-list li:last-child {
@@ -403,8 +223,6 @@
   font-size: 24px;
   text-transform: uppercase;
   background-color: rgba(255, 255, 255, 0.6);
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
   transition: all 0.5s; }
   .dl-image-hover:hover {
@@ -433,14 +251,6 @@
     -webkit-animation-duration: 0.5s;
     -webkit-animation-name: fadeIn;
     -webkit-animation-fill-mode: forwards;
-    -moz-animation-delay: 0.5s;
-    -moz-animation-duration: 0.5s;
-    -moz-animation-name: fadeIn;
-    -moz-animation-fill-mode: forwards;
-    -o-animation-delay: 0.5s;
-    -o-animation-duration: 0.5s;
-    -o-animation-name: fadeIn;
-    -o-animation-fill-mode: forwards;
     animation-delay: 0.5s;
     animation-duration: 0.5s;
     animation-name: fadeIn;
@@ -521,8 +331,6 @@
   color: white;
   font-size: 20px;
   text-transform: uppercase;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
   transition: all 0.5s; }
   .my-dishes:hover {
@@ -535,8 +343,6 @@
   font-size: 20px;
   text-transform: uppercase;
   border: 3px solid #3b3b3b;
-  -moz-transition: all 1s;
-  -o-transition: all 1s;
   -webkit-transition: all 1s;
   transition: all 1s; }
   .create-dish-link:hover {

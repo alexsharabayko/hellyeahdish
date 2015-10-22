@@ -4,25 +4,30 @@ import IngredientsListView from './ingredientsListView';
 import StepsListView from './stepsListView';
 import CreateDishModel from './createDishModel';
 import PopupView from '../widgets/popup/popupView';
+import LoaderView from '../widgets/loader/loaderView';
 
 class CreateDishView extends React.Component {
     handleSubmitForm (event) {
+        var loader = new LoaderView();
+
         event.preventDefault();
 
-        CreateDishModel.createDish(event.target).then((response) => {
-            new PopupView({
-                bounds: {
-                    center: true
-                },
-                data: {
-                    title: 'Success!',
-                    content: 'Congrats! You successfully created a new dish! You can continue to creating you own kitchen or see lists of dishes.'
-                },
-                onClose: function () {
-                    this.refs.form.getDOMNode().reset();
-                }.bind(this)
+        CreateDishModel.createDish(event.target)
+            .then((response) => {
+                new PopupView({
+                    bounds: {},
+                    data: {
+                        title: 'Success!',
+                        content: 'Congrats! You successfully created a new dish! You can continue to creating you own kitchen or see lists of dishes.'
+                    },
+                    onClose: function () {
+                        this.refs.form.getDOMNode().reset();
+                    }.bind(this)
+                });
+            })
+            .then(() => {
+                loader.close();
             });
-        });
     }
 
     render () {

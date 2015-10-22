@@ -1,5 +1,6 @@
 @import "mixins";
 @import "animations";
+@import "loaders";
 
 .popup-container {
   width: 0;
@@ -37,7 +38,7 @@
   background-color: #0ea2e2;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.4);
   transform: scale(0);
-  @include animation(scaleIn, 0.5s, 0, forwards);
+  animation: scaleIn 0.5s forwards;
 
   &:before {
     content: '';
@@ -132,6 +133,23 @@
         border-radius: 0;
         outline: none;
       }
+    }
+  }
+}
+
+.loader.popup {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  box-shadow: none;
+  transform: scale(1);
+  animation: none;
+
+  .popup {
+    &-title,
+    &-button-close,
+    &-buttons {
+      display: none;
     }
   }
 }

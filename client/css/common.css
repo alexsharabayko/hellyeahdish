@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: OpenSans;
-  src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
+  src: url(../fonts/Open_Sans/opensans-regular-webfont.ttf) format("truetype");
   font-weight: 400;
   font-style: normal; }
 
@@ -129,14 +129,6 @@ body {
   -webkit-animation-duration: 0.4s;
   -webkit-animation-name: fadeIn;
   -webkit-animation-fill-mode: forwards;
-  -moz-animation-delay: 1.8s;
-  -moz-animation-duration: 0.4s;
-  -moz-animation-name: fadeIn;
-  -moz-animation-fill-mode: forwards;
-  -o-animation-delay: 1.8s;
-  -o-animation-duration: 0.4s;
-  -o-animation-name: fadeIn;
-  -o-animation-fill-mode: forwards;
   animation-delay: 1.8s;
   animation-duration: 0.4s;
   animation-name: fadeIn;
@@ -190,14 +182,6 @@ body {
     -webkit-animation-duration: 0.5s;
     -webkit-animation-name: smartBorderOut;
     -webkit-animation-fill-mode: forwards;
-    -moz-animation-delay: 0s;
-    -moz-animation-duration: 0.5s;
-    -moz-animation-name: smartBorderOut;
-    -moz-animation-fill-mode: forwards;
-    -o-animation-delay: 0s;
-    -o-animation-duration: 0.5s;
-    -o-animation-name: smartBorderOut;
-    -o-animation-fill-mode: forwards;
     animation-delay: 0s;
     animation-duration: 0.5s;
     animation-name: smartBorderOut;
@@ -213,14 +197,6 @@ body {
     -webkit-animation-duration: 0.5s;
     -webkit-animation-name: smartBorderOut;
     -webkit-animation-fill-mode: forwards;
-    -moz-animation-delay: 0s;
-    -moz-animation-duration: 0.5s;
-    -moz-animation-name: smartBorderOut;
-    -moz-animation-fill-mode: forwards;
-    -o-animation-delay: 0s;
-    -o-animation-duration: 0.5s;
-    -o-animation-name: smartBorderOut;
-    -o-animation-fill-mode: forwards;
     animation-delay: 0s;
     animation-duration: 0.5s;
     animation-name: smartBorderOut;
@@ -232,14 +208,6 @@ body {
     -webkit-animation-duration: 0.5s;
     -webkit-animation-name: smartBorderIn;
     -webkit-animation-fill-mode: forwards;
-    -moz-animation-delay: 0s;
-    -moz-animation-duration: 0.5s;
-    -moz-animation-name: smartBorderIn;
-    -moz-animation-fill-mode: forwards;
-    -o-animation-delay: 0s;
-    -o-animation-duration: 0.5s;
-    -o-animation-name: smartBorderIn;
-    -o-animation-fill-mode: forwards;
     animation-delay: 0s;
     animation-duration: 0.5s;
     animation-name: smartBorderIn;

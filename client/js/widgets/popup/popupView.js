@@ -1,6 +1,7 @@
 import React from 'react/addons';
 
-let popupContainer = document.querySelector('.popup-container');
+let popupContainer = document.querySelector('.popup-container'),
+    component = null;
 
 class PopupElement extends React.Component {
     constructor(props) {
@@ -45,7 +46,12 @@ class PopupElement extends React.Component {
     getBounds () {
         var bounds = this.props.bounds;
 
-        return bounds.bindElement ? PopupElement.getBoundsFromElement(bounds) : PopupElement.getBoundsFromOptions(bounds);
+        if (bounds) {
+            return bounds.bindElement ? PopupElement.getBoundsFromElement(bounds) : PopupElement.getBoundsFromOptions(bounds);
+        }
+        else {
+            return null;
+        }
     }
 
     getContent () {
@@ -122,12 +128,17 @@ class PopupElement extends React.Component {
 
 class PopupView {
     constructor(options) {
-        React.render(<PopupElement
+        component = React.render(<PopupElement
             customClass={options.customClass}
             onClose={options.onClose}
             buttons={options.buttons}
             bounds={options.bounds}
             data={options.data}/>, document.querySelector('.popup-container'));
+    }
+
+    close () {
+        component.closePopup();
+        component = null;
     }
 }
 
