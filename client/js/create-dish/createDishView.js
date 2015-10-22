@@ -13,20 +13,25 @@ class CreateDishView extends React.Component {
         event.preventDefault();
 
         CreateDishModel.createDish(event.target)
+            .then(() => {
+                loader.close();
+            })
             .then((response) => {
                 new PopupView({
-                    bounds: {},
                     data: {
                         title: 'Success!',
                         content: 'Congrats! You successfully created a new dish! You can continue to creating you own kitchen or see lists of dishes.'
                     },
+                    buttons: [
+                        {
+                            href: '/dishes-catalog',
+                            text: 'View catalog'
+                        }
+                    ],
                     onClose: function () {
                         this.refs.form.getDOMNode().reset();
                     }.bind(this)
                 });
-            })
-            .then(() => {
-                loader.close();
             });
     }
 
