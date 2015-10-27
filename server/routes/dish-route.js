@@ -38,6 +38,10 @@ var serializeFormData = function (req, res, next) {
 
     dish.mainImage = req.files.mainImage[0].size ? req.files.mainImage[0] : null;
 
+    dish.categoryId = req.fields.category[0];
+    dish.kitchenId = req.fields.kitchen[0];
+    dish.preferenceId = req.fields.preference[0];
+
     dish.ingredients = [];
     req.fields.ingredientsNames.forEach(function (ingredientName, i) {
         dish.ingredients[i] = {
@@ -133,13 +137,6 @@ var saveDish = function (req, res, next) {
         err && res.send(err);
         next();
     });
-
-
-    //req.data.save(function (err, dish) {
-    //    err && res.send(err);
-    //
-    //    next();
-    //});
 };
 
 router.route('/dishes')

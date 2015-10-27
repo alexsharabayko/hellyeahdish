@@ -40,6 +40,8 @@
 
 body {
   font-family: OpenSans; }
+  body.popup-opened {
+    overflow: hidden; }
 
 .cell {
   display: table-cell;
@@ -230,9 +232,9 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
     bottom: 0;
     opacity: 0;
+    width: 100%;
     cursor: pointer; }
 
 .input-prompt {

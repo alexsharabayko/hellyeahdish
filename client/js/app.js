@@ -24,11 +24,19 @@ class Router {
     }
 
     initRoutes () {
-        this.routes = {
-            '/dishes-catalog': DishesCatalogView,
-            '/create-dish': CreateDishView,
-            '/': HomeView
-        }
+        var routes = {
+            '/dishes-catalog': {
+                view: DishesCatalogView
+            },
+            '/create-dish': {
+                view: CreateDishView
+            },
+            '/': {
+                view: HomeView
+            }
+        };
+
+        this.routes = Object.freeze(routes);
     }
 
     bindListeners () {
@@ -49,16 +57,29 @@ class Router {
     }
 
     handleRoute () {
-        var Factory = React.createFactory(this.routes[location.pathname] || '/');
+        var Factory = React.createFactory((this.routes[location.pathname] || this.routes['/']).view);
 
         unmountAll();
-        React.render(Factory(), applicationRootElement);
+        React.render(Factory({ urlParams: this.getUrlParams() }), applicationRootElement);
     }
 
     navigate (path) {
         window.history.pushState(null, null, path || '/');
 
         this.handleRoute();
+    }
+
+    getUrlParams () {
+        var paramsStrings = window.location.search ? window.location.search.slice(1).split('&') : [],
+            o = {};
+
+        paramsStrings.forEach((str) => {
+            var arr = str.split('=');
+
+            o[arr[0]] = arr[1];
+        });
+
+        return o;
     }
 }
 

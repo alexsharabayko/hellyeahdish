@@ -2,6 +2,7 @@ import React from 'react';
 import DishesCatalogModel from './dishesCatalogModel';
 import DishesListView from './dishesListView';
 import DishesAddPropsView from './dishesAddPropsView';
+import config from '../config';
 
 class DishesCategoriesView extends React.Component {
     constructor (props) {
@@ -15,11 +16,13 @@ class DishesCategoriesView extends React.Component {
     componentDidMount () {
         DishesCatalogModel.getProperties().then((data) => {
             var categories = data.categories.map((category, i) => {
+                var href = `/dishes-catalog?category=${category._id}`;
+
                 return (
                     <li key={i}>
                         <img src={category.url} alt={category.name}/>
                         <div className="hover-text">
-                            <a className="cell" href="javascript:void(0)">{category.name}</a>
+                            <a className="cell" href={href}>{category.name}</a>
                         </div>
                     </li>
                 )

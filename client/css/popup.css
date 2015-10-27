@@ -307,12 +307,7 @@
     text-decoration: none;
     background-color: #0ea2e2; }
   .photo-cutter-popup.popup .popup-button-close {
-    right: 2px;
-    top: 2px;
-    color: white;
-    border: none;
-    box-shadow: none;
-    background: transparent; }
+    display: none; }
   .photo-cutter-popup.popup .popup-buttons button,
   .photo-cutter-popup.popup .popup-buttons a {
     width: 100%;

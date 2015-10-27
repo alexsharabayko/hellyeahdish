@@ -30,7 +30,10 @@ var DishSchema = new Schema({
     mainImage: Object,
     authorId: {
         type: Schema.Types.ObjectId
-    }
+    },
+    categoryId: Schema.Types.ObjectId,
+    kitchenId: Schema.Types.ObjectId,
+    preferenceId: Schema.Types.ObjectId
 });
 
 DishSchema.methods.toJSON = function () {
@@ -46,7 +49,11 @@ DishSchema.methods.toJSON = function () {
                 startTime: step.startTime,
                 imageUrl: step.image ? step.image.url : null
             }
-        })
+        }),
+        authorId: this.authorId,
+        categoryId: this.categoryId,
+        kitchenId: this.kitchenId,
+        preferenceId: this.preferenceId
     };
 };
 

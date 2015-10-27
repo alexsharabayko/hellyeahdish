@@ -40,6 +40,8 @@
 
 body {
   font-family: OpenSans; }
+  body.popup-opened {
+    overflow: hidden; }
 
 .cell {
   display: table-cell;
@@ -230,9 +232,9 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
     bottom: 0;
     opacity: 0;
+    width: 100%;
     cursor: pointer; }
 
 .input-prompt {
@@ -603,12 +605,7 @@ body {
     text-decoration: none;
     background-color: #0ea2e2; }
   .photo-cutter-popup.popup .popup-button-close {
-    right: 2px;
-    top: 2px;
-    color: white;
-    border: none;
-    box-shadow: none;
-    background: transparent; }
+    display: none; }
   .photo-cutter-popup.popup .popup-buttons button,
   .photo-cutter-popup.popup .popup-buttons a {
     width: 100%;
@@ -1648,6 +1645,27 @@ body {
     width: 60%;
     background-color: #286090;
     border-color: #204d74; }
+
+.create-dish-select {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px; }
+  .create-dish-select:after {
+    content: '';
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    border: 7px solid transparent;
+    border-top-color: black; }
+  .create-dish-select select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #FFF;
+    font-size: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none; }
 
 html,
 body,

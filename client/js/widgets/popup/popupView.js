@@ -100,6 +100,8 @@ class PopupElement extends React.Component {
 
         typeof this.props.onClose === 'function' && this.props.onClose();
 
+        document.body.classList.remove('popup-opened');
+
         event && event.stopPropagation();
     }
 
@@ -108,6 +110,9 @@ class PopupElement extends React.Component {
     }
 
     render() {
+        document.body.scrollTop = 0;
+        document.body.classList.add('popup-opened');
+
         return (
             <div className="popup-wrapper" ref="wrapper">
                 <div className={'popup ' + (this.props.customClass || '')} style={this.getButtons()} ref="popup">

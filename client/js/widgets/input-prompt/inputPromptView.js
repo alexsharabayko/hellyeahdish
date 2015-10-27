@@ -15,7 +15,7 @@ class InputPromptView extends React.Component {
     showPrompts (event) {
         var criteria = event.target.value,
             prompts = criteria ? this.props.data.filter((item, i) => {
-                return item.indexOf(criteria.toLowerCase()) === 0;
+                return item.toLowerCase().indexOf(criteria.toLowerCase()) === 0;
             }).slice(0, 5) : [];
 
         this.setState((prevState) => {
