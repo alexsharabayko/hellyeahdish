@@ -1,13 +1,15 @@
-class Config {
+class UrlUtil {
     constructor () {
         this.routes = {
             dishesCatalog: '/dishes-catalog',
             createDish: '/create-dish',
             home: '/'
-        }
+        };
     }
+
+
 }
 
-var config = new Config();
+var util = new UrlUtil();
 
-export default config;
+export default util;

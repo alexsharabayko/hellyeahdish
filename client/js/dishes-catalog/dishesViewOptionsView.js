@@ -9,11 +9,11 @@ class DishesViewOptionsView extends React.Component {
         this.state = {
             gridItems: [
                 {
-                    text: 'Grid',
+                    name: 'grid',
                     className: 'fa fa-th-large'
                 },
                 {
-                    text: 'List',
+                    name: 'list',
                     className: 'fa fa-th-list'
                 }
             ],
@@ -34,24 +34,14 @@ class DishesViewOptionsView extends React.Component {
 
     renderGridsItems() {
         return this.state.gridItems.map((item, i) => {
-            var classes = Addons.classSet({
-                    'item': true,
-                    'active': i === this.state.activeGridItem
-                });
+            var className = `item ${item.name === this.props.view ? 'active' : ''}`,
+                href = `?view=${item.name}`;
 
             return (
-                <span className={classes} onClick={this.changeGrid.bind(this, i)} key={i}>
-                    <i className={item.className}></i>{item.text}
-                </span>
+                <a className={className} key={i} href={href}>
+                    <i className={item.className}></i>{item.name}
+                </a>
             );
-        });
-    }
-
-    changeGrid(i, event) {
-        this.setState((prevState) => {
-            prevState.activeGridItem = i;
-
-            return prevState;
         });
     }
     

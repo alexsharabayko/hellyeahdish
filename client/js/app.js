@@ -41,10 +41,16 @@ class Router {
 
     bindListeners () {
         document.addEventListener('click', (event) => {
-            if (event.target.href) {
+            var t = event.target;
+
+            while (t !== document.body && !t.href) {
+                t = t.parentElement;
+            }
+
+            if (t.href) {
                 event.preventDefault();
 
-                this.navigate(event.target.getAttribute('href'));
+                this.navigate(t.getAttribute('href'));
             }
         }, true);
 
@@ -52,7 +58,7 @@ class Router {
     }
 
     bindToUser () {
-        user.on('loginSuccess', this.navigate.bind(this, '/create-dish'));
+        user.on('loginSuccess', this.navigate.bind(this, '/dishes-catalog'));
         user.on('loginFail', this.navigate.bind(this, '/'));
     }
 

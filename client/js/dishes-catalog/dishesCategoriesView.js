@@ -2,7 +2,6 @@ import React from 'react';
 import DishesCatalogModel from './dishesCatalogModel';
 import DishesListView from './dishesListView';
 import DishesAddPropsView from './dishesAddPropsView';
-import config from '../config';
 
 class DishesCategoriesView extends React.Component {
     constructor (props) {
