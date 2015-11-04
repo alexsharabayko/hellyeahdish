@@ -1,6 +1,7 @@
 import React from 'react';
-import Addons from 'react-addons';
 import DishesCatalogModel from './dishesCatalogModel';
+import urlUtil from '../common/url-util/urlUtil';
+import router from '../common/router/router';
 
 class DishesViewOptionsView extends React.Component {
     constructor(props) {
@@ -15,6 +16,25 @@ class DishesViewOptionsView extends React.Component {
                 {
                     name: 'list',
                     className: 'fa fa-th-list'
+                }
+            ],
+
+            sortItems: [
+                {
+                    name: 'Product name: A to Z',
+                    value: 'name'
+                },
+                {
+                    name: 'Product name: Z to A',
+                    value: '-name'
+                },
+                {
+                    name: 'Total time:  ascending',
+                    value: 'totalTime'
+                },
+                {
+                    name: 'Total time: descending',
+                    value: '-totalTime'
                 }
             ],
 
@@ -34,15 +54,18 @@ class DishesViewOptionsView extends React.Component {
 
     renderGridsItems() {
         return this.state.gridItems.map((item, i) => {
-            var className = `item ${item.name === this.props.view ? 'active' : ''}`,
-                href = `?view=${item.name}`;
+            var className = `item ${item.name === this.props.view ? 'active' : ''}`;
 
             return (
-                <a className={className} key={i} href={href}>
+                <a className={className} key={i} href={urlUtil.createRelativeUrl({ view: item.name })}>
                     <i className={item.className}></i>{item.name}
                 </a>
             );
         });
+    }
+
+    handleSorting (event) {
+        router.navigate(urlUtil.createRelativeUrl(event.target.value));
     }
     
     renderSortingOptions () {
@@ -50,11 +73,16 @@ class DishesViewOptionsView extends React.Component {
             <div className="dishes-sorting-options">
                 <h6>Sort by:</h6>
 
-                <div className="dishes-catalog-select">
+                <div className="dishes-catalog-select" onChange={this.handleSorting.bind(this)}>
                     <select>
-                        <option value="a-z">Product name: A to Z</option>
-                        <option value="z-a">Product name: Z to A</option>
-                        <option value="rating">Most popular first</option>
+                        {
+                            this.state.sortItems.map((item, i) => {
+                                var val = `?sort=${item.value}`;
+
+                                return <option value={val} key={i} selected={item.value === this.props.sort}>
+                                    {item.name}</option>
+                            })
+                        }
                     </select>
                 </div>
             </div>

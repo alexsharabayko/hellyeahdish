@@ -139,16 +139,48 @@ var saveDish = function (req, res, next) {
     });
 };
 
+var createDishQuery = function (req, res, next) {
+    var parameters = ['kitchenId', 'categoryId', 'preferenceId'],
+        q = {};
+
+    parameters.forEach(function (param) {
+        if (req.query[param]) {
+            q[param] = req.query[param];
+        }
+    });
+
+    req.dishQuery = q;
+    next();
+};
+
+var createDishSort = function (req, res, next) {
+    req.dishSort = req.query.sort || 'name';
+    next();
+};
+
+var createDishSelect = function (req, res, next) {
+    req.dishSelect = {
+        name: 1,
+        description: 1,
+        'mainImage.url': 1,
+        totalTime: Number,
+        authorId: 1,
+        categoryId: 1,
+        kitchenId: 1,
+        preferenceId: 1
+    };
+    next();
+};
+
 router.route('/dishes')
-    .get(function (req, res) {
-        Dish.find({}, function (err, dishes) {
+    .get(createDishQuery, createDishSort, createDishSelect, function (req, res) {
+        Dish.find(req.dishQuery).sort(req.dishSort).select(req.dishSelect).exec(function (err, dishes) {
             err && res.send(err);
 
             res.json(dishes);
         });
     })
     .post(parseFormData, serializeFormData, getUserByToken, uploadMainImageToCDN, UploadStepsImagesToCDN, saveDish, function (req, res) {
-
         res.json({ message: 'Ok' });
     })
     .delete(function (req, res) {

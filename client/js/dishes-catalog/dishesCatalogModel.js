@@ -4,7 +4,7 @@ var props = null;
 
 class DishesCatalogModel {
     static getDishes () {
-        return Ajax.getJSON('/dishes');
+        return Ajax.getJSON('/dishes' + window.location.search);
     }
 
     static getProperties () {

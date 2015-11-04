@@ -125,7 +125,8 @@ router.route('/loginByToken').post(function (req, res) {
                 lastName: user.lastName,
                 level: user.level,
                 createdAt: user.createdAt,
-                updatedAt: user.updatedAt
+                updatedAt: user.updatedAt,
+                id: user._id
             });
         }
         else {

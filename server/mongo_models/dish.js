@@ -36,25 +36,4 @@ var DishSchema = new Schema({
     preferenceId: Schema.Types.ObjectId
 });
 
-DishSchema.methods.toJSON = function () {
-    return {
-        name: this.name,
-        description: this.description,
-        mainImageUrl: this.mainImage.url ? this.mainImage.url : null,
-        totalTime: this.totalTime,
-        ingredients: this.ingredients,
-        steps: this.steps.map(function (step) {
-            return {
-                description: step.description,
-                startTime: step.startTime,
-                imageUrl: step.image ? step.image.url : null
-            }
-        }),
-        authorId: this.authorId,
-        categoryId: this.categoryId,
-        kitchenId: this.kitchenId,
-        preferenceId: this.preferenceId
-    };
-};
-
 module.exports = mongoose.model('Dish', DishSchema);

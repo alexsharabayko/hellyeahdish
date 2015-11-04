@@ -49,7 +49,7 @@ class StepsListView extends React.Component {
 
     renderItems () {
         return this.state.steps.map((step, i) => {
-            return <StepsItemView step={step} key={i} onChange={this.handleItemChange.bind(this, i)} />;
+            return <StepsItemView step={step} key={i} />;
         });
     }
 

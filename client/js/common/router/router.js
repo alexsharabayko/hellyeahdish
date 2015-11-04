@@ -1,36 +1,94 @@
-class RouterClass {
+import React from 'react';
+
+import user from '../user/userModel';
+
+import HomeView from '../../home/homeView';
+import DishesCatalogView from '../../dishes-catalog/dishesCatalogView';
+import CreateDishView from '../../create-dish/createDishView';
+
+var applicationRootElement = document.querySelector('.application-root'),
+    popupContainerElement = document.querySelector('.popup-container');
+
+var unmountAll = function () {
+    React.unmountComponentAtNode(applicationRootElement);
+    React.unmountComponentAtNode(popupContainerElement);
+};
+
+class Router {
     constructor () {
-        this.routes = {};
+        this.initRoutes();
+        this.bindListeners();
+        this.bindToUser();
+
+        user.loginByToken();
     }
 
-    start () {
-        if (!this.isStarted) {
-            window.addEventListener('hashchange', this.routeHandler.bind(this));
-            window.addEventListener('load', this.routeHandler.bind(this));
+    initRoutes () {
+        var routes = {
+            '/dishes-catalog': {
+                view: DishesCatalogView
+            },
+            '/create-dish': {
+                view: CreateDishView
+            },
+            '/': {
+                view: HomeView
+            }
+        };
 
-            this.isStarted = true;
-        }
+        this.routes = Object.freeze(routes);
     }
 
-    addRoutes (routes) {
-        this.start();
+    bindListeners () {
+        document.addEventListener('click', (event) => {
+            var t = event.target;
 
-        Object.keys(routes).forEach((key) => {
-            this.routes[key] = routes[key]
-        }, this);
+            while (t !== document.body && !t.href) {
+                t = t.parentElement;
+            }
+
+            if (t.href) {
+                event.preventDefault();
+
+                this.navigate(t.getAttribute('href'));
+            }
+        }, true);
+
+        window.addEventListener('popstate', this.handleRoute.bind(this));
     }
 
-    doRoute (route) {
-        if (typeof this.routes[route] === 'function') {
-            this.routes[route].call(this);
-        }
+    bindToUser () {
+        user.on('loginSuccess', this.navigate.bind(this, '/dishes-catalog'));
+        user.on('loginFail', this.navigate.bind(this, '/'));
     }
 
-    routeHandler () {
-        this.doRoute(location.href.replace(location.origin + '/', ''));
+    handleRoute () {
+        var Factory = React.createFactory((this.routes[location.pathname] || this.routes['/']).view);
+
+        unmountAll();
+        React.render(Factory({ urlParams: this.getUrlParams() }), applicationRootElement);
+    }
+
+    navigate (path) {
+        window.history.pushState(null, null, path || '/');
+
+        this.handleRoute();
+    }
+
+    getUrlParams () {
+        var paramsStrings = window.location.search ? window.location.search.slice(1).split('&') : [],
+            o = {};
+
+        paramsStrings.forEach((str) => {
+            var arr = str.split('=');
+
+            o[arr[0]] = arr[1];
+        });
+
+        return o;
     }
 }
 
-var Router = new RouterClass();
+var router = new Router();
 
-export default Router;
+export default router;

@@ -7,7 +7,7 @@ class DishesGridItemView extends React.Component {
 
         return (
             <li className="dishes-list-item">
-                <img src={dish.mainImageUrl} alt={dish.name}/>
+                <img src={dish.mainImage.url} alt={dish.name}/>
 
                 <div className="dl-image-hover">
                     <div className="inline-block">
@@ -57,7 +57,7 @@ class DishesListItemView extends React.Component {
 
         return (
             <li className="dishes-list-li">
-                <img src={dish.mainImageUrl} alt={dish.name}/>
+                <img src={dish.mainImage.url} alt={dish.name}/>
 
                 <div className="dishes-list-linfo">
                     <h6>{dish.name}</h6>

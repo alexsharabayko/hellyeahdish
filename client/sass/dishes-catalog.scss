@@ -3,6 +3,7 @@
 
 $smartButtonColor: #3b3b3b;
 
+
 .dishes-categories-list {
   padding: 20px;
   overflow: hidden;
@@ -60,9 +61,7 @@ $smartButtonColor: #3b3b3b;
 }
 
 .dishes-add-props {
-  position: absolute;
-  top: 0;
-  left: 0;
+  float: left;
   width: 300px;
   padding-top: 10px;
 }
@@ -88,7 +87,8 @@ $smartButtonColor: #3b3b3b;
       border-bottom: none;
     }
 
-    &:hover {
+    &:hover,
+    &.active {
       background-color: #d0d0d0;
     }
 
@@ -105,10 +105,7 @@ $smartButtonColor: #3b3b3b;
 }
 
 .dishes-list-wrapper {
-  position: absolute;
-  top: 0;
-  left: 300px;
-  right: 0;
+  margin-left: 300px;
 }
 
 .dishes-list {
@@ -381,5 +378,46 @@ $smartButtonColor: #3b3b3b;
     color: white;
     background-color: rgba(76, 175, 80, 1);
     border-color: rgba(76, 175, 80, 1);
+  }
+}
+
+.dishes-catalog-nav {
+  padding: 20px;
+  overflow: hidden;
+  color: white;
+  background-image: url(../img/catalog-bg.jpg);
+  background-size: cover;
+  text-align: right;
+
+  li {
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 30px;
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .logout {
+    margin-right: 0px;
+  }
+
+  .logo {
+    float: left;
+    margin-top: 0;
+    font-family: ArchivoBlack;
+    font-size: 30px;
+    font-style: normal;
+    text-transform: none;
+
+    img {
+      margin-right: 15px;
+      width: 80px;
+    }
+
+    * {
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 }
