@@ -7,7 +7,6 @@ $smartButtonColor: #3b3b3b;
 .dishes-categories-list {
   padding: 20px;
   overflow: hidden;
-  background-color: #313131;
   white-space: nowrap;
   font-size: 0;
 
@@ -17,6 +16,7 @@ $smartButtonColor: #3b3b3b;
     margin-right: 20px;
     width: 350px;
     height: 200px;
+    border: 3px solid white;
 
     img {
       width: 100%;
@@ -130,6 +130,7 @@ $smartButtonColor: #3b3b3b;
     margin: 1%;
     width: 48%;
     padding-top: 48%;
+    opacity: 0;
 
     img {
       position: absolute;
@@ -145,6 +146,8 @@ $smartButtonColor: #3b3b3b;
     overflow: hidden;
     text-align: left;
     border-bottom: 1px solid #d0d0d0;
+    opacity: 0;
+    animation: fromRight 0.4s forwards;
 
     img {
       float: left;
@@ -385,8 +388,6 @@ $smartButtonColor: #3b3b3b;
   padding: 20px;
   overflow: hidden;
   color: white;
-  background-image: url(../img/catalog-bg.jpg);
-  background-size: cover;
   text-align: right;
 
   li {
@@ -399,7 +400,15 @@ $smartButtonColor: #3b3b3b;
   }
 
   .logout {
-    margin-right: 0px;
+    margin-right: 0;
+    padding: 10px 20px;
+    background: #d9534f;
+    border-radius: 5px;
+    transition: all 0.4s;
+
+    &:hover {
+      background: #c9302c;
+    }
   }
 
   .logo {
@@ -420,4 +429,9 @@ $smartButtonColor: #3b3b3b;
       vertical-align: middle;
     }
   }
+}
+
+.dishes-catalog-header {
+  background-image: url(../img/catalog-bg.jpg);
+  background-size: cover;
 }

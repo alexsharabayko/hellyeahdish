@@ -6,6 +6,8 @@ import HomeView from '../../home/homeView';
 import DishesCatalogView from '../../dishes-catalog/dishesCatalogView';
 import CreateDishView from '../../create-dish/createDishView';
 
+import PopupView from '../../widgets/popup/popupView';
+
 var applicationRootElement = document.querySelector('.application-root'),
     popupContainerElement = document.querySelector('.popup-container');
 
@@ -33,6 +35,24 @@ class Router {
             },
             '/': {
                 view: HomeView
+            },
+            '/logout': {
+                fn: function () {
+                    new PopupView({
+                        data: {
+                            title: 'Logout',
+                            content: 'Do you want to be logged out?'
+                        },
+                        buttons: [
+                            {
+                                text: 'Yes, I do',
+                                onClick: function () {
+                                    user.logout();
+                                }
+                            }
+                        ]
+                    });
+                }
             }
         };
 
@@ -60,6 +80,7 @@ class Router {
     bindToUser () {
         user.on('loginSuccess', this.navigate.bind(this, '/dishes-catalog'));
         user.on('loginFail', this.navigate.bind(this, '/'));
+        user.on('logout', this.navigate.bind(this, '/'));
     }
 
     handleRoute () {
@@ -70,9 +91,16 @@ class Router {
     }
 
     navigate (path) {
-        window.history.pushState(null, null, path || '/');
+        var routeObj = this.routes[path];
 
-        this.handleRoute();
+        if (routeObj && routeObj.fn) {
+            routeObj.fn();
+        }
+        else {
+            window.history.pushState(null, null, path || '/');
+
+            this.handleRoute();
+        }
     }
 
     getUrlParams () {

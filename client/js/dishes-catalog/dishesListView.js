@@ -1,13 +1,18 @@
 import React from 'react';
 import DishesCatalogModel from './dishesCatalogModel';
+import urlUtil from '../common/url-util/urlUtil';
 
 class DishesGridItemView extends React.Component {
+    addAnimation () {
+        this.refs.item.getDOMNode().style.animation = 'fadeIn 0.4s forwards';
+    }
+
     render () {
         var dish = this.props.dish;
 
         return (
-            <li className="dishes-list-item">
-                <img src={dish.mainImage.url} alt={dish.name}/>
+            <li className="dishes-list-item" ref="item">
+                <img src={dish.mainImage.url} alt={dish.name} onLoad={this.addAnimation.bind(this)}/>
 
                 <div className="dl-image-hover">
                     <div className="inline-block">
@@ -53,10 +58,13 @@ class DishesListItemView extends React.Component {
     }
 
     render () {
-        var dish = this.props.dish;
+        var dish = this.props.dish,
+            style = {
+                'animation-delay': `${this.props.i * 0.2}s`
+            };
 
         return (
-            <li className="dishes-list-li">
+            <li className="dishes-list-li" style={style}>
                 <img src={dish.mainImage.url} alt={dish.name}/>
 
                 <div className="dishes-list-linfo">
@@ -67,9 +75,15 @@ class DishesListItemView extends React.Component {
                     <p className="description">{dish.description}</p>
 
                     <div className="labels">
-                        <a href="javascript:void(0)">{this.getPropertyById('kitchens', dish.kitchenId)}</a>
-                        <a href="javascript:void(0)">{this.getPropertyById('preferences', dish.preferenceId)}</a>
-                        <a href="javascript:void(0)">{this.getPropertyById('categories', dish.categoryId)}</a>
+                        <a href={urlUtil.createRelativeUrl({kitchenId: dish.kitchenId})}>
+                            {this.getPropertyById('kitchens', dish.kitchenId)}
+                        </a>
+                        <a href={urlUtil.createRelativeUrl({preferenceId: dish.preferenceId})}>
+                            {this.getPropertyById('preferences', dish.preferenceId)}
+                        </a>
+                        <a href={urlUtil.createRelativeUrl({categoryId: dish.categoryId})}>
+                            {this.getPropertyById('categories', dish.categoryId)}
+                        </a>
                     </div>
 
                     <a className="goto" href="#">View</a>
@@ -109,7 +123,7 @@ class DishesListView extends React.Component {
                             return <DishesGridItemView dish={item} key={i}/>
                         }) :
                         this.state.items.map((item, i) => {
-                            return <DishesListItemView dish={item} dishProps={this.state.dishProps} key={i} />
+                            return <DishesListItemView dish={item} i={i} dishProps={this.state.dishProps} key={i} />
                         })
                 }
             </ul>

@@ -3,7 +3,9 @@ class UrlUtil {
         this.routes = {
             dishesCatalog: '/dishes-catalog',
             createDish: '/create-dish',
-            home: '/'
+            home: '/',
+            logout: '/logout',
+            mySettings: '/my-settings'
         };
     }
 

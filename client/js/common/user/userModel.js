@@ -52,6 +52,19 @@ class User extends EventEmitter {
 
         return data;
     }
+
+    logout () {
+        return Ajax.postJSON('/logout', { token: this.data.token })
+            .then(this.logoutSuccess.bind(this));
+    }
+
+    logoutSuccess (data) {
+        this.removeData();
+
+        this.trigger('logout');
+
+        return data;
+    }
 }
 
 var user = new User();

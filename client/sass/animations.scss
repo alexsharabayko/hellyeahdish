@@ -63,3 +63,14 @@
     height: 0;
   }
 }
+
+@include keyframes(fromRight) {
+  0% {
+    @include translate(100%, 0);
+    opacity: 0;
+  }
+  100% {
+    @include translate(0, 0);
+    opacity: 1;
+  }
+}

@@ -102,6 +102,26 @@
     width: 0;
     height: 0; } }
 
+@-webkit-keyframes fromRight {
+  0% {
+    -webkit-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+    opacity: 0; }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 1; } }
+
+@keyframes fromRight {
+  0% {
+    -webkit-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+    opacity: 0; }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 1; } }
+
 @keyframes cra-1 {
   50% {
     transform: translate(-200%, 0); }
@@ -264,7 +284,6 @@
     text-decoration: underline; }
   .popup-content {
     margin: 0 auto 15px;
-    width: 80%;
     text-align: center;
     line-height: 1.4; }
   .popup-buttons button,

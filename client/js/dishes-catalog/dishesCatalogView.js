@@ -18,8 +18,10 @@ class DishesCatalogView extends React.Component {
 
         return (
             <div className="dishes-catalog">
-                <DishesNavView />
-                <DishesCategoriesView categoryId={params.categoryId} />
+                <div className="dishes-catalog-header">
+                    <DishesNavView />
+                    <DishesCategoriesView categoryId={params.categoryId} />
+                </div>
 
                 <div className="dishes-catalog-area">
                     <DishesAddPropsView preferenceId={params.preferenceId} kitchenId={params.kitchenId} />

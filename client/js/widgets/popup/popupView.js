@@ -100,13 +100,15 @@ class PopupElement extends React.Component {
 
         typeof this.props.onClose === 'function' && this.props.onClose();
 
-        document.body.classList.remove('popup-opened');
-
         event && event.stopPropagation();
     }
 
     static stopPopupPropagation (event) {
         event.stopPropagation();
+    }
+
+    componentWillUnmount () {
+        document.body.classList.remove('popup-opened');
     }
 
     render() {
