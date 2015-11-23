@@ -203,8 +203,7 @@ body {
     animation-duration: 0.5s;
     animation-name: smartBorderOut;
     animation-fill-mode: forwards; }
-  .smart-border-button:hover:after,
-  .smart-border-button:hover:before {
+  .smart-border-button:hover:after, .smart-border-button:hover:before {
     display: block;
     -webkit-animation-delay: 0s;
     -webkit-animation-duration: 0.5s;
@@ -277,11 +276,9 @@ body {
     overflow: hidden;
     font-size: 0;
     cursor: move; }
-    .photo-cutter-area::selection,
-    .photo-cutter-area::-moz-selection {
+    .photo-cutter-area::selection, .photo-cutter-area::-moz-selection {
       background-color: transparent; }
-    .photo-cutter-area img::selection,
-    .photo-cutter-area img::-moz-selection {
+    .photo-cutter-area img::selection, .photo-cutter-area img::-moz-selection {
       background-color: transparent; }
   .photo-cutter-size {
     position: absolute;
@@ -638,9 +635,7 @@ body {
   box-shadow: none;
   transform: scale(1);
   animation: none; }
-  .loader.popup .popup-title,
-  .loader.popup .popup-button-close,
-  .loader.popup .popup-buttons {
+  .loader.popup .popup-title, .loader.popup .popup-button-close, .loader.popup .popup-buttons {
     display: none; }
 
 @-webkit-keyframes scaleIn {
@@ -1056,8 +1051,7 @@ body {
     transition: all 0.4s; }
     .dishes-add-list li:last-child {
       border-bottom: none; }
-    .dishes-add-list li:hover,
-    .dishes-add-list li.active {
+    .dishes-add-list li:hover, .dishes-add-list li.active {
       background-color: #d0d0d0; }
     .dishes-add-list li i {
       margin-right: 10px;
@@ -1189,8 +1183,7 @@ body {
     animation-duration: 0.5s;
     animation-name: fadeIn;
     animation-fill-mode: forwards; }
-    .dl-image-hover .smart-border-button:before,
-    .dl-image-hover .smart-border-button:after {
+    .dl-image-hover .smart-border-button:before, .dl-image-hover .smart-border-button:after {
       border-color: #3b3b3b; }
 
 .dishes-view-options {
@@ -1411,8 +1404,7 @@ body {
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
   overflow: hidden; }
-  .create-dish-form h3:hover button,
-  .create-dish-form h3:focus button {
+  .create-dish-form h3:hover button, .create-dish-form h3:focus button {
     transform: translate(0, 0); }
   .create-dish-form h3 button {
     position: absolute;

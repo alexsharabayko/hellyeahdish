@@ -1,4 +1,5 @@
-import React from 'react/addons';
+import React from 'react';
+import Addons from 'react-addons';
 import uid from 'uid';
 
 import CreateDishModel from './createDishModel';
@@ -66,7 +67,7 @@ class IngredientsListView extends React.Component {
 
     pushElement () {
         this.setState((prevState) => {
-            prevState.ingredients = React.addons.update(this.state.ingredients, { $push: [{
+            prevState.ingredients = Addons.update(this.state.ingredients, { $push: [{
                 name: null,
                 quantity: null,
                 id: uid(10)
@@ -78,7 +79,7 @@ class IngredientsListView extends React.Component {
 
     removeElement (i) {
         this.setState((prevState) => {
-            prevState.ingredients = React.addons.update(this.state.ingredients, {$splice: [[i, 1]]});
+            prevState.ingredients = Addons.update(this.state.ingredients, {$splice: [[i, 1]]});
 
             return prevState;
         });

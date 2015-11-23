@@ -186,8 +186,7 @@
     transition: all 0.4s; }
     .dishes-add-list li:last-child {
       border-bottom: none; }
-    .dishes-add-list li:hover,
-    .dishes-add-list li.active {
+    .dishes-add-list li:hover, .dishes-add-list li.active {
       background-color: #d0d0d0; }
     .dishes-add-list li i {
       margin-right: 10px;
@@ -319,8 +318,7 @@
     animation-duration: 0.5s;
     animation-name: fadeIn;
     animation-fill-mode: forwards; }
-    .dl-image-hover .smart-border-button:before,
-    .dl-image-hover .smart-border-button:after {
+    .dl-image-hover .smart-border-button:before, .dl-image-hover .smart-border-button:after {
       border-color: #3b3b3b; }
 
 .dishes-view-options {

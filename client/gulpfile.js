@@ -17,7 +17,7 @@ gulp.task('build', function () {
         extensions: ['.js'],
         debug: true
     })
-        .transform(babelify)
+        .transform(babelify, { presets: ['es2015', 'react'] })
         .bundle()
         .pipe(source('app.js'))
         .pipe(gulp.dest(''));

@@ -1,10 +1,12 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 
 import user from '../user/userModel';
 
 import HomeView from '../../home/homeView';
 import DishesCatalogView from '../../dishes-catalog/dishesCatalogView';
 import CreateDishView from '../../create-dish/createDishView';
+import DishDetailsView from '../../dish-details/dishDetailsView';
 
 import PopupView from '../../widgets/popup/popupView';
 
@@ -12,8 +14,8 @@ var applicationRootElement = document.querySelector('.application-root'),
     popupContainerElement = document.querySelector('.popup-container');
 
 var unmountAll = function () {
-    React.unmountComponentAtNode(applicationRootElement);
-    React.unmountComponentAtNode(popupContainerElement);
+    ReactDom.unmountComponentAtNode(applicationRootElement);
+    ReactDom.unmountComponentAtNode(popupContainerElement);
 };
 
 class Router {
@@ -32,6 +34,9 @@ class Router {
             },
             '/create-dish': {
                 view: CreateDishView
+            },
+            '/dish-details/:id': {
+                view: DishDetailsView
             },
             '/': {
                 view: HomeView
@@ -56,7 +61,19 @@ class Router {
             }
         };
 
-        this.routes = Object.freeze(routes);
+        this.routes = [];
+
+        Object.keys(routes).forEach(key => {
+            var m = key.match(/\:[a-zA-Z0_-]+/g);
+
+            this.routes.push({
+                path: new RegExp('^' + key.replace(/:[a-zA-Z_-]+/g, '([a-zA-Z0-9-_]+)') + '$'),
+                vars: m && m.map(i => i.substr(1)),
+                route: key,
+                view: routes[key].view,
+                fn: routes[key].fn
+            });
+        });
     }
 
     bindListeners () {
@@ -81,25 +98,43 @@ class Router {
         user.on('loginSuccess', this.navigate.bind(this, '/dishes-catalog'));
         user.on('loginFail', this.navigate.bind(this, '/'));
         user.on('logout', this.navigate.bind(this, '/'));
+
+        //window.addEventListener('load', () => {
+        //    this.navigate(window.location.pathname);
+        //});
     }
 
-    handleRoute () {
-        var Factory = React.createFactory((this.routes[location.pathname] || this.routes['/']).view);
+    handleRoute (view, paths) {
+        var Factory = React.createFactory(view);
 
         unmountAll();
-        React.render(Factory({ urlParams: this.getUrlParams() }), applicationRootElement);
+        ReactDom.render(Factory({ urlParams: this.getUrlParams(), urlPaths: paths }), applicationRootElement);
     }
 
     navigate (path) {
-        var routeObj = this.routes[path];
+        var p = path.replace(/\?.*/, ''),
+            routeObj = this.routes.filter(route => route.path.test(p))[0],
+            paths = {};
+
+        if (routeObj && routeObj.vars) {
+            let values = path.match(routeObj.path);
+
+            values.shift();
+
+            routeObj.vars.forEach((item, i) => {
+                paths[item] = values[i];
+            });
+        }
 
         if (routeObj && routeObj.fn) {
-            routeObj.fn();
+            routeObj.fn(paths);
         }
         else {
+            routeObj = routeObj || this.routes.filter(item => item.route === '/')[0];
+
             window.history.pushState(null, null, path || '/');
 
-            this.handleRoute();
+            this.handleRoute(routeObj.view, paths);
         }
     }
 

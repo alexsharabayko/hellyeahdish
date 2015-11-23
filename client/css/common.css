@@ -203,8 +203,7 @@ body {
     animation-duration: 0.5s;
     animation-name: smartBorderOut;
     animation-fill-mode: forwards; }
-  .smart-border-button:hover:after,
-  .smart-border-button:hover:before {
+  .smart-border-button:hover:after, .smart-border-button:hover:before {
     display: block;
     -webkit-animation-delay: 0s;
     -webkit-animation-duration: 0.5s;
@@ -277,11 +276,9 @@ body {
     overflow: hidden;
     font-size: 0;
     cursor: move; }
-    .photo-cutter-area::selection,
-    .photo-cutter-area::-moz-selection {
+    .photo-cutter-area::selection, .photo-cutter-area::-moz-selection {
       background-color: transparent; }
-    .photo-cutter-area img::selection,
-    .photo-cutter-area img::-moz-selection {
+    .photo-cutter-area img::selection, .photo-cutter-area img::-moz-selection {
       background-color: transparent; }
   .photo-cutter-size {
     position: absolute;

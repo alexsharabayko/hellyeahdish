@@ -1,4 +1,5 @@
-import React from 'react/addons';
+import React from 'react';
+import Addons from 'react-addons';
 
 let popupContainer = document.querySelector('.popup-container'),
     component = null;
@@ -64,7 +65,7 @@ class PopupElement extends React.Component {
             return <div className="popup-content" ref="content">{content}</div>
         }
         else if (React.isValidElement(content)) {
-            return React.addons.cloneWithProps(content, { ref: 'content' });
+            return Addons.cloneWithProps(content, { ref: 'content' });
         }
         else {
             return React.createFactory(content)({ ref: 'content' });

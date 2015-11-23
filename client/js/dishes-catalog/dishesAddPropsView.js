@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react/addons';
 import DishesCatalogModel from './dishesCatalogModel';
 import urlUtil from '../common/url-util/urlUtil';
 import user from '../common/user/userModel';

@@ -1,14 +1,16 @@
 import React from 'react';
+
 import DishesCatalogModel from './dishesCatalogModel';
 import urlUtil from '../common/url-util/urlUtil';
 
 class DishesGridItemView extends React.Component {
     addAnimation () {
-        this.refs.item.getDOMNode().style.animation = 'fadeIn 0.4s forwards';
+        this.refs.item.style.animation = 'fadeIn 0.4s forwards';
     }
 
     render () {
-        var dish = this.props.dish;
+        var dish = this.props.dish,
+            detailsHref = `/dish-details/${dish._id}`;
 
         return (
             <li className="dishes-list-item" ref="item">
@@ -18,7 +20,7 @@ class DishesGridItemView extends React.Component {
                     <div className="inline-block">
                         <span className="dish-icon-name">{dish.name}</span>
 
-                        <button className="smart-border-button">View dish</button>
+                        <a href={detailsHref} className="smart-border-button">View dish</a>
                     </div>
                 </div>
 

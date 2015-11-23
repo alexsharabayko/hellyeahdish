@@ -23,7 +23,7 @@ class UrlUtil {
             }
         });
 
-        return (path || '') + this.createUrlParamsFromObject(obj);
+        return (path || window.location.pathname) + this.createUrlParamsFromObject(obj);
     }
 
     createUrlParamsFromObject (obj) {

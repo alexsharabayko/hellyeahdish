@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react/addons';
 import FileUploadView from '../widgets/file-upload/fileUploadView';
 import uid from 'uid';
 

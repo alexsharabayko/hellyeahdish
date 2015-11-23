@@ -79,7 +79,7 @@ class DishesViewOptionsView extends React.Component {
                             this.state.sortItems.map((item, i) => {
                                 var val = `?sort=${item.value}`;
 
-                                return <option value={val} key={i} selected={item.value === this.props.sort}>
+                                return <option value={val} key={i} defaultValue={item.value === this.props.sort}>
                                     {item.name}</option>
                             })
                         }

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import DishesCatalogModel from './dishesCatalogModel';
 import DishesListView from './dishesListView';
 import DishesAddPropsView from './dishesAddPropsView';

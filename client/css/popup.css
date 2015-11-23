@@ -340,7 +340,5 @@
   box-shadow: none;
   transform: scale(1);
   animation: none; }
-  .loader.popup .popup-title,
-  .loader.popup .popup-button-close,
-  .loader.popup .popup-buttons {
+  .loader.popup .popup-title, .loader.popup .popup-button-close, .loader.popup .popup-buttons {
     display: none; }

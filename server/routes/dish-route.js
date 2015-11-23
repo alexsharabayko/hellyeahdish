@@ -189,4 +189,13 @@ router.route('/dishes')
         });
     });
 
+router.route('/dishes/:id')
+    .get(function (req, res) {
+        Dish.findById(req.params.id, function (err, dish) {
+            err && res.send(err);
+
+            res.json(dish);
+        });
+    });
+
 module.exports = router;
