@@ -1,0 +1,141 @@
+@mixin whiteAndWhite {
+  color: #FFF;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #FFF;
+}
+
+.dish-details {
+  background: url(../img/dish-details-bg.png);
+
+  &-page {
+    margin: 0 auto;
+    max-width: 120rem;
+    min-height: 100%;
+  }
+
+  &-main-image {
+    width: 100%;
+  }
+
+  &-header {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+    width: 65%;
+    vertical-align: top;
+  }
+
+  &-header-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 4rem;
+    text-align: center;
+    text-transform: uppercase;
+
+    .content {
+      display: inline-block;
+      padding: 2rem;
+      width: 80%;
+      vertical-align: middle;
+      @include whiteAndWhite;
+    }
+  }
+
+  &-quantity {
+    position: absolute;
+    padding: 1rem;
+    left: 2rem;
+    top: 2rem;
+    font-size: 1.6rem;
+    @include whiteAndWhite;
+  }
+
+  &-author {
+    position: absolute;
+    padding: 1rem;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 1.6rem;
+    @include whiteAndWhite;
+  }
+
+  &-ing-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 35%;
+    padding-top: 65%;
+    background: white;
+    vertical-align: top;
+  }
+
+  &-ingredients {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    padding: 1rem;
+    color: #1b100b;
+    box-sizing: border-box;
+    transform: translate(0, -50%);
+
+    li {
+      padding: 2rem 1rem;
+      overflow: hidden;
+      font-size: 2rem;
+
+      &:nth-child(2n+1) {
+        background: #f2f2f2;
+      }
+    }
+
+    .name {
+
+    }
+
+    .quantity {
+      float: right;
+    }
+
+    h2 {
+      padding: 2rem;
+      font-size: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+      border: 1px solid #1b100b;
+    }
+  }
+
+  &-steps {
+    h2 {
+      padding: 2rem;
+      margin-bottom: 1rem;
+      color: white;
+      font-size: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+      background: #7a9d00;
+    }
+
+    li {
+      margin-bottom: 1rem;
+      padding: 2rem;
+      font-size: 1.6rem;
+      line-height: 1.3;
+      text-align: justify;
+      background: white;
+    }
+
+    .content {
+      overflow: hidden;
+    }
+
+    .img {
+      float: left;
+      width: 40%;
+      margin-right: 2rem;
+    }
+  }
+}

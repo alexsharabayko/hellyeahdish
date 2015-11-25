@@ -1,4 +1,6 @@
-import React from 'react/addons';
+import React from 'react';
+import ReactUpdate from 'react-addons-update';
+
 import FileUploadView from '../widgets/file-upload/fileUploadView';
 import uid from 'uid';
 
@@ -55,7 +57,7 @@ class StepsListView extends React.Component {
 
     pushElement () {
         this.setState({
-            steps: React.addons.update(this.state.steps, { $push: [{
+            steps: ReactUpdate(this.state.steps, { $push: [{
                 description: null,
                 startTime: null,
                 image: null,
@@ -66,7 +68,7 @@ class StepsListView extends React.Component {
 
     removeElement (i) {
         this.setState({
-            steps: React.addons.update(this.state.steps, {$splice: [[i, 1]]})
+            steps: ReactUpdate(this.state.steps, {$splice: [[i, 1]]})
         })
     }
 

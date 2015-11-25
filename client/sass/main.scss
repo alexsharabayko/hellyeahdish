@@ -5,9 +5,24 @@
 @import "home";
 @import "dishes-catalog";
 @import "create-dish";
+@import "dish-details";
+
+html {
+  font-size: 10px;
+}
 
 html,
 body,
 .application-root {
   height: 100%;
+}
+
+.vertical-center {
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+  }
 }

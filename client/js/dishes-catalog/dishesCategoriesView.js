@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactUpdate from 'react-addons-update';
 
 import DishesCatalogModel from './dishesCatalogModel';
 import DishesListView from './dishesListView';
@@ -17,7 +18,7 @@ class DishesCategoriesView extends React.Component {
     componentDidMount () {
         DishesCatalogModel.getProperties().then((data) => {
             this.setState({
-                categories: React.addons.update(this.state.categories, { $push: data.categories })
+                categories: ReactUpdate(this.state.categories, { $push: data.categories })
             });
         });
 

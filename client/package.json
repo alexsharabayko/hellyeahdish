@@ -9,6 +9,7 @@
     "gulp-webserver": "*",
     "react": "^0.14.3",
     "react-addons": "^0.9.1-deprecated",
+    "react-addons-update": "^0.14.3",
     "react-dom": "^0.14.3",
     "uid": "0.0.2",
     "vinyl-source-stream": "*"

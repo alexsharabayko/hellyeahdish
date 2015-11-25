@@ -163,13 +163,23 @@ var createDishSelect = function (req, res, next) {
         name: 1,
         description: 1,
         'mainImage.url': 1,
-        totalTime: Number,
+        totalTime: 1,
         authorId: 1,
         categoryId: 1,
         kitchenId: 1,
         preferenceId: 1
     };
     next();
+};
+
+var createUserSelect = function () {
+    return {
+        username: 1,
+        firstName: 1,
+        lastName: 1,
+        email: 1,
+        level: 1
+    }
 };
 
 router.route('/dishes')
@@ -194,7 +204,14 @@ router.route('/dishes/:id')
         Dish.findById(req.params.id, function (err, dish) {
             err && res.send(err);
 
-            res.json(dish);
+            User.findById(dish.authorId).select(createUserSelect()).exec(function (err, user) {
+                err && res.send(err);
+
+                dish = dish.toJSON();
+                dish.author = user;
+
+                res.json(dish);
+            });
         });
     });
 

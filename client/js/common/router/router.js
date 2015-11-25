@@ -40,24 +40,6 @@ class Router {
             },
             '/': {
                 view: HomeView
-            },
-            '/logout': {
-                fn: function () {
-                    new PopupView({
-                        data: {
-                            title: 'Logout',
-                            content: 'Do you want to be logged out?'
-                        },
-                        buttons: [
-                            {
-                                text: 'Yes, I do',
-                                onClick: function () {
-                                    user.logout();
-                                }
-                            }
-                        ]
-                    });
-                }
             }
         };
 
@@ -95,7 +77,7 @@ class Router {
     }
 
     bindToUser () {
-        user.on('loginSuccess', this.navigate.bind(this, '/dishes-catalog'));
+        user.on('loginSuccess', this.navigate.bind(this, window.location.pathname));
         user.on('loginFail', this.navigate.bind(this, '/'));
         user.on('logout', this.navigate.bind(this, '/'));
 
@@ -126,16 +108,12 @@ class Router {
             });
         }
 
-        if (routeObj && routeObj.fn) {
-            routeObj.fn(paths);
-        }
-        else {
-            routeObj = routeObj || this.routes.filter(item => item.route === '/')[0];
+        routeObj = routeObj || this.routes.filter(item => item.route === '/')[0];
 
-            window.history.pushState(null, null, path || '/');
+        window.history.pushState(null, null, path || '/');
 
-            this.handleRoute(routeObj.view, paths);
-        }
+        this.handleRoute(routeObj.view, paths);
+
     }
 
     getUrlParams () {

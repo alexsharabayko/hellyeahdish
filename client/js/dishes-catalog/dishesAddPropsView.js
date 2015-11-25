@@ -1,4 +1,6 @@
-import React from 'react/addons';
+import React from 'react';
+import ReactUpdate from 'react-addons-update';
+
 import DishesCatalogModel from './dishesCatalogModel';
 import urlUtil from '../common/url-util/urlUtil';
 import user from '../common/user/userModel';
@@ -16,8 +18,8 @@ class DishesCatalogView extends React.Component {
     componentDidMount () {
         DishesCatalogModel.getProperties().then((data) => {
             this.setState({
-                kitchens: React.addons.update(this.state.kitchens, { $push: data.kitchens }),
-                preferences: React.addons.update(this.state.preferences, { $push: data.preferences })
+                kitchens: ReactUpdate(this.state.kitchens, { $push: data.kitchens }),
+                preferences: ReactUpdate(this.state.preferences, { $push: data.preferences })
             });
         });
     }

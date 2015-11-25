@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactUpdate from 'react-addons-update';
 
 import DishesCatalogModel from './dishesCatalogModel';
 import urlUtil from '../common/url-util/urlUtil';
@@ -110,7 +111,7 @@ class DishesListView extends React.Component {
             DishesCatalogModel.getDishes().then((data) => {
                 this.setState({
                     dishProps: props,
-                    items: React.addons.update(this.state.items, { $push: data })
+                    items: ReactUpdate(this.state.items, { $push: data })
                 });
             });
         });
