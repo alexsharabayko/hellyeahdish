@@ -23,7 +23,7 @@ class MainNavView extends React.Component {
         return (
             <ul className="main-nav">
                 <li className="active"><a href="#/home">Home</a></li>
-                <li><a href="#/home/dishes">Dishes</a></li>
+                <li><a href="/dishes-catalog">Dishes</a></li>
                 <li><a href="javascript:void(0)">Contacts</a></li>
                 <li><a href="javascript:void(0)">Popular</a></li>
                 <li><a href="javascript:void(0)">About</a></li>

@@ -179,7 +179,8 @@
     font-size: 20px;
     text-transform: uppercase; }
   .dishes-add-list li {
-    padding: 15px;
+    padding: 1.5rem;
+    font-size: 1.6rem;
     border-bottom: 1px solid #d0d0d0;
     cursor: pointer;
     -webkit-transition: all 0.4s;

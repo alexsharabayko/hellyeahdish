@@ -29,7 +29,7 @@ class CreateDishView extends React.Component {
                         }
                     ],
                     onClose: function () {
-                        this.refs.form.getDOMNode().reset();
+                        this.refs.form.reset();
                     }.bind(this)
                 });
             });

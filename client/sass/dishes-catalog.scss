@@ -78,7 +78,8 @@ $smartButtonColor: #3b3b3b;
   }
 
   li {
-    padding: 15px;
+    padding: 1.5rem;
+    font-size: 1.6rem;
     border-bottom: 1px solid #d0d0d0;
     cursor: pointer;
     @include transition(all 0.4s);

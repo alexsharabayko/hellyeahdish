@@ -21,10 +21,10 @@ class GeneralView extends React.Component {
     }
 
     setBounds (bounds) {
-        this.refs.mainImageX.getDOMNode().value = bounds.x;
-        this.refs.mainImageY.getDOMNode().value = bounds.y;
-        this.refs.mainImageWidth.getDOMNode().value = bounds.width;
-        this.refs.mainImageHeight.getDOMNode().value = bounds.height;
+        this.refs.mainImageX.value = bounds.x;
+        this.refs.mainImageY.value = bounds.y;
+        this.refs.mainImageWidth.value = bounds.width;
+        this.refs.mainImageHeight.value = bounds.height;
     }
 
     componentDidMount () {

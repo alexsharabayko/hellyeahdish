@@ -61,9 +61,9 @@ class InputPromptView extends React.Component {
         if (event.type === 'click' || (event.key && event.key === 'Enter')) {
             event.preventDefault();
 
-            this.refs.input.getDOMNode().value = event.target.innerText;
+            this.refs.input.value = event.target.innerText;
 
-            this.refs.input.getDOMNode().focus();
+            this.refs.input.focus();
 
             this.hidePrompts();
         }
@@ -81,13 +81,11 @@ class InputPromptView extends React.Component {
 
     itemRef (i, li) {
         if (i === this.state.activePrompt && li) {
-            let el = li.getDOMNode();
-
-            el.tabIndex = 2;
-            el.focus();
+            li.tabIndex = 2;
+            li.focus();
         }
         else if (li) {
-            li.getDOMNode().tabIndex = -1;
+            li.tabIndex = -1;
         }
     }
 

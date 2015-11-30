@@ -11,7 +11,7 @@ class DishesGridItemView extends React.Component {
 
     render () {
         var dish = this.props.dish,
-            detailsHref = `/dish-details/${dish._id}`;
+            detailsHref = `${urlUtil.routes.dishDetails}/${dish._id}`;
 
         return (
             <li className="dishes-list-item" ref="item">

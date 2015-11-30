@@ -1,5 +1,6 @@
 import React from 'react';
-import Addons from 'react-addons';
+import ReactDom from 'react-dom';
+import cloneWithProps from 'react-addons-clone-with-props';
 
 let popupContainer = document.querySelector('.popup-container'),
     component = null;
@@ -65,7 +66,7 @@ class PopupElement extends React.Component {
             return <div className="popup-content" ref="content">{content}</div>
         }
         else if (React.isValidElement(content)) {
-            return Addons.cloneWithProps(content, { ref: 'content' });
+            return React.cloneElement(content, { ref: 'content' });
         }
         else {
             return React.createFactory(content)({ ref: 'content' });
@@ -118,7 +119,7 @@ class PopupElement extends React.Component {
 
         return (
             <div className="popup-wrapper" ref="wrapper">
-                <div className={'popup ' + (this.props.customClass || '')} style={this.getButtons()} ref="popup">
+                <div className={'popup ' + (this.props.customClass || '')} ref="popup">
                     <div className="popup-data">
                         {this.props.data.title ? <h3 className="popup-title">{this.props.data.title}</h3> : null}
                         {this.getContent()}
@@ -136,7 +137,7 @@ class PopupElement extends React.Component {
 
 class PopupView {
     constructor(options) {
-        component = React.render(<PopupElement
+        component = ReactDom.render(<PopupElement
             customClass={options.customClass}
             onClose={options.onClose}
             buttons={options.buttons}

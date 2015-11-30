@@ -13,7 +13,6 @@ class DishDetailsView extends React.Component {
 
     componentDidMount () {
         DishDetailsModel.getDish(this.props.urlPaths.id).then((dish) => {
-            console.log(dish);
             this.setState({ dish });
         });
     }
@@ -44,7 +43,8 @@ class DishDetailsView extends React.Component {
 
     render () {
         var dish = this.state.dish,
-            fullName = null;
+            fullName = null,
+            cookingHref = `${urlUtil.routes.cooking}/${dish._id}`;
 
         if (dish.author) {
             fullName = `${dish.author.firstName} ${dish.author.lastName} (${dish.author.username})`;
@@ -52,6 +52,18 @@ class DishDetailsView extends React.Component {
 
         return (
             <div className="dish-details">
+                <ul className="dish-details-nav">
+                    <li className="logo">
+                        <a href={urlUtil.routes.home}>
+                            <img src="/img/cook-hat.png" alt="logo"/>
+                            <span>Hell yeah dish!</span>
+                        </a>
+                    </li>
+                    <li><a href={urlUtil.routes.mySettings}>My settings</a></li>
+                    <li><a href={urlUtil.routes.dishesCatalog}>Dishes catalog</a></li>
+                    <li className="logout"><a href={urlUtil.routes.logout}>Logout</a></li>
+                </ul>
+
                 <div className="dish-details-page">
                     <div className="dish-details-header">
                         <img className="dish-details-main-image" src={dish.mainImage && dish.mainImage.url} alt={dish.name}/>
@@ -98,11 +110,16 @@ class DishDetailsView extends React.Component {
 
                                             {step.description}
                                         </div>
+                                        <p className="time">
+                                            Start time: <span style={{color: '#7a9d00', fontWeight: 'bold'}}>{step.startTime}</span> minute
+                                        </p>
                                     </li>
                                 );
                             })
                         }
                     </ul>
+
+                    <a className="dish-details-cooking-href" href={cookingHref}>Start cooking it!</a>
                 </div>
             </div>
         );

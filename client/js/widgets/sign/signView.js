@@ -21,8 +21,8 @@ class SignView extends React.Component {
     }
 
     switchForm (event) {
-        this.refs.loginForm.getDOMNode().classList.toggle('hidden');
-        this.refs.registerForm.getDOMNode().classList.toggle('hidden');
+        this.refs.loginForm.classList.toggle('hidden');
+        this.refs.registerForm.classList.toggle('hidden');
     }
 
     render () {

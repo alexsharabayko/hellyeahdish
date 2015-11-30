@@ -7,6 +7,7 @@ import HomeView from '../../home/homeView';
 import DishesCatalogView from '../../dishes-catalog/dishesCatalogView';
 import CreateDishView from '../../create-dish/createDishView';
 import DishDetailsView from '../../dish-details/dishDetailsView';
+import CookingView from '../../cooking/cookingView';
 
 import PopupView from '../../widgets/popup/popupView';
 
@@ -37,6 +38,9 @@ class Router {
             },
             '/dish-details/:id': {
                 view: DishDetailsView
+            },
+            '/cooking/:id': {
+                view: CookingView
             },
             '/': {
                 view: HomeView
@@ -77,43 +81,46 @@ class Router {
     }
 
     bindToUser () {
-        user.on('loginSuccess', this.navigate.bind(this, window.location.pathname));
-        user.on('loginFail', this.navigate.bind(this, '/'));
-        user.on('logout', this.navigate.bind(this, '/'));
-
-        //window.addEventListener('load', () => {
-        //    this.navigate(window.location.pathname);
-        //});
+        user.on('loginSuccess', this.handleRoute.bind(this));
+        user.on('loginFail', this.handleRoute.bind(this));
+        user.on('logout', this.handleRoute.bind(this));
     }
 
-    handleRoute (view, paths) {
-        var Factory = React.createFactory(view);
+    handleRoute (paths) {
+        var routeObj = this.routes.filter(route => route.path.test(window.location.pathname))[0];
 
-        unmountAll();
-        ReactDom.render(Factory({ urlParams: this.getUrlParams(), urlPaths: paths }), applicationRootElement);
+        if (routeObj) {
+            var Factory = React.createFactory(routeObj.view);
+
+            unmountAll();
+            ReactDom.render(Factory({ urlParams: this.getUrlParams(), urlPaths: this.getUrlPathParams(routeObj.vars, routeObj.path) }), applicationRootElement);
+        }
+        else {
+            this.navigate('/');
+        }
     }
 
     navigate (path) {
-        var p = path.replace(/\?.*/, ''),
-            routeObj = this.routes.filter(route => route.path.test(p))[0],
-            paths = {};
+        window.history.pushState(null, null, path || '/');
 
-        if (routeObj && routeObj.vars) {
-            let values = path.match(routeObj.path);
+        this.handleRoute();
+
+    }
+
+    getUrlPathParams (vars, path) {
+        var pathParams = {};
+
+        if (vars) {
+            let values = window.location.pathname.match(path);
 
             values.shift();
 
-            routeObj.vars.forEach((item, i) => {
-                paths[item] = values[i];
+            vars.forEach((item, i) => {
+                pathParams[item] = values[i];
             });
         }
 
-        routeObj = routeObj || this.routes.filter(item => item.route === '/')[0];
-
-        window.history.pushState(null, null, path || '/');
-
-        this.handleRoute(routeObj.view, paths);
-
+        return pathParams;
     }
 
     getUrlParams () {

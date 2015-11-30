@@ -8,8 +8,58 @@
 .dish-details {
   background: url(../img/dish-details-bg.png);
 
+  &-nav {
+    padding: 2rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    color: white;
+    text-align: right;
+    background: #512721;
+
+    li {
+      display: inline-block;
+      margin-right: 2rem;
+      margin-top: 2rem;
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+    }
+
+    .logout {
+      margin-right: 0;
+      padding: 1rem 2rem;
+      background: #d9534f;
+      border-radius: 0.5rem;
+      transition: all 0.4s;
+
+      &:hover {
+        background: #c9302c;
+      }
+    }
+
+    .logo {
+      float: left;
+      margin-top: 0;
+      font-family: ArchivoBlack;
+      font-size: 3rem;
+      font-style: normal;
+      text-transform: none;
+
+      img {
+        margin-right: 1.5rem;
+        width: 8rem;
+      }
+
+      * {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+
   &-page {
     margin: 0 auto;
+    padding-bottom: 2rem;
     max-width: 120rem;
     min-height: 100%;
   }
@@ -109,6 +159,8 @@
   }
 
   &-steps {
+    margin-bottom: 2rem;
+
     h2 {
       padding: 2rem;
       margin-bottom: 1rem;
@@ -129,7 +181,12 @@
     }
 
     .content {
+      margin-bottom: 1rem;
       overflow: hidden;
+    }
+
+    .time {
+      text-align: right;
     }
 
     .img {
@@ -137,5 +194,17 @@
       width: 40%;
       margin-right: 2rem;
     }
+  }
+
+  &-cooking-href {
+    display: block;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 30rem;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    background: #7FFFD4;
   }
 }

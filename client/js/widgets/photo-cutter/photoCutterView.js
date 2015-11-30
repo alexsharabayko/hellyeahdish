@@ -25,9 +25,9 @@ class PhotoCutterComponent extends React.Component {
     }
 
     setAddImage () {
-        var mainImage = this.refs.mainImage.getDOMNode();
+        var mainImage = this.refs.mainImage;
 
-        this.refs.addImage.getDOMNode().width = mainImage.width;
+        this.refs.addImage.width = mainImage.width;
 
         var state = this.state;
 
