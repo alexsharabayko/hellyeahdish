@@ -107,7 +107,7 @@ class PhotoCutterComponent extends React.Component {
         this.setState(state);
     }
 
-    changeSize () {
+    changeSize (event) {
         let cx = event.clientX,
             cy = event.clientY,
             state = this.state,
@@ -122,6 +122,8 @@ class PhotoCutterComponent extends React.Component {
 
         state.areaStyle.width = size;
         state.areaStyle.height = size;
+
+        console.log(size);
 
         state.mouseCurrentPosition = {x: cx, y: cy};
 

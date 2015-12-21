@@ -1633,7 +1633,111 @@ body {
     font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
-    background: #7FFFD4; }
+    background: #9d2300;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: all 0.4s; }
+    .dish-details-cooking-href:hover {
+      background: #512721; }
+
+.cooking {
+  height: 100%; }
+  .cooking-logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+    color: white;
+    font-family: ArchivoBlack;
+    font-size: 4rem;
+    font-style: normal;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    text-transform: none; }
+    .cooking-logo img {
+      margin-right: 1.5rem;
+      width: 8rem; }
+    .cooking-logo * {
+      display: inline-block;
+      vertical-align: middle; }
+  .cooking-buttons-aside {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 10;
+    color: white;
+    font-size: 4rem;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
+    .cooking-buttons-aside li {
+      display: inline-block;
+      margin-left: 2rem;
+      cursor: pointer; }
+  .cooking-ingredients {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    overflow: hidden;
+    transition: all 0.4s; }
+    .cooking-ingredients.active {
+      width: 30rem; }
+  .cooking-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    overflow: hidden;
+    transition: all 0.4s; }
+    .cooking-nav.active {
+      width: 30rem; }
+  .cooking-steps {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.4s; }
+    .cooking-steps.aside-opened {
+      right: 30rem; }
+    .cooking-steps li {
+      position: absolute;
+      display: none;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      color: white;
+      background: tomato;
+      text-align: center; }
+      .cooking-steps li.active {
+        display: table; }
+    .cooking-steps h2 {
+      margin-bottom: 3rem;
+      font-size: 4rem; }
+    .cooking-steps img {
+      float: left;
+      margin-right: 1rem;
+      max-width: 50%; }
+    .cooking-steps .description {
+      display: inline-block;
+      padding: 3rem;
+      width: 80%;
+      vertical-align: middle;
+      box-sizing: border-box;
+      font-size: 3rem;
+      line-height: 1.2;
+      text-align: justify;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.2);
+      border: 3px solid white; }
+  .cooking-timer {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 1;
+    color: #FFF;
+    font-size: 2rem; }
 
 html {
   font-size: 10px; }

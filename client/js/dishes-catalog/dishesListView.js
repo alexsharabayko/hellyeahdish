@@ -50,7 +50,7 @@ class DishesListItemView extends React.Component {
                 className += 'fa-star-half-o';
             }
 
-            stars.push(<i className={className}></i>)
+            stars.push(<i className={className} key={i}></i>)
         }
 
         return stars;
@@ -62,8 +62,9 @@ class DishesListItemView extends React.Component {
 
     render () {
         var dish = this.props.dish,
+            detailsHref = `${urlUtil.routes.dishDetails}/${dish._id}`,
             style = {
-                'animation-delay': `${this.props.i * 0.2}s`
+                animationDelay: `${this.props.i * 0.2}s`
             };
 
         return (
@@ -89,7 +90,7 @@ class DishesListItemView extends React.Component {
                         </a>
                     </div>
 
-                    <a className="goto" href="#">View</a>
+                    <a className="goto" href={detailsHref}>View</a>
                 </div>
             </li>
         )

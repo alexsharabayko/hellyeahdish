@@ -205,6 +205,13 @@
     font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
-    background: #7FFFD4;
+    background: #9d2300;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: all 0.4s;
+
+    &:hover {
+      background: #512721;
+    }
   }
 }

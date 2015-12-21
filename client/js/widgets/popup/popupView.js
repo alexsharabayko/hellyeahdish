@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import cloneWithProps from 'react-addons-clone-with-props';
 
 let popupContainer = document.querySelector('.popup-container'),
     component = null;
@@ -98,7 +97,7 @@ class PopupElement extends React.Component {
     }
 
     closePopup (event) {
-        React.unmountComponentAtNode(document.querySelector('.popup-container'));
+        ReactDom.unmountComponentAtNode(document.querySelector('.popup-container'));
 
         typeof this.props.onClose === 'function' && this.props.onClose();
 
